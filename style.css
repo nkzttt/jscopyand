@@ -46,6 +46,9 @@ body {
 .footer__contact__item {
     margin-right: var(--spacing-unit);
 }
+.footer__contact__item__link {
+    color: var(--color-white);
+}
 .copyright {
     color: var(--color-gray);
     font-size: var(--size-minimum);
