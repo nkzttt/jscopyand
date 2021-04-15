@@ -58,3 +58,25 @@ body {
     font-size: var(--size-large);
     transform: translateY(3px);
 }
+
+.main {
+    padding: calc(var(--spacing-unit) * 5);
+}
+
+.indexes {
+    list-style: none;
+}
+.indexes__item {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+.indexes__item:last-child {
+    margin-bottom: 0;
+}
+.indexes__item__link {
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    background: var(--color-visual-thick);
+    color: var(--color-black)
+}
+.indexes__item__link:hover {
+    text-decoration: none;
+}
