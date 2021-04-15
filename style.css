@@ -1,0 +1,12 @@
+:root {
+    --color-white: #fafafa;
+    --color-black: #4d4d4d;
+    --color-gray: #969696;
+    --color-visual-thick: #dedebf;
+    --color-visual-thin: #f2f2e9;
+}
+
+body {
+    background: var(--color-visual-thin);
+    color: var(--color-black);
+}

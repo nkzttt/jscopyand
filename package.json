@@ -1,0 +1,19 @@
+{
+  "name": "jscopyand",
+  "version": "1.0.0",
+  "description": "JavaScriptコピペ館",
+  "scripts": {
+    "start": "php -S localhost:8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkzttt/jscopyand.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkzttt/jscopyand/issues"
+  },
+  "homepage": "https://github.com/nkzttt/jscopyand#readme"
+}
