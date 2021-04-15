@@ -4,9 +4,54 @@
     --color-gray: #969696;
     --color-visual-thick: #dedebf;
     --color-visual-thin: #f2f2e9;
+    --size-large: 18px;
+    --size-medium: 16px;
+    --size-small: 14px;
+    --size-minimum: 12px;
+    --spacing-unit: 8px;
 }
 
 body {
-    background: var(--color-visual-thin);
+    background: var(--color-black);
     color: var(--color-black);
+    font-size: var(--size-medium);
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    line-height: 1;
+}
+
+.container {
+    background: var(--color-visual-thin);
+}
+
+.header {
+    padding: calc(var(--spacing-unit) * 2);
+    background: var(--color-visual-thick);
+}
+.header__title {
+    font-size: var(--size-large);
+    font-weight: normal;
+}
+
+.footer {
+    padding: calc(var(--spacing-unit) * 2);
+    background: var(--color-black);
+    color: var(--color-white);
+}
+.footer__contact {
+    list-style: none;
+    display: flex;
+    margin-bottom: var(--spacing-unit);
+    font-size: var(--size-large);
+}
+.footer__contact__item {
+    margin-right: var(--spacing-unit);
+}
+.copyright {
+    color: var(--color-gray);
+    font-size: var(--size-minimum);
+}
+.copyright__mark {
+    display: inline-block;
+    font-size: var(--size-large);
+    transform: translateY(3px);
 }
