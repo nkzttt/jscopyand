@@ -100,6 +100,11 @@ body {
     font-size: var(--size-large);
 }
 
+.demo {
+    padding: calc(var(--spacing-unit) * 3);
+    border: dashed 3px var(--color-visual-thick);
+}
+
 /* 仮スタイル - TODO: lib 検討 */
 .codes {
     padding: calc(var(--spacing-unit) * 3);

@@ -18,7 +18,25 @@
     <h1 class="main__title">開閉項目（アコーディオン）</h1>
     <section class="itemSection">
       <h2 class="itemSection__title">デモ</h2>
-      <div class="demo">デモ</div>
+      <div class="demo">
+        <p data-js-trigger="accordion">押してください</p>
+        <p>
+          ありがとうございます！<br>
+          あなたは１番目のアイテムを開きました！<br>
+        </p>
+        <p data-js-trigger="accordion">押してください</p>
+        <p>
+          ありがとうございます！<br>
+          あなたは２番目のアイテムを開きました！<br>
+        </p>
+        <p data-js-trigger="accordion">押してください</p>
+        <p>
+          ありがとうございます！<br>
+          あなたは３番目のアイテムを開きました！<br>
+        </p>
+      </div>
+      <p>html 見せないとだめな気がする</p>
+      <p>仕様の説明も必要</p>
     </section>
     <section class="itemSection">
       <h2 class="itemSection__title">コードコピー</h2>
@@ -52,5 +70,16 @@
 </div>
 <!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
 <script src="https://kit.fontawesome.com/f7818d968c.js" crossorigin="anonymous"></script>
+<script>
+  (function () {
+    var triggers = document.querySelectorAll('[data-js-trigger="accordion"]');
+    triggers.forEach(function (trigger) {
+      trigger.nextElementSibling.style.display = 'none';
+      trigger.addEventListener('click', function () {
+        this.nextElementSibling.style.display = this.nextElementSibling.style.display ? '' : 'none';
+      });
+    });
+  })();
+</script>
 </body>
 </html>
