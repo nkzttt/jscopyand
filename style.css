@@ -62,6 +62,14 @@ body {
 .main {
     padding: calc(var(--spacing-unit) * 5);
 }
+.main__title {
+    display: table;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 5);
+    background: var(--color-visual-thick);
+    font-size: var(--size-large);
+    font-weight: normal;
+}
 
 .indexes {
     list-style: none;
@@ -79,4 +87,22 @@ body {
 }
 .indexes__item__link:hover {
     text-decoration: none;
+}
+
+.itemSection {
+    margin-bottom: calc(var(--spacing-unit) * 5);
+}
+.itemSection:last-child {
+    margin-bottom: 0;
+}
+.itemSection__title {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    font-size: var(--size-large);
+}
+
+/* 仮スタイル - TODO: lib 検討 */
+.codes {
+    padding: calc(var(--spacing-unit) * 3);
+    background: var(--color-black);
+    color: var(--color-white);
 }
