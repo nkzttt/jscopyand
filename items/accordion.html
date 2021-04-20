@@ -18,38 +18,67 @@
     <h1 class="main__title">開閉項目（アコーディオン）</h1>
     <section class="itemSection">
       <h2 class="itemSection__title">デモ</h2>
-      <div class="demo">
-        <p data-js-trigger="accordion">押してください</p>
+      <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+        <p data-jscopyand="accordion">押してください</p>
         <p>
           ありがとうございます！<br>
           あなたは１番目のアイテムを開きました！<br>
         </p>
-        <p data-js-trigger="accordion">押してください</p>
+        <p data-jscopyand="accordion">押してください</p>
         <p>
           ありがとうございます！<br>
           あなたは２番目のアイテムを開きました！<br>
         </p>
-        <p data-js-trigger="accordion">押してください</p>
+        <p data-jscopyand="accordion">押してください</p>
         <p>
           ありがとうございます！<br>
           あなたは３番目のアイテムを開きました！<br>
         </p>
       </div>
-      <p>html 見せないとだめな気がする</p>
-      <p>仕様の説明も必要</p>
     </section>
     <section class="itemSection">
-      <h2 class="itemSection__title">コードコピー</h2>
-      <div class="codes">ホバーで「コピーする」を表示</div>
-      <p>配置場所とかの基本を解説しないと。別画面か、アコーディオン</p>
+      <h2 class="itemSection__title">JSコードコピー</h2>
+      <div class="jscopyand">
+        <pre class="jscopyand__codes codes"><code data-js-selector="jscopyand"></code></pre>
+        <p class="jscopyand__help">
+          <a href="../helps/js.html" class="jscopyand__help__link">どこに置けばいい？貼り付けるだけでいい？ JavaScript の基本を確認する</a>
+        </p>
+      </div>
     </section>
     <section class="itemSection">
-      <h2 class="itemSection__title">コードの解説を見る</h2>
-      <div>アコーディオン的なもので表示</div>
+      <h2 class="itemSection__title">使い方</h2>
+      <div class="howToUse">
+        <p class="howToUse__description">
+          HTMLでは隣接する２つの要素が必要になります。<br>
+          １つ目がトリガー要素です。<br>
+          ２つ目が開閉対象です。<br>
+          １つ目のトリガー要素に<code class="inlineCode">data-jscopyand="accordion"</code>を付与してください。<br>
+        </p>
+        <div class="howToUse__html">
+          <p class="howToUse__html__trigger" data-js-selector="accordion" data-js-attributes="remove">サンプルHTMLを表示する</p>
+          <pre class="howToUse__html__body codes"><code data-js-selector="demoHtml"></code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="itemSection">
+      <h2 class="itemSection__title">解説</h2>
+      <div class="jsDescription">
+        <p class="jsDescription__trigger" data-js-selector="accordion" data-js-attributes="remove">JSコードの解説を見てみる</p>
+        <p class="jsDescription__body">
+          このアコーディオンの機能は１画面で複数の設置を想定しています。<br>
+          まずは<code class="inlineCode">document.querySelectorAll</code>でトリガーとなる全ての要素を取得し、変数<code class="inlineCode">triggers</code>に格納します。<br>
+          続いて、<code class="inlineCode">triggers</code>に対して反復処理<code class="inlineCode">forEach</code>を行い、トリガー要素の次の要素を非表示にします。<br>
+          最後にトリガー要素が押された時の処理を<code class="inlineCode">addEventListener('click', function () {});</code>で登録します。<br>
+          処理内容は style に<code class="inlineCode">display: none;</code>が指定されていれば消す、指定されてなければ付与する、というものです。<br>
+        </p>
+      </div>
     </section>
     <section class="itemSection">
       <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
-      <div>無料・有償の説明とか</div>
+      <p class="help">
+        機能に関するご質問は、このページの下部に表示されている Twitter のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br>
+        導入サポートやカスタマイズも有償にてお受け致しますので、 DM 等でご連絡ください。<br>
+      </p>
     </section>
   </main>
   <footer class="footer">
@@ -70,9 +99,9 @@
 </div>
 <!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
 <script src="https://kit.fontawesome.com/f7818d968c.js" crossorigin="anonymous"></script>
-<script>
+<script data-js-selector="source" data-js-attributes="jscopyand">
   (function () {
-    var triggers = document.querySelectorAll('[data-js-trigger="accordion"]');
+    var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
     triggers.forEach(function (trigger) {
       trigger.nextElementSibling.style.display = 'none';
       trigger.addEventListener('click', function () {
@@ -81,5 +110,6 @@
     });
   })();
 </script>
+<script src="../script.js"></script>
 </body>
 </html>

@@ -34,6 +34,7 @@ body {
 
 .footer {
     padding: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 10);
     background: var(--color-black);
     color: var(--color-white);
 }
@@ -105,9 +106,61 @@ body {
     border: dashed 3px var(--color-visual-thick);
 }
 
+.jscopyand {}
+.jscopyand__codes {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+.jscopyand__help {}
+.jscopyand__help__link {
+    color: var(--color-gray);
+}
+
+.howToUse {}
+.howToUse__description {
+    margin-top: -0.35em;
+    margin-bottom: calc(var(--spacing-unit) * 3 - 0.35em);
+    line-height: 1.7;
+}
+.howToUse__html {}
+.howToUse__html__trigger {
+    display: table;
+    padding: var(--spacing-unit);
+    border: solid 1px var(--color-gray);
+    color: var(--color-gray);
+    font-size: var(--size-small);
+    cursor: pointer;
+}
+.howToUse__html__body {}
+
+.jsDescription {}
+.jsDescription__trigger {
+    display: table;
+    padding: var(--spacing-unit);
+    border: solid 1px var(--color-gray);
+    color: var(--color-gray);
+    font-size: var(--size-small);
+    cursor: pointer;
+}
+.jsDescription__body {
+    margin: -0.35em 0;
+    line-height: 1.7;
+}
+
+.help {
+    margin: -0.35em 0;
+    line-height: 1.7;
+}
+
+.inlineCode {
+    padding: 0 0.25em;
+    font-style: italic;
+}
+
 /* 仮スタイル - TODO: lib 検討 */
 .codes {
     padding: calc(var(--spacing-unit) * 3);
     background: var(--color-black);
     color: var(--color-white);
+    font-size: var(--size-small);
+    line-height: 1.3;
 }
