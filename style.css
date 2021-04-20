@@ -183,7 +183,7 @@ body {
     cursor: pointer;
 }
 .jsBasics__item__body {
-    margin-top: calc(var(--spacing-unit) - 0.35em);
+    margin-top: calc(var(--spacing-unit) * 2 - 0.35em);
     margin-bottom: -0.35em;
     line-height: 1.7;
 }
