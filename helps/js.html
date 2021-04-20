@@ -16,7 +16,16 @@
   </div>
   <main class="main">
     <h1 class="main__title">JavaScriptの基本</h1>
-    <p>準備中</p>
+    <ul class="jsBasics">
+      <li class="jsBasics__item">
+        <p data-js-selector="accordion" class="jsBasics__item__trigger">どこに書けばいい？</p>
+        <p class="jsBasics__item__body">テキストテキストテキスト</p>
+      </li>
+      <li class="jsBasics__item">
+        <p data-js-selector="accordion" class="jsBasics__item__trigger">貼り付けるだけでいい？</p>
+        <p class="jsBasics__item__body">テキストテキストテキスト</p>
+      </li>
+    </ul>
   </main>
   <footer class="footer">
     <ul class="footer__contact">
@@ -36,17 +45,6 @@
 </div>
 <!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
 <script src="https://kit.fontawesome.com/f7818d968c.js" crossorigin="anonymous"></script>
-<script data-js-selector="source" data-js-attributes="jscopyand">
-  (function () {
-    var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
-    triggers.forEach(function (trigger) {
-      trigger.nextElementSibling.style.display = 'none';
-      trigger.addEventListener('click', function () {
-        this.nextElementSibling.style.display = this.nextElementSibling.style.display ? '' : 'none';
-      });
-    });
-  })();
-</script>
 <script src="../script.js"></script>
 </body>
 </html>
