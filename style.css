@@ -187,3 +187,14 @@ body {
     margin-bottom: -0.35em;
     line-height: 1.7;
 }
+
+.backLink {
+    display: table;
+    margin-bottom: calc(var(--spacing-unit) * 5);
+    cursor: pointer;
+    color: var(--color-gray);
+    text-decoration: underline;
+}
+.backLink__icon {
+    margin-right: var(--spacing-unit);
+}

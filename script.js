@@ -37,3 +37,20 @@
     });
   });
 })();
+
+/**
+ * back link
+ */
+(function () {
+  var trigger = document.querySelector('[data-js-selector="back"]');
+  if (!trigger) return;
+
+  if (history.length < 2) {
+    trigger.remove();
+    return;
+  }
+
+  trigger.addEventListener('click', function () {
+    history.back();
+  });
+})();
