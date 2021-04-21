@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>開閉項目（アコーディオン） | JavaScriptコピペ館</title>
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="../lib/prism.css">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -35,12 +36,23 @@
           あなたは３番目のアイテムを開きました！<br>
         </p>
       </div>
+      <script data-js-selector="source" data-js-attributes="jscopyand">
+        (function () {
+          var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
+          triggers.forEach(function (trigger) {
+            trigger.nextElementSibling.style.display = 'none';
+            trigger.addEventListener('click', function () {
+              this.nextElementSibling.style.display = this.nextElementSibling.style.display ? '' : 'none';
+            });
+          });
+        })();
+      </script>
     </section>
     <section class="itemSection">
       <h2 class="itemSection__title">JSコードコピー</h2>
       <div class="jscopyand">
         <div class="jscopyand__codeBlock">
-          <pre class="jscopyand__codeBlock__codes codes"><code data-js-selector="jscopyand"></code></pre>
+          <pre class="jscopyand__codeBlock__codes"><code class="language-js" data-js-selector="jscopyand"></code></pre>
           <p class="jscopyand__codeBlock__copy" data-js-selector="copy" data-js-attributes="jscopyand"><span class="far fa-clipboard jscopyand__codeBlock__copy__icon"></span>コピーする</p>
         </div>
         <p class="jscopyand__help">
@@ -59,7 +71,7 @@
         </p>
         <div class="howToUse__html">
           <p class="howToUse__html__trigger" data-js-selector="accordion" data-js-attributes="remove">サンプルHTMLを表示する</p>
-          <pre class="howToUse__html__body codes"><code data-js-selector="demoHtml"></code></pre>
+          <pre class="howToUse__html__body"><code class="language-html" data-js-selector="demoHtml"></code></pre>
         </div>
       </div>
     </section>
@@ -102,16 +114,14 @@
 </div>
 <!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
 <script src="https://kit.fontawesome.com/f7818d968c.js" crossorigin="anonymous"></script>
-<script data-js-selector="source" data-js-attributes="jscopyand">
-  (function () {
-    var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
-    triggers.forEach(function (trigger) {
-      trigger.nextElementSibling.style.display = 'none';
-      trigger.addEventListener('click', function () {
-        this.nextElementSibling.style.display = this.nextElementSibling.style.display ? '' : 'none';
-      });
-    });
-  })();
+<!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
+<script src="../lib/prism.js"></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env)
+  {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
 </script>
 <script src="../script.js"></script>
 </body>

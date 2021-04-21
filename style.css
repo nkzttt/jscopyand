@@ -111,24 +111,21 @@ body {
 .jscopyand__codeBlock {
     position: relative;
     margin-bottom: calc(var(--spacing-unit) * 3);
-    cursor: pointer;
-}
-.jscopyand__codeBlock:hover > .jscopyand__codeBlock__codes {
-    opacity: 0.2;
 }
 .jscopyand__codeBlock__copy {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
     display: none;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--size-x-large);
+    padding: calc(var(--spacing-unit) * 2);
+    background: rgba(255,255,255,.8);
+    font-size: var(--size-large);
+    text-align: center;
+    cursor: pointer;
 }
 .jscopyand__codeBlock:hover > .jscopyand__codeBlock__copy {
-    display: flex;
+    display: block;
 }
 .jscopyand__codeBlock__copy__icon {
     margin-right: var(--spacing-unit);
@@ -177,15 +174,6 @@ body {
 .inlineCode {
     padding: 0 0.25em;
     font-style: italic;
-}
-
-/* 仮スタイル - TODO: lib 検討 */
-.codes {
-    padding: calc(var(--spacing-unit) * 3);
-    background: var(--color-black);
-    color: var(--color-white);
-    font-size: var(--size-small);
-    line-height: 1.3;
 }
 
 .jsBasics {
