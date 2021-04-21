@@ -23,6 +23,21 @@
 })();
 
 /**
+ * copy to clipboard
+ */
+(function () {
+  var triggers = document.querySelectorAll('[data-js-selector="copy"]');
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var codes = document.querySelector('[data-js-selector="' + this.dataset.jsAttributes + '"]').innerText;
+      navigator.clipboard.writeText(codes).then(function () {
+        alert('コピーしました。');
+      });
+    });
+  });
+})();
+
+/**
  * accordion
  */
 (function () {

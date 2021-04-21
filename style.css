@@ -4,6 +4,7 @@
     --color-gray: #969696;
     --color-visual-thick: #dedebf;
     --color-visual-thin: #f2f2e9;
+    --size-x-large: 24px;
     --size-large: 18px;
     --size-medium: 16px;
     --size-small: 14px;
@@ -107,8 +108,30 @@ body {
 }
 
 .jscopyand {}
-.jscopyand__codes {
+.jscopyand__codeBlock {
+    position: relative;
     margin-bottom: calc(var(--spacing-unit) * 3);
+    cursor: pointer;
+}
+.jscopyand__codeBlock:hover > .jscopyand__codeBlock__codes {
+    opacity: 0.2;
+}
+.jscopyand__codeBlock__copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--size-x-large);
+}
+.jscopyand__codeBlock:hover > .jscopyand__codeBlock__copy {
+    display: flex;
+}
+.jscopyand__codeBlock__copy__icon {
+    margin-right: var(--spacing-unit);
 }
 .jscopyand__help {}
 .jscopyand__help__link {
