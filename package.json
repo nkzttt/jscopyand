@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "JavaScriptコピペ館",
   "scripts": {
-    "start": "php -S localhost:8000"
+    "start": "browser-sync -c ./_configs/bs-config.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nkzttt/jscopyand/issues"
   },
-  "homepage": "https://github.com/nkzttt/jscopyand#readme"
+  "homepage": "https://github.com/nkzttt/jscopyand#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.14"
+  }
 }
