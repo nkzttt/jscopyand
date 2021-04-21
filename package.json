@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "JavaScriptコピペ館",
   "scripts": {
-    "start": "browser-sync -c ./_configs/bs-config.js"
+    "start": "browser-sync -c ./_configs/bs-config.js",
+    "ejs": "node ./_tools/build/ejs.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/nkzttt/jscopyand#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.14"
+    "browser-sync": "^2.26.14",
+    "chokidar": "^3.5.1",
+    "ejs": "^3.1.6",
+    "fs-extra": "^9.1.0"
   }
 }
