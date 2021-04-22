@@ -4,7 +4,8 @@
   "description": "JavaScriptコピペ館",
   "scripts": {
     "start": "browser-sync -c ./_configs/bs-config.js",
-    "ejs": "node ./_tools/build/ejs.js"
+    "ejs": "node ./_tools/build/ejs.js",
+    "sass": "node ./_tools/build/sass.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "browser-sync": "^2.26.14",
     "chokidar": "^3.5.1",
     "ejs": "^3.1.6",
-    "fs-extra": "^9.1.0"
+    "fs-extra": "^9.1.0",
+    "sass": "^1.32.11"
   }
 }
