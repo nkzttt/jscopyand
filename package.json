@@ -4,8 +4,7 @@
   "description": "JavaScriptコピペ館",
   "scripts": {
     "start": "browser-sync -c ./_configs/bs-config.js",
-    "ejs": "node ./_tools/build/ejs.js",
-    "sass": "node ./_tools/build/sass.js"
+    "watch": "node ./_tools/build/buildWatch.js"
   },
   "repository": {
     "type": "git",
