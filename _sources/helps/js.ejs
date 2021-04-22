@@ -1,33 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-<head>
-  <%- include('../_ejsModules/head', { localTitle: 'JavaScriptの基本' }) %>
-</head>
-<body>
-<div class="container">
-  <%- include('../_ejsModules/header', { isIndex: false }) %>
-  <main class="main">
-    <p class="backLink" data-js-selector="back"><span class="backLink__icon fas fa-arrow-left"></span>戻る</p>
-    <h1 class="main__title">JavaScriptの基本</h1>
-    <ul class="jsBasics">
-      <li class="jsBasics__item">
-        <p data-js-selector="accordion" class="jsBasics__item__trigger">どこに書けばいい？</p>
-        <p class="jsBasics__item__body">
-          <code class="inlineCode">&lt;/body&gt;</code>の直上に書いてください。<br>
-          当サイトで紹介している JavaScript コードは、 HTML コードが先に読み込まれている必要があります。<br>
+  <head>
+    <%- include('../_ejsModules/head', { localTitle: 'JavaScriptの基本' }) %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../_ejsModules/header', { isIndex: false }) %>
+      <main class="main">
+        <p class="backLink" data-js-selector="back">
+          <span class="backLink__icon fas fa-arrow-left"></span>戻る
         </p>
-      </li>
-      <li class="jsBasics__item">
-        <p data-js-selector="accordion" class="jsBasics__item__trigger">貼り付けるだけでいい？</p>
-        <p class="jsBasics__item__body">
-          既に<code class="inlineCode">.js</code>ファイルがある、または新たに作成する場合は貼り付けるだけで良いです。<br>
-          <code class="inlineCode">.js</code>を作りたくない、よくわからない場合は<code class="inlineCode">&lt;script&gt;&lt;/script&gt;</code>というタグを作成し、その中に貼り付けてください。
-        </p>
-      </li>
-    </ul>
-  </main>
-  <%- include('../_ejsModules/footer') %>
-</div>
-<%- include('../_ejsModules/foot') %>
-</body>
+        <h1 class="main__title">JavaScriptの基本</h1>
+        <ul class="jsBasics">
+          <li class="jsBasics__item">
+            <p data-js-selector="accordion" class="jsBasics__item__trigger">
+              どこに書けばいい？
+            </p>
+            <p class="jsBasics__item__body">
+              <code class="inlineCode">&lt;/body&gt;</code
+              >の直上に書いてください。<br />
+              当サイトで紹介している JavaScript コードは、 HTML
+              コードが先に読み込まれている必要があります。<br />
+            </p>
+          </li>
+          <li class="jsBasics__item">
+            <p data-js-selector="accordion" class="jsBasics__item__trigger">
+              貼り付けるだけでいい？
+            </p>
+            <p class="jsBasics__item__body">
+              既に<code class="inlineCode">.js</code
+              >ファイルがある、または新たに作成する場合は貼り付けるだけで良いです。<br />
+              <code class="inlineCode">.js</code
+              >を作りたくない、よくわからない場合は<code class="inlineCode"
+                >&lt;script&gt;&lt;/script&gt;</code
+              >というタグを作成し、その中に貼り付けてください。
+            </p>
+          </li>
+        </ul>
+      </main>
+      <%- include('../_ejsModules/footer') %>
+    </div>
+    <%- include('../_ejsModules/foot') %>
+  </body>
 </html>

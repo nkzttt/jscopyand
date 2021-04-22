@@ -5,7 +5,8 @@ body {
   background: variables.$color-black;
   color: variables.$color-black;
   font-size: variables.$size-medium;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ',
+    'Meiryo', sans-serif;
   line-height: 1;
 }
 
@@ -107,7 +108,7 @@ body {
       right: 0;
       display: none;
       padding: functions.multiplicationSpacingUnit(2);
-      background: rgba(255,255,255,.8);
+      background: rgba(255, 255, 255, 0.8);
       font-size: variables.$size-large;
       text-align: center;
       cursor: pointer;

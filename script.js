@@ -4,11 +4,9 @@
 (function () {
   var sources = document.querySelectorAll('[data-js-selector="source"]');
   sources.forEach(function (source) {
-    var codes = source.innerHTML
-      .split('\n')
-      .filter(function (code) {
-        return !/^\s*$/.test(code);;
-      });
+    var codes = source.innerHTML.split('\n').filter(function (code) {
+      return !/^\s*$/.test(code);
+    });
     var indentMatched = codes[0].match(/^\s+/);
     var indentLength = indentMatched ? indentMatched[0].length : 0;
     var replaceReg = new RegExp('^\\s{' + indentLength + '}');
@@ -17,7 +15,9 @@
         return code.replace(replaceReg, '');
       })
       .join('\n');
-    var insertTo = document.querySelector('[data-js-selector="' + source.dataset.jsAttributes + '"]');
+    var insertTo = document.querySelector(
+      '[data-js-selector="' + source.dataset.jsAttributes + '"]'
+    );
     insertTo.innerText = codes;
   });
 })();
@@ -29,7 +29,9 @@
   var triggers = document.querySelectorAll('[data-js-selector="copy"]');
   triggers.forEach(function (trigger) {
     trigger.addEventListener('click', function () {
-      var codes = document.querySelector('[data-js-selector="' + this.dataset.jsAttributes + '"]').innerText;
+      var codes = document.querySelector(
+        '[data-js-selector="' + this.dataset.jsAttributes + '"]'
+      ).innerText;
       navigator.clipboard.writeText(codes).then(function () {
         alert('コピーしました。');
       });
@@ -45,7 +47,10 @@
   triggers.forEach(function (trigger) {
     trigger.nextElementSibling.style.display = 'none';
     trigger.addEventListener('click', function () {
-      this.nextElementSibling.style.display = this.nextElementSibling.style.display ? '' : 'none';
+      this.nextElementSibling.style.display = this.nextElementSibling.style
+        .display
+        ? ''
+        : 'none';
       if (this.dataset.jsAttributes === 'remove') {
         this.style.display = 'none';
       }

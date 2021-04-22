@@ -4,7 +4,8 @@
   "description": "JavaScriptコピペ館",
   "scripts": {
     "start": "browser-sync -c ./_configs/bs-config.js",
-    "watch": "node ./_tools/build/buildWatch.js"
+    "watch": "node ./_tools/build/buildWatch.js",
+    "prettier": "prettier --write --config _configs/prettier.config.js _sources _sources/**/*.ejs _tools script.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "chokidar": "^3.5.1",
     "ejs": "^3.1.6",
     "fs-extra": "^9.1.0",
+    "prettier": "^2.2.1",
     "sass": "^1.32.11"
   }
 }
