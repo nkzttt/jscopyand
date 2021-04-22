@@ -16,10 +16,10 @@ body {
 .header {
   padding: functions.multiplicationSpacingUnit(2);
   background: variables.$color-visual-thick;
-}
-.header__title {
-  font-size: variables.$size-large;
-  font-weight: normal;
+  &__title {
+    font-size: variables.$size-large;
+    font-weight: normal;
+  }
 }
 
 .footer {
@@ -27,68 +27,68 @@ body {
   padding-bottom: functions.multiplicationSpacingUnit(10);
   background: variables.$color-black;
   color: variables.$color-white;
-}
-.footer__contact {
-  list-style: none;
-  display: flex;
-  margin-bottom: variables.$spacing-unit;
-  font-size: variables.$size-large;
-}
-.footer__contact__item {
-  margin-right: variables.$spacing-unit;
-}
-.footer__contact__item__link {
-  color: variables.$color-white;
+  &__contact {
+    list-style: none;
+    display: flex;
+    margin-bottom: variables.$spacing-unit;
+    font-size: variables.$size-large;
+    &__item {
+      margin-right: variables.$spacing-unit;
+      &__link {
+        color: variables.$color-white;
+      }
+    }
+  }
 }
 .copyright {
   color: variables.$color-gray;
   font-size: variables.$size-minimum;
-}
-.copyright__mark {
-  display: inline-block;
-  font-size: variables.$size-large;
-  transform: translateY(3px);
+  &__mark {
+    display: inline-block;
+    font-size: variables.$size-large;
+    transform: translateY(3px);
+  }
 }
 
 .main {
   padding: functions.multiplicationSpacingUnit(5);
-}
-.main__title {
-  display: table;
-  padding: variables.$spacing-unit functions.multiplicationSpacingUnit(2);
-  margin-bottom: functions.multiplicationSpacingUnit(5);
-  background: variables.$color-visual-thick;
-  font-size: variables.$size-large;
-  font-weight: normal;
+  &__title {
+    display: table;
+    padding: variables.$spacing-unit functions.multiplicationSpacingUnit(2);
+    margin-bottom: functions.multiplicationSpacingUnit(5);
+    background: variables.$color-visual-thick;
+    font-size: variables.$size-large;
+    font-weight: normal;
+  }
 }
 
 .indexes {
   list-style: none;
-}
-.indexes__item {
-  margin-bottom: functions.multiplicationSpacingUnit(3);
-}
-.indexes__item:last-child {
-  margin-bottom: 0;
-}
-.indexes__item__link {
-  padding: variables.$spacing-unit functions.multiplicationSpacingUnit(2);
-  background: variables.$color-visual-thick;
-  color: variables.$color-black;
-}
-.indexes__item__link:hover {
-  text-decoration: none;
+  &__item {
+    margin-bottom: functions.multiplicationSpacingUnit(3);
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &__link {
+      padding: variables.$spacing-unit functions.multiplicationSpacingUnit(2);
+      background: variables.$color-visual-thick;
+      color: variables.$color-black;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .itemSection {
   margin-bottom: functions.multiplicationSpacingUnit(5);
-}
-.itemSection:last-child {
-  margin-bottom: 0;
-}
-.itemSection__title {
-  margin-bottom: functions.multiplicationSpacingUnit(2);
-  font-size: variables.$size-large;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &__title {
+    margin-bottom: functions.multiplicationSpacingUnit(2);
+    font-size: variables.$size-large;
+  }
 }
 
 .demo {
@@ -96,63 +96,67 @@ body {
   border: dashed 3px variables.$color-visual-thick;
 }
 
-.jscopyand {}
-.jscopyand__codeBlock {
-  position: relative;
-  margin-bottom: functions.multiplicationSpacingUnit(3);
-}
-.jscopyand__codeBlock__copy {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: none;
-  padding: functions.multiplicationSpacingUnit(2);
-  background: rgba(255,255,255,.8);
-  font-size: variables.$size-large;
-  text-align: center;
-  cursor: pointer;
-}
-.jscopyand__codeBlock:hover > .jscopyand__codeBlock__copy {
-  display: block;
-}
-.jscopyand__codeBlock__copy__icon {
-  margin-right: variables.$spacing-unit;
-}
-.jscopyand__help {}
-.jscopyand__help__link {
-  color: variables.$color-gray;
+.jscopyand {
+  &__codeBlock {
+    position: relative;
+    margin-bottom: functions.multiplicationSpacingUnit(3);
+    &__copy {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      padding: functions.multiplicationSpacingUnit(2);
+      background: rgba(255,255,255,.8);
+      font-size: variables.$size-large;
+      text-align: center;
+      cursor: pointer;
+      &__icon {
+        margin-right: variables.$spacing-unit;
+      }
+    }
+    &:hover > &__copy {
+      display: block;
+    }
+  }
+  &__help {
+    &__link {
+      color: variables.$color-gray;
+    }
+  }
 }
 
-.howToUse {}
-.howToUse__description {
-  margin-top: -0.35em;
-  margin-bottom: calc(#{functions.multiplicationSpacingUnit(3)} - 0.35em);
-  line-height: 1.7;
+.howToUse {
+  &__description {
+    margin-top: -0.35em;
+    margin-bottom: calc(#{functions.multiplicationSpacingUnit(3)} - 0.35em);
+    line-height: 1.7;
+  }
+  &__html {
+    &__trigger {
+      display: table;
+      padding: variables.$spacing-unit;
+      border: solid 1px variables.$color-gray;
+      color: variables.$color-gray;
+      font-size: variables.$size-small;
+      cursor: pointer;
+    }
+  }
 }
-.howToUse__html {}
-.howToUse__html__trigger {
-  display: table;
-  padding: variables.$spacing-unit;
-  border: solid 1px variables.$color-gray;
-  color: variables.$color-gray;
-  font-size: variables.$size-small;
-  cursor: pointer;
-}
-.howToUse__html__body {}
 
-.jsDescription {}
-.jsDescription__trigger {
-  display: table;
-  padding: variables.$spacing-unit;
-  border: solid 1px variables.$color-gray;
-  color: variables.$color-gray;
-  font-size: variables.$size-small;
-  cursor: pointer;
-}
-.jsDescription__body {
-  margin: -0.35em 0;
-  line-height: 1.7;
+.jsDescription {
+  &__trigger {
+    display: table;
+    padding: variables.$spacing-unit;
+    border: solid 1px variables.$color-gray;
+    color: variables.$color-gray;
+    font-size: variables.$size-small;
+    cursor: pointer;
+  }
+  &__body {
+    margin: -0.35em 0;
+    line-height: 1.7;
+  }
 }
 
 .help {
@@ -167,25 +171,25 @@ body {
 
 .jsBasics {
   list-style: none;
-}
-.jsBasics__item {
-  margin-bottom: functions.multiplicationSpacingUnit(3);
-}
-.jsBasics__item:last-child {
-  margin-bottom: 0;
-}
-.jsBasics__item__trigger {
-  display: table;
-  padding: variables.$spacing-unit;
-  border: solid 1px variables.$color-gray;
-  color: variables.$color-gray;
-  font-size: variables.$size-small;
-  cursor: pointer;
-}
-.jsBasics__item__body {
-  margin-top: calc(#{functions.multiplicationSpacingUnit(2)} - 0.35em);
-  margin-bottom: -0.35em;
-  line-height: 1.7;
+  &__item {
+    margin-bottom: functions.multiplicationSpacingUnit(3);
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &__trigger {
+      display: table;
+      padding: variables.$spacing-unit;
+      border: solid 1px variables.$color-gray;
+      color: variables.$color-gray;
+      font-size: variables.$size-small;
+      cursor: pointer;
+    }
+    &__body {
+      margin-top: calc(#{functions.multiplicationSpacingUnit(2)} - 0.35em);
+      margin-bottom: -0.35em;
+      line-height: 1.7;
+    }
+  }
 }
 
 .backLink {
@@ -194,7 +198,7 @@ body {
   cursor: pointer;
   color: variables.$color-gray;
   text-decoration: underline;
-}
-.backLink__icon {
-  margin-right: variables.$spacing-unit;
+  &__icon {
+    margin-right: variables.$spacing-unit;
+  }
 }

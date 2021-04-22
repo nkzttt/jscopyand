@@ -15,7 +15,6 @@ body {
   padding: 16px;
   background: #dedebf;
 }
-
 .header__title {
   font-size: 18px;
   font-weight: normal;
@@ -27,18 +26,15 @@ body {
   background: #4d4d4d;
   color: #fafafa;
 }
-
 .footer__contact {
   list-style: none;
   display: flex;
   margin-bottom: 8px;
   font-size: 18px;
 }
-
 .footer__contact__item {
   margin-right: 8px;
 }
-
 .footer__contact__item__link {
   color: #fafafa;
 }
@@ -47,7 +43,6 @@ body {
   color: #969696;
   font-size: 12px;
 }
-
 .copyright__mark {
   display: inline-block;
   font-size: 18px;
@@ -57,7 +52,6 @@ body {
 .main {
   padding: 40px;
 }
-
 .main__title {
   display: table;
   padding: 8px 16px;
@@ -70,21 +64,17 @@ body {
 .indexes {
   list-style: none;
 }
-
 .indexes__item {
   margin-bottom: 24px;
 }
-
 .indexes__item:last-child {
   margin-bottom: 0;
 }
-
 .indexes__item__link {
   padding: 8px 16px;
   background: #dedebf;
   color: #4d4d4d;
 }
-
 .indexes__item__link:hover {
   text-decoration: none;
 }
@@ -92,11 +82,9 @@ body {
 .itemSection {
   margin-bottom: 40px;
 }
-
 .itemSection:last-child {
   margin-bottom: 0;
 }
-
 .itemSection__title {
   margin-bottom: 16px;
   font-size: 18px;
@@ -111,7 +99,6 @@ body {
   position: relative;
   margin-bottom: 24px;
 }
-
 .jscopyand__codeBlock__copy {
   position: absolute;
   bottom: 0;
@@ -124,15 +111,12 @@ body {
   text-align: center;
   cursor: pointer;
 }
-
-.jscopyand__codeBlock:hover > .jscopyand__codeBlock__copy {
-  display: block;
-}
-
 .jscopyand__codeBlock__copy__icon {
   margin-right: 8px;
 }
-
+.jscopyand__codeBlock:hover > .jscopyand__codeBlock__copy {
+  display: block;
+}
 .jscopyand__help__link {
   color: #969696;
 }
@@ -142,7 +126,6 @@ body {
   margin-bottom: calc(24px - 0.35em);
   line-height: 1.7;
 }
-
 .howToUse__html__trigger {
   display: table;
   padding: 8px;
@@ -160,7 +143,6 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
-
 .jsDescription__body {
   margin: -0.35em 0;
   line-height: 1.7;
@@ -179,15 +161,12 @@ body {
 .jsBasics {
   list-style: none;
 }
-
 .jsBasics__item {
   margin-bottom: 24px;
 }
-
 .jsBasics__item:last-child {
   margin-bottom: 0;
 }
-
 .jsBasics__item__trigger {
   display: table;
   padding: 8px;
@@ -196,7 +175,6 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
-
 .jsBasics__item__body {
   margin-top: calc(16px - 0.35em);
   margin-bottom: -0.35em;
@@ -210,7 +188,6 @@ body {
   color: #969696;
   text-decoration: underline;
 }
-
 .backLink__icon {
   margin-right: 8px;
 }
