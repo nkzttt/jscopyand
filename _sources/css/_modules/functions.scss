@@ -1,0 +1,5 @@
+@use "./variables";
+
+@function multiplicationSpacingUnit($num) {
+  @return variables.$spacing-unit * $num;
+}
