@@ -71,6 +71,7 @@ body {
       margin-bottom: 0;
     }
     &__link {
+      display: block;
       padding: variables.$spacing-unit functions.multiplicationSpacingUnit(2);
       background: variables.$color-visual-thick;
       color: variables.$color-black;

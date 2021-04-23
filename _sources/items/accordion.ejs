@@ -1,15 +1,15 @@
+<% const localTitle = '開閉項目（アコーディオン）'; %>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <%- include('../_ejsModules/head', { localTitle:
-    '開閉項目（アコーディオン）' }) %>
+    <%- include('../_ejsModules/head', { localTitle }) %>
     <link rel="stylesheet" href="/jscopyand/lib/prism.css" />
   </head>
   <body>
     <div class="container">
       <%- include('../_ejsModules/header', { isIndex: false }) %>
       <main class="main">
-        <h1 class="main__title">開閉項目（アコーディオン）</h1>
+        <h1 class="main__title"><%= localTitle %></h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           <div

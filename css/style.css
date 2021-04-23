@@ -71,6 +71,7 @@ body {
   margin-bottom: 0;
 }
 .indexes__item__link {
+  display: block;
   padding: 8px 16px;
   background: #dedebf;
   color: #4d4d4d;

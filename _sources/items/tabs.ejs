@@ -1,29 +1,15 @@
-
+<% const localTitle = 'タブ'; %>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-<meta
-  name="viewport"
-  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-/>
-<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>開閉項目（アコーディオン） | JavaScriptコピペ館</title>
-<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-<link rel="stylesheet" href="/jscopyand/css/style.css" />
-
+    <%- include('../_ejsModules/head', { localTitle }) %>
     <link rel="stylesheet" href="/jscopyand/lib/prism.css" />
   </head>
   <body>
     <div class="container">
-      <header class="header">
-  
-  <p class="header__title">JavaScriptコピペ館</p>
-  
-</header>
-
+      <%- include('../_ejsModules/header', { isIndex: false }) %>
       <main class="main">
-        <h1 class="main__title">開閉項目（アコーディオン）</h1>
+        <h1 class="main__title"><%= localTitle %></h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           <div
@@ -152,30 +138,7 @@
           </p>
         </section>
       </main>
-      <footer class="footer">
-  <ul class="footer__contact">
-    <li class="footer__contact__item">
-      <a
-        href="https://twitter.com/bgn_nakazato"
-        class="footer__contact__item__link"
-      >
-        <span class="fab fa-twitter"></span>
-      </a>
-    </li>
-    <li class="footer__contact__item">
-      <a
-        href="https://github.com/nkzttt/jscopyand"
-        class="footer__contact__item__link"
-      >
-        <span class="fab fa-github"></span>
-      </a>
-    </li>
-  </ul>
-  <p class="copyright">
-    <span class="copyright__mark">&copy;</span> 2021 nkzttt
-  </p>
-</footer>
-
+      <%- include('../_ejsModules/footer') %>
     </div>
     <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
     <script src="/jscopyand/lib/prism.js"></script>
@@ -185,12 +148,6 @@
         env.code = env.element.textContent;
       });
     </script>
-    <!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
-<script
-  src="https://kit.fontawesome.com/f7818d968c.js"
-  crossorigin="anonymous"
-></script>
-<script src="/jscopyand/script.js"></script>
-
+    <%- include('../_ejsModules/foot') %>
   </body>
 </html>

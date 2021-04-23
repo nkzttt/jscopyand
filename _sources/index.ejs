@@ -1,3 +1,14 @@
+<!-- prettier-ignore -->
+<% const items = [
+  {
+    label: '開閉項目（アコーディオン）',
+    linkTo: '/jscopyand/items/accordion.html'
+  },
+  {
+    label: 'タブ',
+    linkTo: '/jscopyand/items/tabs.html'
+  },
+];%>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -8,15 +19,13 @@
       <%- include('./_ejsModules/header', { isIndex: true }) %>
       <main class="main">
         <ul class="indexes">
+          <% items.forEach(({label, linkTo}) => { %>
           <li class="indexes__item">
-            <a
-              href="/jscopyand/items/accordion.html"
-              class="indexes__item__link"
-            >
-              開閉項目（アコーディオン）
+            <a href="<%= linkTo %>" class="indexes__item__link">
+              <%= label %>
             </a>
           </li>
-          <li class="indexes__item">準備中</li>
+          <% }) %>
           <li class="indexes__item">準備中</li>
           <li class="indexes__item">準備中</li>
           <li class="indexes__item">準備中</li>
