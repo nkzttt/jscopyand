@@ -1,5 +1,5 @@
 module.exports = {
-  files: ['index.html'],
+  files: ['**/*.html', 'css', 'script.js'],
   server: {
     routes: {
       '/jscopyand': './',

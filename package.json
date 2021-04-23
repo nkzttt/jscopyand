@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "JavaScriptコピペ館",
   "scripts": {
-    "start": "browser-sync -c ./_configs/bs-config.js",
+    "start": "npm run watch & browser-sync -c ./_configs/bs-config.js",
     "watch": "node ./_tools/build/buildWatch.js",
     "prettier": "prettier --write --config _configs/prettier.config.js _sources _sources/**/*.ejs _tools script.js"
   },
