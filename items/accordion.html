@@ -1,3 +1,16 @@
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -8,11 +21,12 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>開閉項目（アコーディオン） | JavaScriptコピペ館</title>
+<title>タブ | JavaScriptコピペ館</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" href="/jscopyand/css/style.css" />
 
-    <link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+<link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+
   </head>
   <body>
     <div class="container">
@@ -23,46 +37,42 @@
 </header>
 
       <main class="main">
-        <h1 class="main__title">開閉項目（アコーディオン）</h1>
+        <h1 class="main__title">タブ</h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
-          <div
-            class="demo"
-            data-js-selector="source"
-            data-js-attributes="demoHtml"
-          >
-            <p data-jscopyand="accordion">押してください</p>
-            <p>
-              ありがとうございます！<br />
-              あなたは１番目のアイテムを開きました！<br />
-            </p>
-            <p data-jscopyand="accordion">押してください</p>
-            <p>
-              ありがとうございます！<br />
-              あなたは２番目のアイテムを開きました！<br />
-            </p>
-            <p data-jscopyand="accordion">押してください</p>
-            <p>
-              ありがとうございます！<br />
-              あなたは３番目のアイテムを開きました！<br />
-            </p>
-          </div>
-          <script data-js-selector="source" data-js-attributes="jscopyand">
-            (function () {
-              var triggers = document.querySelectorAll(
-                '[data-jscopyand="accordion"]'
-              );
-              triggers.forEach(function (trigger) {
-                trigger.nextElementSibling.style.display = 'none';
-                trigger.addEventListener('click', function () {
-                  this.nextElementSibling.style.display = this
-                    .nextElementSibling.style.display
-                    ? ''
-                    : 'none';
-                });
-              });
-            })();
-          </script>
+          
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p data-jscopyand="accordion">押してください</p>
+  <p>
+    ありがとうございます！<br />
+    あなたは１番目のアイテムを開きました！<br />
+  </p>
+  <p data-jscopyand="accordion">押してください</p>
+  <p>
+    ありがとうございます！<br />
+    あなたは２番目のアイテムを開きました！<br />
+  </p>
+  <p data-jscopyand="accordion">押してください</p>
+  <p>
+    ありがとうございます！<br />
+    あなたは３番目のアイテムを開きました！<br />
+  </p>
+</div>
+<script data-js-selector="source" data-js-attributes="jscopyand">
+  (function () {
+    var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
+    triggers.forEach(function (trigger) {
+      trigger.nextElementSibling.style.display = 'none';
+      trigger.addEventListener('click', function () {
+        this.nextElementSibling.style.display = this.nextElementSibling.style
+          .display
+          ? ''
+          : 'none';
+      });
+    });
+  })();
+</script>
+
         </section>
         <section class="itemSection">
           <h2 class="itemSection__title">JSコードコピー</h2>
@@ -92,55 +102,60 @@
         </section>
         <section class="itemSection">
           <h2 class="itemSection__title">使い方</h2>
-          <div class="howToUse">
-            <p class="howToUse__description">
-              HTMLでは隣接する２つの要素が必要になります。<br />
-              １つ目がトリガー要素です。<br />
-              ２つ目が開閉対象です。<br />
-              １つ目のトリガー要素に<code class="inlineCode"
-                >data-jscopyand="accordion"</code
-              >を付与してください。<br />
-            </p>
-            <div class="howToUse__html">
-              <p
-                class="howToUse__html__trigger"
-                data-js-selector="accordion"
-                data-js-attributes="remove"
-              >
-                サンプルHTMLを表示する
-              </p>
-              <pre
-                class="howToUse__html__body"
-              ><code class="language-html" data-js-selector="demoHtml"></code></pre>
-            </div>
-          </div>
+          
+<div class="howToUse">
+  <p class="howToUse__description">
+    HTMLでは隣接する２つの要素が必要になります。<br />
+    １つ目がトリガー要素です。<br />
+    ２つ目が開閉対象です。<br />
+    １つ目のトリガー要素に<code class="inlineCode"
+      >data-jscopyand="accordion"</code
+    >を付与してください。<br />
+  </p>
+  <div class="howToUse__html">
+    <p
+      class="howToUse__html__trigger"
+      data-js-selector="accordion"
+      data-js-attributes="remove"
+    >
+      サンプルHTMLを表示する
+    </p>
+    <pre
+      class="howToUse__html__body"
+    ><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+
         </section>
         <section class="itemSection">
           <h2 class="itemSection__title">解説</h2>
-          <div class="jsDescription">
-            <p
-              class="jsDescription__trigger"
-              data-js-selector="accordion"
-              data-js-attributes="remove"
-            >
-              JSコードの解説を見てみる
-            </p>
-            <p class="jsDescription__body">
-              このアコーディオンの機能は１画面で複数の設置を想定しています。<br />
-              まずは<code class="inlineCode">document.querySelectorAll</code
-              >でトリガーとなる全ての要素を取得し、変数<code class="inlineCode"
-                >triggers</code
-              >に格納します。<br />
-              続いて、<code class="inlineCode">triggers</code
-              >に対して反復処理<code class="inlineCode">forEach</code
-              >を行い、トリガー要素の次の要素を非表示にします。<br />
-              最後にトリガー要素が押された時の処理を<code class="inlineCode"
-                >addEventListener('click', function () {});</code
-              >で登録します。<br />
-              処理内容は style に<code class="inlineCode">display: none;</code
-              >が指定されていれば消す、指定されてなければ付与する、というものです。<br />
-            </p>
-          </div>
+          
+<div class="jsDescription">
+  <p
+    class="jsDescription__trigger"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    このアコーディオンの機能は１画面で複数の設置を想定しています。<br />
+    まずは<code class="inlineCode">document.querySelectorAll</code
+    >でトリガーとなる全ての要素を取得し、変数<code class="inlineCode"
+      >triggers</code
+    >に格納します。<br />
+    続いて、<code class="inlineCode">triggers</code>に対して反復処理<code
+      class="inlineCode"
+      >forEach</code
+    >を行い、トリガー要素の次の要素を非表示にします。<br />
+    最後にトリガー要素が押された時の処理を<code class="inlineCode"
+      >addEventListener('click', function () {});</code
+    >で登録します。<br />
+    処理内容は style に<code class="inlineCode">display: none;</code
+    >が指定されていれば消す、指定されてなければ付与する、というものです。<br />
+  </p>
+</div>
+
         </section>
         <section class="itemSection">
           <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
@@ -178,19 +193,21 @@
 
     </div>
     <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
-    <script src="/jscopyand/lib/prism.js"></script>
-    <script>
-      Prism.hooks.add('before-sanity-check', function (env) {
-        env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
-        env.code = env.element.textContent;
-      });
-    </script>
-    <!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
+<script src="/jscopyand/lib/prism.js"></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
+</script>
+<!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
 <script
   src="https://kit.fontawesome.com/f7818d968c.js"
   crossorigin="anonymous"
 ></script>
 <script src="/jscopyand/script.js"></script>
 
+
   </body>
 </html>
+

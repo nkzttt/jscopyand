@@ -1,0 +1,64 @@
+<% const localTitle = 'タブ'; %>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('./itemsHead', { localTitle }) %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('./header', { isIndex: false }) %>
+      <main class="main">
+        <h1 class="main__title"><%= localTitle %></h1>
+        <section class="itemSection">
+          <h2 class="itemSection__title">デモ</h2>
+          <%- demo %>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">JSコードコピー</h2>
+          <div class="jscopyand">
+            <div class="jscopyand__codeBlock">
+              <pre
+                class="jscopyand__codeBlock__codes"
+              ><code class="language-js" data-js-selector="jscopyand"></code></pre>
+              <p
+                class="jscopyand__codeBlock__copy"
+                data-js-selector="copy"
+                data-js-attributes="jscopyand"
+              >
+                <span
+                  class="far fa-clipboard jscopyand__codeBlock__copy__icon"
+                ></span
+                >コピーする
+              </p>
+            </div>
+            <p class="jscopyand__help">
+              <a href="/jscopyand/helps/js.html" class="jscopyand__help__link"
+                >どこに置けばいい？貼り付けるだけでいい？ JavaScript
+                の基本を確認する</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">使い方</h2>
+          <%- howToUse %>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">解説</h2>
+          <%- jsDescription %>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
+          <p class="help">
+            機能に関するご質問は、このページの下部に表示されている Twitter
+            のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br />
+            導入サポートやカスタマイズも有償にてお受け致しますので、 DM
+            等でご連絡ください。<br />
+          </p>
+        </section>
+      </main>
+      <%- include('./footer') %>
+    </div>
+    <%- include('./itemsFoot') %>
+  </body>
+</html>
