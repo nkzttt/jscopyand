@@ -2,23 +2,29 @@
  * displaying source codes
  */
 (function () {
-  var sources = document.querySelectorAll('[data-js-selector="source"]');
-  sources.forEach(function (source) {
-    var codes = source.innerHTML.split('\n').filter(function (code) {
-      return !/^\s*$/.test(code);
+  var displayCode = function (sources) {
+    sources.forEach(function (source) {
+      var codes = source.innerHTML.split('\n').filter(function (code) {
+        return !/^\s*$/.test(code);
+      });
+      var indentMatched = codes[0].match(/^\s+/);
+      var indentLength = indentMatched ? indentMatched[0].length : 0;
+      var replaceReg = new RegExp('^\\s{' + indentLength + '}');
+      codes = codes
+        .map(function (code) {
+          return code.replace(replaceReg, '');
+        })
+        .join('\n');
+      var insertTo = document.querySelector(
+        '[data-js-selector="' + source.dataset.jsAttributes + '"]'
+      );
+      insertTo.innerText = codes;
+      Prism.highlightElement(insertTo);
     });
-    var indentMatched = codes[0].match(/^\s+/);
-    var indentLength = indentMatched ? indentMatched[0].length : 0;
-    var replaceReg = new RegExp('^\\s{' + indentLength + '}');
-    codes = codes
-      .map(function (code) {
-        return code.replace(replaceReg, '');
-      })
-      .join('\n');
-    var insertTo = document.querySelector(
-      '[data-js-selector="' + source.dataset.jsAttributes + '"]'
-    );
-    insertTo.innerText = codes;
+  };
+  displayCode(document.querySelectorAll('[data-js-selector="source"]'));
+  window.addEventListener('DOMContentLoaded', (event) => {
+    displayCode(document.querySelectorAll('[data-js-selector="sourceLazy"]'));
   });
 })();
 

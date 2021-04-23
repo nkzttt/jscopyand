@@ -12,6 +12,9 @@
 
 <!-- prettier-ignore -->
 
+
+<!-- prettier-ignore -->
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -58,20 +61,6 @@
     あなたは３番目のアイテムを開きました！<br />
   </p>
 </div>
-<script data-js-selector="source" data-js-attributes="jscopyand">
-  (function () {
-    var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
-    triggers.forEach(function (trigger) {
-      trigger.nextElementSibling.style.display = 'none';
-      trigger.addEventListener('click', function () {
-        this.nextElementSibling.style.display = this.nextElementSibling.style
-          .display
-          ? ''
-          : 'none';
-      });
-    });
-  })();
-</script>
 
         </section>
         <section class="itemSection">
@@ -193,7 +182,7 @@
 
     </div>
     <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
-<script src="/jscopyand/lib/prism.js"></script>
+<script src="/jscopyand/lib/prism.js" data-manual></script>
 <script>
   Prism.hooks.add('before-sanity-check', function (env) {
     env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
@@ -207,6 +196,21 @@
 ></script>
 <script src="/jscopyand/script.js"></script>
 
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
+    triggers.forEach(function (trigger) {
+      trigger.nextElementSibling.style.display = 'none';
+      trigger.addEventListener('click', function () {
+        this.nextElementSibling.style.display = this.nextElementSibling.style
+          .display
+          ? ''
+          : 'none';
+      });
+    });
+  })();
+</script>
 
   </body>
 </html>

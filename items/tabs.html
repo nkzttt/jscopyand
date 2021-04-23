@@ -13,6 +13,9 @@
 <!-- prettier-ignore -->
 
 
+<!-- prettier-ignore -->
+
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -43,36 +46,27 @@
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
-  <p data-jscopyand="accordion">押してください</p>
-  <p>
-    ありがとうございます！<br />
-    あなたは１番目のアイテムを開きました！<br />
-  </p>
-  <p data-jscopyand="accordion">押してください</p>
-  <p>
-    ありがとうございます！<br />
-    あなたは２番目のアイテムを開きました！<br />
-  </p>
-  <p data-jscopyand="accordion">押してください</p>
-  <p>
-    ありがとうございます！<br />
-    あなたは３番目のアイテムを開きました！<br />
-  </p>
+  <style>
+    .demoTabMenu {
+      display: flex;
+    }
+    .demoTabMenu > .active {
+      color: red;
+    }
+  </style>
+  <div data-jscopyand="tab">
+    <div class="demoTabMenu">
+      <p>タブ１</p>
+      <p>タブ２</p>
+      <p>タブ３</p>
+    </div>
+    <div>
+      <p>現在１番目のタブを選択中です。</p>
+      <p>現在２番目のタブを選択中です。</p>
+      <p>現在３番目のタブを選択中です。</p>
+    </div>
+  </div>
 </div>
-<script data-js-selector="source" data-js-attributes="jscopyand">
-  (function () {
-    var triggers = document.querySelectorAll('[data-jscopyand="accordion"]');
-    triggers.forEach(function (trigger) {
-      trigger.nextElementSibling.style.display = 'none';
-      trigger.addEventListener('click', function () {
-        this.nextElementSibling.style.display = this.nextElementSibling.style
-          .display
-          ? ''
-          : 'none';
-      });
-    });
-  })();
-</script>
 
         </section>
         <section class="itemSection">
@@ -106,12 +100,18 @@
           
 <div class="howToUse">
   <p class="howToUse__description">
-    HTMLでは隣接する２つの要素が必要になります。<br />
-    １つ目がトリガー要素です。<br />
-    ２つ目が開閉対象です。<br />
-    １つ目のトリガー要素に<code class="inlineCode"
-      >data-jscopyand="accordion"</code
+    まず<code class="inlineCode">div</code>要素（①）を１つ作り、そこに<code
+      class="inlineCode"
+      >data-jscopyand="tab"</code
     >を付与してください。<br />
+    続いて①の子要素で、トリガー要素をまとめる<code class="inlineCode">div</code
+    >要素（②）を１つ、切り替わるコンテンツ要素をまとめる<code class="inlineCode"
+      >div</code
+    >要素（③）を１つ作ってください。<br />
+    最後に②と③の子要素に必要な数のトリガー・コンテンツ要素を作ってください。<br />
+    <br />
+    関連するトリガー要素のコンテンツ要素の順番は同じになるようにしてください。<br />
+    ２番目のトリガー要素がクリックされたら２番目のコンテンツ要素を表示する、という仕組みになっています。<br />
   </p>
   <div class="howToUse__html">
     <p
@@ -140,20 +140,29 @@
     JSコードの解説を見てみる
   </p>
   <p class="jsDescription__body">
-    このアコーディオンの機能は１画面で複数の設置を想定しています。<br />
-    まずは<code class="inlineCode">document.querySelectorAll</code
-    >でトリガーとなる全ての要素を取得し、変数<code class="inlineCode"
-      >triggers</code
+    まずは<code class="inlineCode">document.querySelector</code
+    >でタブ要素を特定し、変数<code class="inlineCode">tab</code
     >に格納します。<br />
-    続いて、<code class="inlineCode">triggers</code>に対して反復処理<code
+    続いて子要素の１番目をトリガー要素のまとまりとして変数<code
       class="inlineCode"
-      >forEach</code
-    >を行い、トリガー要素の次の要素を非表示にします。<br />
-    最後にトリガー要素が押された時の処理を<code class="inlineCode"
-      >addEventListener('click', function () {});</code
-    >で登録します。<br />
-    処理内容は style に<code class="inlineCode">display: none;</code
-    >が指定されていれば消す、指定されてなければ付与する、というものです。<br />
+      >tabMenu</code
+    >に、２番目をコンテンツ要素のまとまりとして変数<code class="inlineCode"
+      >tabBody</code
+    >に格納します。<br />
+    個々のコンテンツ要素を変数<code class="inlineCode">bodys</code
+    >に格納し、最初に全て非表示にしておきます。<br />
+    アクティブクラスの付与と表示状態（<code class="inlineCode"
+      >display: none;</code
+    >を削除）にする関数<code class="inlineCode">activate</code
+    >と、その逆の関数<code class="inlineCode">deactivate</code
+    >を定義します。<br />
+    現在のアクティブなタブ番号を保持する変数<code class="inlineCode"
+      >activeIndex</code
+    >を用意し、初期状態では１番目が選択されるようにしておきます。<br />
+    最後にクリックベントを登録し、表示切り替え関数を呼び出すとともに<code
+      class="inlineCode"
+      >activeIndex</code
+    >を更新します。<br />
   </p>
 </div>
 
@@ -194,7 +203,7 @@
 
     </div>
     <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
-<script src="/jscopyand/lib/prism.js"></script>
+<script src="/jscopyand/lib/prism.js" data-manual></script>
 <script>
   Prism.hooks.add('before-sanity-check', function (env) {
     env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
@@ -208,6 +217,37 @@
 ></script>
 <script src="/jscopyand/script.js"></script>
 
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var tab = document.querySelector('[data-jscopyand="tab"]');
+    var tabMenu = tab.children[0];
+    var tabBody = tab.children[1];
+    var triggers = Array.from(tabMenu.children);
+    var bodys = Array.from(tabBody.children);
+    bodys.forEach(function (body) {
+      body.style.display = 'none';
+    });
+    var activate = function (index) {
+      triggers[index].classList.add('active');
+      bodys[index].style.display = '';
+    };
+    var deactivate = function (index) {
+      triggers[index].classList.remove('active');
+      bodys[index].style.display = 'none';
+    };
+    var activeIndex = 0;
+    activate(activeIndex);
+    triggers.forEach(function (trigger, index) {
+      var boundedIndex = index;
+      trigger.addEventListener('click', function () {
+        deactivate(activeIndex);
+        activeIndex = boundedIndex;
+        activate(activeIndex);
+      });
+    });
+  })();
+</script>
 
   </body>
 </html>
