@@ -14,7 +14,6 @@
 
 
 <!-- prettier-ignore -->
-
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -24,7 +23,7 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>タブ | JavaScriptコピペ館</title>
+<title>全画面ローディング | JavaScriptコピペ館</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" href="/jscopyand/css/style.css" />
 
@@ -40,31 +39,28 @@
 </header>
 
       <main class="main">
-        <h1 class="main__title">タブ</h1>
+        <h1 class="main__title">全画面ローディング</h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
   <style>
-    .demoTabMenu {
+    .demoLoading {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
       display: flex;
-    }
-    .demoTabMenu > .active {
-      color: red;
+      align-items: center;
+      justify-content: center;
+      background: white;
     }
   </style>
-  <div data-jscopyand="tab">
-    <div class="demoTabMenu">
-      <p>タブ１</p>
-      <p>タブ２</p>
-      <p>タブ３</p>
-    </div>
-    <div>
-      <p>現在１番目のタブを選択中です。</p>
-      <p>現在２番目のタブを選択中です。</p>
-      <p>現在３番目のタブを選択中です。</p>
-    </div>
-  </div>
+  <p data-jscopyand="loading" class="demoLoading">LOADING...</p>
+  <!-- 以下は本機能には関係ありません -->
+  <p>ページを再読み込みしてお試しください。</p>
 </div>
 
         </section>
@@ -99,18 +95,9 @@
           
 <div class="howToUse">
   <p class="howToUse__description">
-    まず<code class="inlineCode">div</code>要素（①）を１つ作り、そこに<code
-      class="inlineCode"
-      >data-jscopyand="tab"</code
+    全画面ローディング用の要素を１つ用意し、<code class="loading"
+      >data-jscopyand="accordion"</code
     >を付与してください。<br />
-    続いて①の子要素で、トリガー要素をまとめる<code class="inlineCode">div</code
-    >要素（②）を１つ、切り替わるコンテンツ要素をまとめる<code class="inlineCode"
-      >div</code
-    >要素（③）を１つ作ってください。<br />
-    最後に②と③の子要素に必要な数のトリガー・コンテンツ要素を作ってください。<br />
-    <br />
-    関連するトリガー要素のコンテンツ要素の順番は同じになるようにしてください。<br />
-    ２番目のトリガー要素がクリックされたら２番目のコンテンツ要素を表示する、という仕組みになっています。<br />
   </p>
   <div class="howToUse__html">
     <p
@@ -139,29 +126,13 @@
     JSコードの解説を見てみる
   </p>
   <p class="jsDescription__body">
-    まずは<code class="inlineCode">document.querySelector</code
-    >でタブ要素を特定し、変数<code class="inlineCode">tab</code
-    >に格納します。<br />
-    続いて子要素の１番目をトリガー要素のまとまりとして変数<code
-      class="inlineCode"
-      >tabMenu</code
-    >に、２番目をコンテンツ要素のまとまりとして変数<code class="inlineCode"
-      >tabBody</code
-    >に格納します。<br />
-    個々のコンテンツ要素を変数<code class="inlineCode">bodys</code
-    >に格納し、最初に全て非表示にしておきます。<br />
-    アクティブクラスの付与と表示状態（<code class="inlineCode"
-      >display: none;</code
-    >を削除）にする関数<code class="inlineCode">activate</code
-    >と、その逆の関数<code class="inlineCode">deactivate</code
-    >を定義します。<br />
-    現在のアクティブなタブ番号を保持する変数<code class="inlineCode"
-      >activeIndex</code
-    >を用意し、初期状態では１番目が選択されるようにしておきます。<br />
-    最後にクリックベントを登録し、表示切り替え関数を呼び出すとともに<code
-      class="inlineCode"
-      >activeIndex</code
-    >を更新します。<br />
+    <code class="inlineCode"
+      >window.addEventListener('load', function () {});</code
+    >で画面読み込み時のイベントを設定します。<br />
+    基本的にはこのイベントの中でローディング要素を<code class="inlineCode"
+      >remove</code
+    >すれば完成です。<br />
+    その他のコードは最低１秒間ローディングを表示するための処理で、経過時間の観測と１秒経過するまでの残り時間を求め、タイマー設定をしています。<br />
   </p>
 </div>
 
@@ -219,31 +190,12 @@
  
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
   (function () {
-    var tab = document.querySelector('[data-jscopyand="tab"]');
-    var tabMenu = tab.children[0];
-    var tabBody = tab.children[1];
-    var triggers = Array.from(tabMenu.children);
-    var bodys = Array.from(tabBody.children);
-    bodys.forEach(function (body) {
-      body.style.display = 'none';
-    });
-    var activate = function (index) {
-      triggers[index].classList.add('active');
-      bodys[index].style.display = '';
-    };
-    var deactivate = function (index) {
-      triggers[index].classList.remove('active');
-      bodys[index].style.display = 'none';
-    };
-    var activeIndex = 0;
-    activate(activeIndex);
-    triggers.forEach(function (trigger, index) {
-      var boundedIndex = index;
-      trigger.addEventListener('click', function () {
-        deactivate(activeIndex);
-        activeIndex = boundedIndex;
-        activate(activeIndex);
-      });
+    var startLoadingTime = Date.now();
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var loading = document.querySelector('[data-jscopyand="loading"]');
+        loading.remove();
+      }, Math.max(1000 - (Date.now() - startLoadingTime), 0));
     });
   })();
 </script>

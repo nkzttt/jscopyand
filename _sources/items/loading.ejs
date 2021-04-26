@@ -1,0 +1,88 @@
+<!-- prettier-ignore -->
+<% const localTitle = '全画面ローディング'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <style>
+    .demoLoading {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+    }
+  </style>
+  <p data-jscopyand="loading" class="demoLoading">LOADING...</p>
+  <!-- 以下は本機能には関係ありません -->
+  <p>ページを再読み込みしてお試しください。</p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var startLoadingTime = Date.now();
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var loading = document.querySelector('[data-jscopyand="loading"]');
+        loading.remove();
+      }, Math.max(1000 - (Date.now() - startLoadingTime), 0));
+    });
+  })();
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    全画面ローディング用の要素を１つ用意し、<code class="loading"
+      >data-jscopyand="accordion"</code
+    >を付与してください。<br />
+  </p>
+  <div class="howToUse__html">
+    <p
+      class="howToUse__html__trigger"
+      data-js-selector="accordion"
+      data-js-attributes="remove"
+    >
+      サンプルHTMLを表示する
+    </p>
+    <pre
+      class="howToUse__html__body"
+    ><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p
+    class="jsDescription__trigger"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    <code class="inlineCode"
+      >window.addEventListener('load', function () {});</code
+    >で画面読み込み時のイベントを設定します。<br />
+    基本的にはこのイベントの中でローディング要素を<code class="inlineCode"
+      >remove</code
+    >すれば完成です。<br />
+    その他のコードは最低１秒間ローディングを表示するための処理で、経過時間の観測と１秒経過するまでの残り時間を求め、タイマー設定をしています。<br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
