@@ -23,7 +23,7 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>全画面ローディング | JavaScriptコピペ館</title>
+<title>メニュー | JavaScriptコピペ館</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" href="/jscopyand/css/style.css" />
 
@@ -39,28 +39,31 @@
 </header>
 
       <main class="main">
-        <h1 class="main__title">全画面ローディング</h1>
+        <h1 class="main__title">メニュー</h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
   <style>
-    .demoLoading {
+    .demoMenu {
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
-      right: 0;
       z-index: 99;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 200px;
       background: white;
     }
   </style>
-  <p data-jscopyand="loading" class="demoLoading">LOADING...</p>
-  <!-- 以下は本機能には関係ありません -->
-  <p>ページを再読み込みしてお試しください。</p>
+  <p data-jscopyand="menuTrigger">押してください</p>
+  <div data-jscopyand="menuBody" class="demoMenu">
+    <ul>
+      <li>メニュ−１</li>
+      <li>メニュ−２</li>
+      <li>メニュ−３</li>
+    </ul>
+    <p data-jscopyand="menuClose">閉じる</p>
+  </div>
 </div>
 
         </section>
@@ -95,9 +98,19 @@
           
 <div class="howToUse">
   <p class="howToUse__description">
-    全画面ローディング用の要素を１つ用意し、<code class="inlineCode"
-      >data-jscopyand="accordion"</code
+    メニューを表示するためのトリガー要素を１つ用意し、<code class="inlineCode"
+      >data-jscopyand="menuTrigger"</code
     >を付与してください。<br />
+    メニューとそれを囲う要素を１つ用意し、囲った要素に<code class="inlineCode"
+      >data-jscopyand="menuBody"</code
+    >を付与してください。<br />
+    メニューを閉じるためのトリガー要素を１つ用意し、<code class="inlineCode"
+      >data-jscopyand="menuClose"</code
+    >を付与してください。<br />
+    <code class="inlineCode">data-jscopyand="menuTrigger"</code
+    >の要素は開閉どちらも行うことができます。<br />
+    <code class="inlineCode">data-jscopyand="menuClose"</code
+    >は閉じる専用です。<br />
   </p>
   <div class="howToUse__html">
     <p
@@ -126,13 +139,29 @@
     JSコードの解説を見てみる
   </p>
   <p class="jsDescription__body">
-    <code class="inlineCode"
-      >window.addEventListener('load', function () {});</code
-    >で画面読み込み時のイベントを設定します。<br />
-    基本的にはこのイベントの中でローディング要素を<code class="inlineCode"
-      >remove</code
-    >すれば完成です。<br />
-    その他のコードは最低１秒間ローディングを表示するための処理で、経過時間の観測と１秒経過するまでの残り時間を求め、タイマー設定をしています。<br />
+    まずは３つの要素（開閉トリガー、メニュー本体、閉じる専用トリガー）を<code
+      class="inlineCode"
+      >document.querySelector</code
+    >で取得し、それぞれ変数に格納します。<br />
+    続いてメニューの表示状態を管理する変数<code class="inlineCode"
+      >isVisible</code
+    >を定義します。<br />
+    メニューを開く用の関数<code class="inlineCode">show</code
+    >と、メニューを閉じる用の関数<code class="inlineCode">hide</code
+    >を定義し、初期状態が閉じた状態になるように<code class="inlineCode"
+      >hide</code
+    >関数を呼んでおきます。<br />
+    <code class="inlineCode">hide</code
+    >関数はメニュー要素の横幅を取得し、CSSで横幅分左側に移動させることで非表示にする、というものです。<br />
+    次に開閉トリガー要素と閉じる専用トリガー要素に対してイベントを設定します。<br />
+    開閉トリガー要素は変数<code class="inlineCode">isVisible</code
+    >を見て開くか閉じるかを決めています。<br />
+    最後にアニメーション用CSSをメニュー要素に追加します。<br />
+    <code class="inlineCode">setTimeout</code
+    >をしているのは、初期状態が閉じた状態になるように呼んだ関数<code
+      class="inlineCode"
+      >hide</code
+    >がアニメーションにならないようにするためです。<br />
   </p>
 </div>
 
@@ -190,13 +219,26 @@
  
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
   (function () {
-    var startLoadingTime = Date.now();
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        var loading = document.querySelector('[data-jscopyand="loading"]');
-        loading.remove();
-      }, Math.max(1000 - (Date.now() - startLoadingTime), 0));
+    var menuTrigger = document.querySelector('[data-jscopyand="menuTrigger"]');
+    var menuBody = document.querySelector('[data-jscopyand="menuBody"]');
+    var menuClose = document.querySelector('[data-jscopyand="menuClose"]');
+    var isVisible = false;
+    var show = function () {
+      menuBody.style.transform = 'translateX(0)';
+      isVisible = true;
+    };
+    var hide = function () {
+      menuBody.style.transform = 'translateX(' + -menuBody.offsetWidth + 'px)';
+      isVisible = false;
+    };
+    hide();
+    menuTrigger.addEventListener('click', function () {
+      isVisible ? hide() : show();
     });
+    menuClose.addEventListener('click', hide);
+    setTimeout(function () {
+      menuBody.style.transition = 'transform 300ms ease-out';
+    }, 0);
   })();
 </script>
 
