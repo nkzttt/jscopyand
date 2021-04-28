@@ -24,7 +24,7 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>タブ | JavaScriptコピペ館</title>
+<title>スライダー（カルーセル） | JavaScriptコピペ館</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" href="/jscopyand/css/style.css" />
 
@@ -40,30 +40,21 @@
 </header>
 
       <main class="main">
-        <h1 class="main__title">タブ</h1>
+        <h1 class="main__title">スライダー（カルーセル）</h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
-  <style>
-    .demoTabMenu {
-      display: flex;
-    }
-    .demoTabMenu > .active {
-      color: red;
-    }
-  </style>
-  <div data-jscopyand="tab">
-    <div class="demoTabMenu">
-      <p>タブ１</p>
-      <p>タブ２</p>
-      <p>タブ３</p>
-    </div>
-    <div>
-      <p>現在１番目のタブを選択中です。</p>
-      <p>現在２番目のタブを選択中です。</p>
-      <p>現在３番目のタブを選択中です。</p>
-    </div>
+  <div data-jscopyand="slider">
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAEElEQVR42mNkSJv5nwEJAAAbbQIAppxHEQAAAABJRU5ErkJggg=="
+    />
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAEElEQVR42mNkmFn2nwEJAAAcgAIQ07TX7wAAAABJRU5ErkJggg=="
+    />
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAEElEQVR42mOcGcLwnwEJAAAbkQHubngF7wAAAABJRU5ErkJggg=="
+    />
   </div>
 </div>
 
@@ -99,18 +90,12 @@
           
 <div class="howToUse">
   <p class="howToUse__description">
-    まず<code class="inlineCode">div</code>要素（①）を１つ作り、そこに<code
+    <code class="inlineCode">div</code>要素を１つ作り、そこに<code
       class="inlineCode"
-      >data-jscopyand="tab"</code
+      >data-jscopyand="slider"</code
     >を付与してください。<br />
-    続いて①の子要素で、トリガー要素をまとめる<code class="inlineCode">div</code
-    >要素（②）を１つ、切り替わるコンテンツ要素をまとめる<code class="inlineCode"
-      >div</code
-    >要素（③）を１つ作ってください。<br />
-    最後に②と③の子要素に必要な数のトリガー・コンテンツ要素を作ってください。<br />
-    <br />
-    関連するトリガー要素のコンテンツ要素の順番は同じになるようにしてください。<br />
-    ２番目のトリガー要素がクリックされたら２番目のコンテンツ要素を表示する、という仕組みになっています。<br />
+    その下に任意の画像を置いてください。<br />
+    用意する画像のサイズは全て同じにしてください。<br />
   </p>
   <div class="howToUse__html">
     <p
@@ -140,33 +125,38 @@
   </p>
   <p class="jsDescription__body">
     まずは<code class="inlineCode">document.querySelector</code
-    >でタブ要素を特定し、変数<code class="inlineCode">tab</code
+    >でスライダー要素を特定し、変数<code class="inlineCode">slider</code
     >に格納します。<br />
-    続いて子要素の１番目をトリガー要素のまとまりとして変数<code
-      class="inlineCode"
-      >tabMenu</code
-    >に、２番目をコンテンツ要素のまとまりとして変数<code class="inlineCode"
-      >tabBody</code
+    続いて子要素の画像を取得して変数<code class="inlineCode">images</code
     >に格納します。<br />
-    そこからさらにそれぞれの子要素を取得して変数に格納します。<br />
     この時に<code class="inlineCode">Array.from()</code>としているのは、<code
       class="inlineCode"
       >children</code
     >で取得できる値が配列に似たループ処理ができない値であるため、ループ処理可能な値に変換しているためです。<br />
-    コンテンツ要素の変数<code class="inlineCode">bodys</code
-    >はループ処理で最初に全て非表示にしておきます。<br />
-    アクティブクラスの付与と表示状態（<code class="inlineCode"
-      >display: none;</code
-    >を削除）にする関数<code class="inlineCode">activate</code
-    >と、その逆の関数<code class="inlineCode">deactivate</code
-    >を定義します。<br />
-    現在のアクティブなタブ番号を保持する変数<code class="inlineCode"
-      >activeIndex</code
-    >を用意し、初期状態では１番目が選択されるようにしておきます。<br />
-    最後にクリックベントを登録し、表示切り替え関数を呼び出すとともに<code
+    次に画像を横並びにしてアニメーションさせるための<code class="inlineCode"
+      >div</code
+    >要素、変数<code class="inlineCode">innerDiv</code>を準備します。<br />
+    ここからスライダーに必要なスタイルを設定していきます。<br />
+    １枚目の画像サイズを親コンテナの横幅いっぱいにした後、縦横のサイズを取得して変数<code
       class="inlineCode"
-      >activeIndex</code
-    >を更新します。<br />
+      >firstImageSize</code
+    >に格納します。<br />
+    変数<code class="inlineCode">setupStyles</code
+    >で行っているの各要素の縦横幅設定、<code class="inlineCode">innerDiv</code
+    >の横並びとアニメーションの設定です。<br />
+    次はスライダーの設定です。<br />
+    変数<code class="inlineCode">setupSlider</code
+    >では現在の表示位置を保持するプロパティ<code class="inlineCode"
+      >_currentIndex</code
+    >、それを用いて次の表示位置を決めるプロパティ<code class="inlineCode"
+      >_next</code
+    >、さらに一定間隔で表示位置をずらしていくプロパティ<code class="inlineCode"
+      >slide</code
+    >を定義しています。<br />
+    最後に<code class="inlineCode">setupStyles</code>と<code class="inlineCode"
+      >setupSlider</code
+    >に用意した実装プロパティ<code class="inlineCode">run</code
+    >を呼べば完了です。<br />
   </p>
 </div>
 
@@ -224,32 +214,60 @@
  
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
   (function () {
-    var tab = document.querySelector('[data-jscopyand="tab"]');
-    var tabMenu = tab.children[0];
-    var tabBody = tab.children[1];
-    var triggers = Array.from(tabMenu.children);
-    var bodys = Array.from(tabBody.children);
-    bodys.forEach(function (body) {
-      body.style.display = 'none';
+    var slider = document.querySelector('[data-jscopyand="slider"]');
+    var images = Array.from(slider.children);
+    var innerDiv = document.createElement('div');
+    slider.append(innerDiv);
+    images.forEach(function (image) {
+      innerDiv.append(image);
     });
-    var activate = function (index) {
-      triggers[index].classList.add('active');
-      bodys[index].style.display = '';
+    images[0].style.width = '100%';
+    images[0].style.height = 'auto';
+    var firstImageSize = { width: images[0].width, height: images[0].height };
+    var setupStyles = {
+      _setImageSizeWithFirstImage(element, multiplicationNum) {
+        element.style.width =
+          firstImageSize.width * (multiplicationNum || 1) + 'px';
+        element.style.height = firstImageSize.height + 'px';
+      },
+      slider() {
+        this._setImageSizeWithFirstImage(slider);
+        slider.style.overflow = 'hidden';
+      },
+      images() {
+        images.forEach(this._setImageSizeWithFirstImage);
+      },
+      innerDiv() {
+        innerDiv.style.display = 'flex';
+        this._setImageSizeWithFirstImage(innerDiv, images.length);
+        innerDiv.style.transition = 'transform 500ms ease-in-out';
+      },
+      run() {
+        this.slider();
+        this.images();
+        this.innerDiv();
+      },
     };
-    var deactivate = function (index) {
-      triggers[index].classList.remove('active');
-      bodys[index].style.display = 'none';
+    var setupSlider = {
+      _currentIndex: 0,
+      _next() {
+        if (++this._currentIndex === images.length) this._currentIndex = 0;
+        innerDiv.style.transform =
+          'translateX(' + -firstImageSize.width * this._currentIndex + 'px)';
+      },
+      slide() {
+        var _this = this;
+        setTimeout(function () {
+          _this._next();
+          _this.slide();
+        }, 3000);
+      },
+      run() {
+        this.slide();
+      },
     };
-    var activeIndex = 0;
-    activate(activeIndex);
-    triggers.forEach(function (trigger, index) {
-      var boundedIndex = index;
-      trigger.addEventListener('click', function () {
-        deactivate(activeIndex);
-        activeIndex = boundedIndex;
-        activate(activeIndex);
-      });
-    });
+    setupStyles.run();
+    setupSlider.run();
   })();
 </script>
 

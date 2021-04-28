@@ -113,8 +113,13 @@
     >に、２番目をコンテンツ要素のまとまりとして変数<code class="inlineCode"
       >tabBody</code
     >に格納します。<br />
-    個々のコンテンツ要素を変数<code class="inlineCode">bodys</code
-    >に格納し、最初に全て非表示にしておきます。<br />
+    そこからさらにそれぞれの子要素を取得して変数に格納します。<br />
+    この時に<code class="inlineCode">Array.from()</code>としているのは、<code
+      class="inlineCode"
+      >children</code
+    >で取得できる値が配列に似たループ処理ができない値であるため、ループ処理可能な値に変換しているためです。<br />
+    コンテンツ要素の変数<code class="inlineCode">bodys</code
+    >はループ処理で最初に全て非表示にしておきます。<br />
     アクティブクラスの付与と表示状態（<code class="inlineCode"
       >display: none;</code
     >を削除）にする関数<code class="inlineCode">activate</code

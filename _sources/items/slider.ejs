@@ -1,0 +1,159 @@
+<!-- prettier-ignore -->
+<% const localTitle = 'スライダー（カルーセル）'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <div data-jscopyand="slider">
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAEElEQVR42mNkSJv5nwEJAAAbbQIAppxHEQAAAABJRU5ErkJggg=="
+    />
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAEElEQVR42mNkmFn2nwEJAAAcgAIQ07TX7wAAAABJRU5ErkJggg=="
+    />
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAEElEQVR42mOcGcLwnwEJAAAbkQHubngF7wAAAABJRU5ErkJggg=="
+    />
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var slider = document.querySelector('[data-jscopyand="slider"]');
+    var images = Array.from(slider.children);
+    var innerDiv = document.createElement('div');
+    slider.append(innerDiv);
+    images.forEach(function (image) {
+      innerDiv.append(image);
+    });
+    images[0].style.width = '100%';
+    images[0].style.height = 'auto';
+    var firstImageSize = { width: images[0].width, height: images[0].height };
+    var setupStyles = {
+      _setImageSizeWithFirstImage(element, multiplicationNum) {
+        element.style.width =
+          firstImageSize.width * (multiplicationNum || 1) + 'px';
+        element.style.height = firstImageSize.height + 'px';
+      },
+      slider() {
+        this._setImageSizeWithFirstImage(slider);
+        slider.style.overflow = 'hidden';
+      },
+      images() {
+        images.forEach(this._setImageSizeWithFirstImage);
+      },
+      innerDiv() {
+        innerDiv.style.display = 'flex';
+        this._setImageSizeWithFirstImage(innerDiv, images.length);
+        innerDiv.style.transition = 'transform 500ms ease-in-out';
+      },
+      run() {
+        this.slider();
+        this.images();
+        this.innerDiv();
+      },
+    };
+    var setupSlider = {
+      _currentIndex: 0,
+      _next() {
+        if (++this._currentIndex === images.length) this._currentIndex = 0;
+        innerDiv.style.transform =
+          'translateX(' + -firstImageSize.width * this._currentIndex + 'px)';
+      },
+      slide() {
+        var _this = this;
+        setTimeout(function () {
+          _this._next();
+          _this.slide();
+        }, 3000);
+      },
+      run() {
+        this.slide();
+      },
+    };
+    setupStyles.run();
+    setupSlider.run();
+  })();
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode">div</code>要素を１つ作り、そこに<code
+      class="inlineCode"
+      >data-jscopyand="slider"</code
+    >を付与してください。<br />
+    その下に任意の画像を置いてください。<br />
+    用意する画像のサイズは全て同じにしてください。<br />
+  </p>
+  <div class="howToUse__html">
+    <p
+      class="howToUse__html__trigger"
+      data-js-selector="accordion"
+      data-js-attributes="remove"
+    >
+      サンプルHTMLを表示する
+    </p>
+    <pre
+      class="howToUse__html__body"
+    ><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p
+    class="jsDescription__trigger"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    まずは<code class="inlineCode">document.querySelector</code
+    >でスライダー要素を特定し、変数<code class="inlineCode">slider</code
+    >に格納します。<br />
+    続いて子要素の画像を取得して変数<code class="inlineCode">images</code
+    >に格納します。<br />
+    この時に<code class="inlineCode">Array.from()</code>としているのは、<code
+      class="inlineCode"
+      >children</code
+    >で取得できる値が配列に似たループ処理ができない値であるため、ループ処理可能な値に変換しているためです。<br />
+    次に画像を横並びにしてアニメーションさせるための<code class="inlineCode"
+      >div</code
+    >要素、変数<code class="inlineCode">innerDiv</code>を準備します。<br />
+    ここからスライダーに必要なスタイルを設定していきます。<br />
+    １枚目の画像サイズを親コンテナの横幅いっぱいにした後、縦横のサイズを取得して変数<code
+      class="inlineCode"
+      >firstImageSize</code
+    >に格納します。<br />
+    変数<code class="inlineCode">setupStyles</code
+    >で行っているの各要素の縦横幅設定、<code class="inlineCode">innerDiv</code
+    >の横並びとアニメーションの設定です。<br />
+    次はスライダーの設定です。<br />
+    変数<code class="inlineCode">setupSlider</code
+    >では現在の表示位置を保持するプロパティ<code class="inlineCode"
+      >_currentIndex</code
+    >、それを用いて次の表示位置を決めるプロパティ<code class="inlineCode"
+      >_next</code
+    >、さらに一定間隔で表示位置をずらしていくプロパティ<code class="inlineCode"
+      >slide</code
+    >を定義しています。<br />
+    最後に<code class="inlineCode">setupStyles</code>と<code class="inlineCode"
+      >setupSlider</code
+    >に用意した実装プロパティ<code class="inlineCode">run</code
+    >を呼べば完了です。<br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
