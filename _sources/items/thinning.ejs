@@ -1,0 +1,101 @@
+<!-- prettier-ignore -->
+<% const localTitle = '間引き（throttle / debounce）'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <!--この機能にサンプルHTMLはありません-->
+  <p>この機能にはデモはありません</p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  var throttle = (function () {
+    var callCount = 0;
+    return function (cb) {
+      if (++callCount % 10 === 0) cb();
+    };
+  })();
+  var debounce = (function () {
+    var timer;
+    return function (cb) {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        cb();
+      }, 300);
+    };
+  })();
+</script>
+`; %>
+<script>
+  // test code
+  window.addEventListener('scroll', function () {
+    throttle(function () {
+      console.log('scroll');
+    });
+  });
+  window.addEventListener('resize', function () {
+    debounce(function () {
+      console.log('resize');
+    });
+  });
+</script>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode">throttle</code
+    >は<!-- TODO: link する -->画面をスクロールしたら〜などのイベントと組み合わせて使ってください。<br />
+    <code class="inlineCode">debounce</code
+    >は<!-- TODO: link する -->画面をリサイズしたら〜などのイベントと組み合わせて使ってください。<br />
+  </p>
+  <div class="howToUse__html">
+    <p
+      class="howToUse__html__trigger"
+      data-js-selector="accordion"
+      data-js-attributes="remove"
+    >
+      サンプルHTMLを表示する
+    </p>
+    <pre
+      class="howToUse__html__body"
+    ><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p
+    class="jsDescription__trigger"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    <code class="inlineCode">throttle</code
+    >は即時関数になっており、内部で自身が呼ばれた回数を保持するローカル変数<code
+      class="inlineCode"
+      >callCount</code
+    >を持っています。<br />
+    返却された関数はそのローカル変数を参照しており、10回に1度だけコールバック変数を処理するため<code
+      class="inlineCode"
+      >++callCount % 10 === 0</code
+    >というカウントアップ処理と10の倍数チェックを同時に行っています。<br />
+    <code class="inlineCode">debounce</code
+    >は即時関数になっており、内部でタイマー情報を保持するローカル変数<code
+      class="inlineCode"
+      >timer</code
+    >を持っています。<br />
+    返却された関数はそのローカル変数を参照しており、300ミリ秒後にコールバック関数を処理するタイマー設定と、前に呼び出された時から300ミリ秒経過していなければ前をタイマーをキャンセルする、という処理を行っています。<br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
