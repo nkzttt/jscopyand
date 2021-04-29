@@ -6,6 +6,7 @@ const rootPath = path.resolve(__dirname, '../../');
 const sourcesDir = path.join(rootPath, '_sources');
 module.exports = {
   onChange(filepath, dir, name) {
+    if (/_modules/.test(dir)) return;
     const cssFile = path.join(
       rootPath,
       dir.substring(sourcesDir.length),

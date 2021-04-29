@@ -78,17 +78,11 @@
     関連するトリガー要素のコンテンツ要素の順番は同じになるようにしてください。<br />
     ２番目のトリガー要素がクリックされたら２番目のコンテンツ要素を表示する、という仕組みになっています。<br />
   </p>
-  <div class="howToUse__html">
-    <p
-      class="howToUse__html__trigger"
-      data-js-selector="accordion"
-      data-js-attributes="remove"
-    >
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
       サンプルHTMLを表示する
     </p>
-    <pre
-      class="howToUse__html__body"
-    ><code class="language-html" data-js-selector="demoHtml"></code></pre>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
   </div>
 </div>
 `; %>
@@ -96,11 +90,7 @@
 <!-- prettier-ignore -->
 <% const jsDescription = `
 <div class="jsDescription">
-  <p
-    class="jsDescription__trigger"
-    data-js-selector="accordion"
-    data-js-attributes="remove"
-  >
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
   <p class="jsDescription__body">

@@ -4,6 +4,11 @@
 (function () {
   var displayCode = function (sources) {
     sources.forEach(function (source) {
+      var insertTo = document.querySelector(
+        '[data-js-selector="' + source.dataset.jsAttributes + '"]'
+      );
+      if (!insertTo) return;
+
       var codes = source.innerHTML.split('\n').filter(function (code) {
         return !/^\s*$/.test(code);
       });
@@ -15,9 +20,6 @@
           return code.replace(replaceReg, '');
         })
         .join('\n');
-      var insertTo = document.querySelector(
-        '[data-js-selector="' + source.dataset.jsAttributes + '"]'
-      );
       insertTo.innerText = codes;
       Prism.highlightElement(insertTo);
     });

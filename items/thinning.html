@@ -57,7 +57,6 @@
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
-  <!--この機能にサンプルHTMLはありません-->
   <p>この機能にはデモはありません</p>
 </div>
 
@@ -80,8 +79,8 @@
                 >コピーする
               </p>
             </div>
-            <p class="jscopyand__help">
-              <a href="/jscopyand/helps/js.html" class="jscopyand__help__link"
+            <p>
+              <a href="/jscopyand/helps/js.html" class="textLink"
                 >どこに置けばいい？貼り付けるだけでいい？ JavaScript
                 の基本を確認する</a
               >
@@ -94,22 +93,14 @@
 <div class="howToUse">
   <p class="howToUse__description">
     <code class="inlineCode">throttle</code
-    >は<!-- TODO: link する -->画面をスクロールしたら〜などのイベントと組み合わせて使ってください。<br />
+    >は連続したイベントを一定間隔で処理します。（本コードは10回に1度）<br />
+    <a href="/jscopyand/items/scroll.html" class="textLink"
+      >画面をスクロールしたら〜</a
+    >などのイベントと組み合わせて使ってください。<br />
     <code class="inlineCode">debounce</code
-    >は<!-- TODO: link する -->画面をリサイズしたら〜などのイベントと組み合わせて使ってください。<br />
+    >は連続したイベントの最後の1度が処理されます。<br />
+    <!-- TODO: link する -->画面をリサイズしたら〜などのイベントと組み合わせて使ってください。<br />
   </p>
-  <div class="howToUse__html">
-    <p
-      class="howToUse__html__trigger"
-      data-js-selector="accordion"
-      data-js-attributes="remove"
-    >
-      サンプルHTMLを表示する
-    </p>
-    <pre
-      class="howToUse__html__body"
-    ><code class="language-html" data-js-selector="demoHtml"></code></pre>
-  </div>
 </div>
 
         </section>
@@ -117,11 +108,7 @@
           <h2 class="itemSection__title">解説</h2>
           
 <div class="jsDescription">
-  <p
-    class="jsDescription__trigger"
-    data-js-selector="accordion"
-    data-js-attributes="remove"
-  >
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
   <p class="jsDescription__body">

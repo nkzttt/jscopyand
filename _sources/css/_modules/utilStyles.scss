@@ -1,0 +1,14 @@
+@use "./variables";
+
+.textLink {
+  color: variables.$color-gray;
+}
+
+.button {
+  display: table;
+  padding: variables.$spacing-unit;
+  border: solid 1px variables.$color-gray;
+  color: variables.$color-gray;
+  font-size: variables.$size-small;
+  cursor: pointer;
+}

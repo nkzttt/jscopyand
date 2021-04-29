@@ -1,5 +1,6 @@
 @use "./_modules/variables";
 @use "./_modules/functions";
+@use "./_modules/utilStyles";
 
 body {
   background: variables.$color-black;
@@ -121,11 +122,6 @@ body {
       display: block;
     }
   }
-  &__help {
-    &__link {
-      color: variables.$color-gray;
-    }
-  }
 }
 
 .howToUse {
@@ -134,27 +130,9 @@ body {
     margin-bottom: calc(#{functions.multiplicationSpacingUnit(3)} - 0.35em);
     line-height: 1.7;
   }
-  &__html {
-    &__trigger {
-      display: table;
-      padding: variables.$spacing-unit;
-      border: solid 1px variables.$color-gray;
-      color: variables.$color-gray;
-      font-size: variables.$size-small;
-      cursor: pointer;
-    }
-  }
 }
 
 .jsDescription {
-  &__trigger {
-    display: table;
-    padding: variables.$spacing-unit;
-    border: solid 1px variables.$color-gray;
-    color: variables.$color-gray;
-    font-size: variables.$size-small;
-    cursor: pointer;
-  }
   &__body {
     margin: -0.35em 0;
     line-height: 1.7;

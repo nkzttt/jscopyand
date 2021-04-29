@@ -1,4 +1,17 @@
 @charset "UTF-8";
+.textLink {
+  color: #969696;
+}
+
+.button {
+  display: table;
+  padding: 8px;
+  border: solid 1px #969696;
+  color: #969696;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 body {
   background: #4d4d4d;
   color: #4d4d4d;
@@ -118,32 +131,13 @@ body {
 .jscopyand__codeBlock:hover > .jscopyand__codeBlock__copy {
   display: block;
 }
-.jscopyand__help__link {
-  color: #969696;
-}
 
 .howToUse__description {
   margin-top: -0.35em;
   margin-bottom: calc(24px - 0.35em);
   line-height: 1.7;
 }
-.howToUse__html__trigger {
-  display: table;
-  padding: 8px;
-  border: solid 1px #969696;
-  color: #969696;
-  font-size: 14px;
-  cursor: pointer;
-}
 
-.jsDescription__trigger {
-  display: table;
-  padding: 8px;
-  border: solid 1px #969696;
-  color: #969696;
-  font-size: 14px;
-  cursor: pointer;
-}
 .jsDescription__body {
   margin: -0.35em 0;
   line-height: 1.7;
