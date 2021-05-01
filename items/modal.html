@@ -14,6 +14,7 @@
 
 
 <!-- prettier-ignore -->
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -37,7 +38,7 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>メニュー | JavaScriptコピペ館</title>
+<title>モーダル | JavaScriptコピペ館</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" href="/jscopyand/css/style.css" />
 
@@ -53,30 +54,17 @@
 </header>
 
       <main class="main">
-        <h1 class="main__title">メニュー</h1>
+        <h1 class="main__title">モーダル</h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
-  <style>
-    .demoMenu {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 99;
-      width: 200px;
-      background: white;
-    }
-  </style>
-  <p data-jscopyand="menuTrigger">押してください</p>
-  <div data-jscopyand="menuBody" class="demoMenu">
-    <ul>
-      <li>メニュ−１</li>
-      <li>メニュ−２</li>
-      <li>メニュ−３</li>
-    </ul>
-    <p data-jscopyand="menuClose">閉じる</p>
+  <p data-jscopyand="modalTrigger">押してください</p>
+  <div data-jscopyand="modalBody">
+    <p>任意のコンテンツを置いてください。</p>
+    <p>任意のコンテンツを置いてください。</p>
+    <p>任意のコンテンツを置いてください。</p>
+    <p data-jscopyand="modalClose">閉じる</p>
   </div>
 </div>
 
@@ -112,20 +100,20 @@
           
 <div class="howToUse">
   <p class="howToUse__description">
-    メニューを表示するためのトリガー要素を１つ用意し、<code class="inlineCode"
-      >data-jscopyand="menuTrigger"</code
+    モーダルを表示するためのトリガー要素を１つ用意し、そこに<code
+      class="inlineCode"
+      >data-jscopyand="modalTrigger"</code
     >を付与してください。<br />
-    メニューとそれを囲う要素を１つ用意し、囲った要素に<code class="inlineCode"
-      >data-jscopyand="menuBody"</code
+    モーダル内に表示する任意の要素と、それを囲う<code class="inlineCode"
+      >div</code
+    >要素を１つ用意し、囲った要素に<code class="inlineCode"
+      >data-jscopyand="modalBody"</code
     >を付与してください。<br />
-    メニューを閉じるためのトリガー要素を<code class="inlineCode"
-      >data-jscopyand="menuBody"</code
-    >の中に１つ用意し、<code class="inlineCode">data-jscopyand="menuClose"</code
+    モーダルを閉じるためのトリガー要素を<code class="inlineCode"
+      >data-jscopyand="modalBody"</code
+    >の中に１つ用意し、<code class="inlineCode"
+      >data-jscopyand="modalClose"</code
     >を付与してください。<br />
-    <code class="inlineCode">data-jscopyand="menuTrigger"</code
-    >の要素は開閉どちらも行うことができます。<br />
-    <code class="inlineCode">data-jscopyand="menuClose"</code
-    >は閉じる専用です。<br />
   </p>
   <div>
     <p class="button" data-js-selector="accordion" data-js-attributes="remove">
@@ -144,29 +132,49 @@
     JSコードの解説を見てみる
   </p>
   <p class="jsDescription__body">
-    まずは３つの要素（開閉トリガー、メニュー本体、閉じる専用トリガー）を<code
+    まずは３つの要素（開く専用トリガー、モーダル本体、閉じる専用トリガー）を<code
       class="inlineCode"
       >document.querySelector</code
     >で取得し、それぞれ変数に格納します。<br />
-    続いてメニューの表示状態を管理する変数<code class="inlineCode"
-      >isVisible</code
-    >を定義します。<br />
-    メニューを開く用の関数<code class="inlineCode">show</code
-    >と、メニューを閉じる用の関数<code class="inlineCode">hide</code
-    >を定義し、初期状態が閉じた状態になるように<code class="inlineCode"
-      >hide</code
-    >関数を呼んでおきます。<br />
-    <code class="inlineCode">hide</code
-    >関数はメニュー要素の横幅を取得し、CSSで横幅分左側に移動させることで非表示にする、というものです。<br />
-    次に開閉トリガー要素と閉じる専用トリガー要素に対してイベントを設定します。<br />
-    開閉トリガー要素は変数<code class="inlineCode">isVisible</code
-    >を見て開くか閉じるかを決めています。<br />
-    最後にアニメーション用CSSをメニュー要素に追加します。<br />
-    <code class="inlineCode">setTimeout</code
-    >をしているのは、初期状態が閉じた状態になるように呼んだ関数<code
+    続いてモーダルの表示を調整していきます。<br />
+    全体を囲う<code class="inlineCode">div</code>要素を変数<code
       class="inlineCode"
+      >modal</code
+    >で定義します。<br />
+    スタイルは最前面に固定表示されるものにします。<br />
+    画面を黒の半透明で覆うための<code class="inlineCode">div</code
+    >要素を変数<code class="inlineCode">overlay</code>で定義します。<br />
+    スタイルは<code class="inlineCode">modal</code
+    >に対して絶対配置で全体を覆う様にし、背景色を黒の半透明に指定します。<br />
+    モーダル本体を囲う<code class="inlineCode">div</code>要素を変数<code
+      class="inlineCode"
+      >container</code
+    >で定義します。<br />
+    スタイルは<code class="inlineCode">overlay</code
+    >よりも前面に出るようにし、背景色を白に指定します。<br />
+    次にJavaScriptで作った要素をHTMLに追加していきます。<br />
+    モーダル本体と並列になるように<code class="inlineCode">modal</code
+    >を配置し、その中に<code class="inlineCode">overlay</code>と<code
+      class="inlineCode"
+      >container</code
+    >を配置します。<br />
+    モーダル本体は<code class="inlineCode">container</code
+    >の中に移動します。<br />
+    最後にモーダルの表示を切り替えるための関数を定義します。<br />
+    関数<code class="inlineCode">show</code>、関数<code class="inlineCode"
       >hide</code
-    >がアニメーションにならないようにするためです。<br />
+    >は<code class="inlineCode">modal</code>のスタイル<code class="inlineCode"
+      >display</code
+    >を切り替えるだけのシンプルなものです。<br />
+    <code class="inlineCode">modal</code>の<code class="inlineCode"
+      >display</code
+    >は表示調整の際に<code class="inlineCode">flex</code
+    >にしているため、関数<code class="inlineCode">show</code>の設定値は<code
+      class="inlineCode"
+      >flex</code
+    >になります。<br />
+    初期状態を非表示にするため<code class="inlineCode">hide</code
+    >を呼んでおき、各要素にクリックイベントを設定したら完成です。<br />
   </p>
 </div>
 
@@ -224,26 +232,31 @@
  
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
   (function () {
-    var menuTrigger = document.querySelector('[data-jscopyand="menuTrigger"]');
-    var menuBody = document.querySelector('[data-jscopyand="menuBody"]');
-    var menuClose = document.querySelector('[data-jscopyand="menuClose"]');
-    var isVisible = false;
+    var trigger = document.querySelector('[data-jscopyand="modalTrigger"]');
+    var body = document.querySelector('[data-jscopyand="modalBody"]');
+    var close = document.querySelector('[data-jscopyand="modalClose"]');
+    var modal = document.createElement('div');
+    modal.style =
+      'position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 99; display: flex; justify-content: center; align-items: center;';
+    var overlay = document.createElement('div');
+    overlay.style =
+      'position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.6)';
+    var container = document.createElement('div');
+    container.style = 'position: relative; z-index: 1; background: white;';
+    body.parentElement.append(modal);
+    modal.append(overlay);
+    modal.append(container);
+    container.append(body);
     var show = function () {
-      menuBody.style.transform = 'translateX(0)';
-      isVisible = true;
+      modal.style.display = 'flex';
     };
     var hide = function () {
-      menuBody.style.transform = 'translateX(' + -menuBody.offsetWidth + 'px)';
-      isVisible = false;
+      modal.style.display = 'none';
     };
     hide();
-    menuTrigger.addEventListener('click', function () {
-      isVisible ? hide() : show();
-    });
-    menuClose.addEventListener('click', hide);
-    setTimeout(function () {
-      menuBody.style.transition = 'transform 300ms ease-out';
-    }, 0);
+    trigger.addEventListener('click', show);
+    overlay.addEventListener('click', hide);
+    close.addEventListener('click', hide);
   })();
 </script>
 
