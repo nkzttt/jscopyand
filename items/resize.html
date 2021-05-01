@@ -6,19 +6,6 @@
 
 <!-- prettier-ignore -->
 
-<script>
-  // test code
-  window.addEventListener('scroll', function () {
-    throttle(function () {
-      console.log('scroll');
-    });
-  });
-  window.addEventListener('resize', function () {
-    debounce(function () {
-      console.log('resize');
-    });
-  });
-</script>
 
 <!-- prettier-ignore -->
 
@@ -50,7 +37,7 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>間引き（throttle / debounce） | JavaScriptコピペ館</title>
+<title>リサイズしたら〜 | JavaScriptコピペ館</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" href="/jscopyand/css/style.css" />
 
@@ -66,12 +53,12 @@
 </header>
 
       <main class="main">
-        <h1 class="main__title">間引き（throttle / debounce）</h1>
+        <h1 class="main__title">リサイズしたら〜</h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
-  <p>この機能にはデモはありません</p>
+  <p>リサイズを検知した回数：<span data-jscopyand="resize">0</span></p>
 </div>
 
         </section>
@@ -106,16 +93,16 @@
           
 <div class="howToUse">
   <p class="howToUse__description">
-    <code class="inlineCode">throttle</code
-    >は連続したイベントを一定間隔で処理します。（本コードは10回に1度）<br />
-    <a href="/jscopyand/items/scroll.html" class="textLink"
-      >画面をスクロールしたら〜</a
-    >などのイベントと組み合わせて使ってください。<br />
-    <code class="inlineCode">debounce</code
-    >は連続したイベントの最後の1度が処理されます。<br />
-    <a href="/jscopyand/items/resize.html" class="textLink"
-      >画面をリサイズしたら〜</a
-    >などのイベントと組み合わせて使ってください。<br />
+    <code class="inlineCode"
+      >window.addEventListener('resize', function () {
+      ここに任意の処理を記述してください });</code
+    ><br />
+    PCサイトのリサイズイベントは通常ではとても多くの回数が実行されます。<br />
+    1ピクセル毎の処理が不要な場合や、リサイズが終わった時に処理されればいい場合は<a
+      href="/jscopyand/items/thinning.html"
+      class="textLink"
+      >間引き（throttle / debounce）</a
+    >を組み合わせてください。<br />
   </p>
 </div>
 
@@ -128,21 +115,12 @@
     JSコードの解説を見てみる
   </p>
   <p class="jsDescription__body">
-    <code class="inlineCode">throttle</code
-    >は即時関数になっており、内部で自身が呼ばれた回数を保持するローカル変数<code
-      class="inlineCode"
-      >callCount</code
-    >を持っています。<br />
-    返却された関数はそのローカル変数を参照しており、10回に1度だけコールバック変数を処理するため<code
-      class="inlineCode"
-      >++callCount % 10 === 0</code
-    >というカウントアップ処理と10の倍数チェックを同時に行っています。<br />
-    <code class="inlineCode">debounce</code
-    >は即時関数になっており、内部でタイマー情報を保持するローカル変数<code
-      class="inlineCode"
-      >timer</code
-    >を持っています。<br />
-    返却された関数はそのローカル変数を参照しており、300ミリ秒後にコールバック関数を処理するタイマー設定と、前に呼び出された時から300ミリ秒経過していなければ前をタイマーをキャンセルする、という処理を行っています。<br />
+    <code class="inlineCode"
+      >window.addEventListener('resize', function () {
+      ここに任意の処理を記述してください });</code
+    ><br />
+    window に対して resize
+    というイベントを登録することで、画面リサイズ時に任意の処理をさせることができます。<br />
   </p>
 </div>
 
@@ -199,21 +177,16 @@
 
  
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
-  var throttle = (function () {
-    var callCount = 0;
-    return function (cb) {
-      if (++callCount % 10 === 0) cb();
-    };
-  })();
-  var debounce = (function () {
-    var timer;
-    return function (cb) {
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        cb();
-      }, 300);
-    };
-  })();
+  var target = document.querySelector('[data-jscopyand="resize"]');
+  window.addEventListener('resize', function () {
+    target.innerText = Number(target.innerText) + 1;
+  });
+  // debounce と組み合わせる場合
+  // window.addEventListener('resize', function () {
+  //   debounce(function () {
+  //     ...
+  //   });
+  // });
 </script>
 
   </body>

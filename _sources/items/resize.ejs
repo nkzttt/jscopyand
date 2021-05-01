@@ -1,0 +1,63 @@
+<!-- prettier-ignore -->
+<% const localTitle = 'リサイズしたら〜'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p>リサイズを検知した回数：<span data-jscopyand="resize">0</span></p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  var target = document.querySelector('[data-jscopyand="resize"]');
+  window.addEventListener('resize', function () {
+    target.innerText = Number(target.innerText) + 1;
+  });
+  // debounce と組み合わせる場合
+  // window.addEventListener('resize', function () {
+  //   debounce(function () {
+  //     ...
+  //   });
+  // });
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode"
+      >window.addEventListener('resize', function () {
+      ここに任意の処理を記述してください });</code
+    ><br />
+    PCサイトのリサイズイベントは通常ではとても多くの回数が実行されます。<br />
+    1ピクセル毎の処理が不要な場合や、リサイズが終わった時に処理されればいい場合は<a
+      href="/jscopyand/items/thinning.html"
+      class="textLink"
+      >間引き（throttle / debounce）</a
+    >を組み合わせてください。<br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    <code class="inlineCode"
+      >window.addEventListener('resize', function () {
+      ここに任意の処理を記述してください });</code
+    ><br />
+    window に対して resize
+    というイベントを登録することで、画面リサイズ時に任意の処理をさせることができます。<br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
