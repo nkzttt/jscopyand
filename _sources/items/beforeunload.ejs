@@ -1,0 +1,102 @@
+<!-- prettier-ignore -->
+<% const localTitle = '離脱前に確認する'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p>
+    ブラウザの戻るボタンや、閉じるボタンを押してみてください。
+    以下のテキストを押すと、確認の有無を着替えることができます。
+  </p>
+  <p data-jscopyand="enableBeforeunload">[確認をする]</p>
+  <p data-jscopyand="disableBeforeunload">[確認をやめる]</p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var confirm = function (e) {
+      e.returnValue = 'このページを離れますか？';
+    };
+    window.addEventListener('beforeunload', confirm);
+    var enableTriggers = document.querySelectorAll(
+      '[data-jscopyand="enableBeforeunload"]'
+    );
+    var disableTriggers = document.querySelectorAll(
+      '[data-jscopyand="disableBeforeunload"]'
+    );
+    enableTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        window.addEventListener('beforeunload', confirm);
+      });
+    });
+    disableTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        window.removeEventListener('beforeunload', confirm);
+      });
+    });
+  })();
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    ページ離脱前に必ず確認を出したい場合は、JavaScriptコードをコピーアンドペーストするだけです。<br />
+    ある操作をきっかけに確認有無を切り替えたい場合は、「ある操作」に対してイベントを設定してください。<br />
+    本デモでは以下の様に設定されています。<br />
+    <code class="inlineCode">data-jscopyand="enableBeforeunload"</code
+    >が付与された要素がクリックされたら確認する。<br />
+    <code class="inlineCode">data-jscopyand="disableBeforeunload"</code
+    >が付与された要素がクリックされたら確認しない。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    確認の有無を切り替えるために、確認用関数を変数<code class="inlineCode"
+      >confirm</code
+    >として定義しておきます。<br />
+    window の<code class="inlineCode">beforeunload</code
+    >というイベントから渡ってくる引数で、<code class="inlineCode"
+      >returnValue</code
+    >プロパティに値を設定することで確認を出すことができます。<br />
+    初期状態では確認を出すので<code class="inlineCode"
+      >window.addEventListener('beforeunload', confirm);</code
+    >でイベントを設定しておきます。<br />
+    確認の有無を切り替えるためのトリガー要素を<code class="inlineCode"
+      >document.querySelectorAll</code
+    >で取得し、変数<code class="inlineCode">enableTriggers</code>と変数<code
+      class="inlineCode"
+      >disableTriggers</code
+    >にそれぞれ格納します。<br />
+    <code class="inlineCode">enableTriggers</code>には<code class="inlineCode"
+      >window.addEventListener</code
+    >を、<code class="inlineCode">disableTriggers</code>には<code
+      class="inlineCode"
+      >window.removeEventListener</code
+    >を設定します。<br />
+    <code class="inlineCode">window.removeEventListener</code
+    >の第２引数には<code class="inlineCode">window.addEventListener</code
+    >の第２引数と同じ変数を渡す必要があります。<br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>

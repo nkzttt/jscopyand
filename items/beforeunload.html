@@ -1,0 +1,233 @@
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NXBYB3XL7L"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXBYB3XL7L');
+</script>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>離脱前に確認する | JavaScriptコピペ館</title>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+<link rel="stylesheet" href="/jscopyand/css/style.css" />
+
+<link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+  
+  <p class="header__title">JavaScriptコピペ館</p>
+  
+</header>
+
+      <main class="main">
+        <h1 class="main__title">離脱前に確認する</h1>
+        <section class="itemSection">
+          <h2 class="itemSection__title">デモ</h2>
+          
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p>
+    ブラウザの戻るボタンや、閉じるボタンを押してみてください。
+    以下のテキストを押すと、確認の有無を着替えることができます。
+  </p>
+  <p data-jscopyand="enableBeforeunload">[確認をする]</p>
+  <p data-jscopyand="disableBeforeunload">[確認をやめる]</p>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">JSコードコピー</h2>
+          <div class="jscopyand">
+            <div class="jscopyand__codeBlock">
+              <pre
+                class="jscopyand__codeBlock__codes"
+              ><code class="language-js" data-js-selector="jscopyand"></code></pre>
+              <p
+                class="jscopyand__codeBlock__copy"
+                data-js-selector="copy"
+                data-js-attributes="jscopyand"
+              >
+                <span
+                  class="far fa-clipboard jscopyand__codeBlock__copy__icon"
+                ></span
+                >コピーする
+              </p>
+            </div>
+            <p>
+              <a href="/jscopyand/helps/js.html" class="textLink"
+                >どこに置けばいい？貼り付けるだけでいい？ JavaScript
+                の基本を確認する</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">使い方</h2>
+          
+<div class="howToUse">
+  <p class="howToUse__description">
+    ページ離脱前に必ず確認を出したい場合は、JavaScriptコードをコピーアンドペーストするだけです。<br />
+    ある操作をきっかけに確認有無を切り替えたい場合は、「ある操作」に対してイベントを設定してください。<br />
+    本デモでは以下の様に設定されています。<br />
+    <code class="inlineCode">data-jscopyand="enableBeforeunload"</code
+    >が付与された要素がクリックされたら確認する。<br />
+    <code class="inlineCode">data-jscopyand="disableBeforeunload"</code
+    >が付与された要素がクリックされたら確認しない。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">解説</h2>
+          
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    確認の有無を切り替えるために、確認用関数を変数<code class="inlineCode"
+      >confirm</code
+    >として定義しておきます。<br />
+    window の<code class="inlineCode">beforeunload</code
+    >というイベントから渡ってくる引数で、<code class="inlineCode"
+      >returnValue</code
+    >プロパティに値を設定することで確認を出すことができます。<br />
+    初期状態では確認を出すので<code class="inlineCode"
+      >window.addEventListener('beforeunload', confirm);</code
+    >でイベントを設定しておきます。<br />
+    確認の有無を切り替えるためのトリガー要素を<code class="inlineCode"
+      >document.querySelectorAll</code
+    >で取得し、変数<code class="inlineCode">enableTriggers</code>と変数<code
+      class="inlineCode"
+      >disableTriggers</code
+    >にそれぞれ格納します。<br />
+    <code class="inlineCode">enableTriggers</code>には<code class="inlineCode"
+      >window.addEventListener</code
+    >を、<code class="inlineCode">disableTriggers</code>には<code
+      class="inlineCode"
+      >window.removeEventListener</code
+    >を設定します。<br />
+    <code class="inlineCode">window.removeEventListener</code
+    >の第２引数には<code class="inlineCode">window.addEventListener</code
+    >の第２引数と同じ変数を渡す必要があります。<br />
+  </p>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
+          <p class="help">
+            機能に関するご質問は、このページの下部に表示されている Twitter
+            のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br />
+            導入サポートやカスタマイズも有償にてお受け致しますので、 DM
+            等でご連絡ください。<br />
+          </p>
+        </section>
+      </main>
+      <footer class="footer">
+  <ul class="footer__contact">
+    <li class="footer__contact__item">
+      <a
+        href="https://twitter.com/bgn_nakazato"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-twitter"></span>
+      </a>
+    </li>
+    <li class="footer__contact__item">
+      <a
+        href="https://github.com/nkzttt/jscopyand"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-github"></span>
+      </a>
+    </li>
+  </ul>
+  <p class="copyright">
+    <span class="copyright__mark">&copy;</span> 2021 nkzttt
+  </p>
+</footer>
+
+    </div>
+    <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
+<script src="/jscopyand/lib/prism.js" data-manual></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
+</script>
+<!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
+<script
+  src="https://kit.fontawesome.com/f7818d968c.js"
+  crossorigin="anonymous"
+></script>
+<script src="/jscopyand/script.js"></script>
+
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var confirm = function (e) {
+      e.returnValue = 'このページを離れますか？';
+    };
+    window.addEventListener('beforeunload', confirm);
+    var enableTriggers = document.querySelectorAll(
+      '[data-jscopyand="enableBeforeunload"]'
+    );
+    var disableTriggers = document.querySelectorAll(
+      '[data-jscopyand="disableBeforeunload"]'
+    );
+    enableTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        window.addEventListener('beforeunload', confirm);
+      });
+    });
+    disableTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        window.removeEventListener('beforeunload', confirm);
+      });
+    });
+  })();
+</script>
+
+  </body>
+</html>
+
