@@ -1,0 +1,247 @@
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NXBYB3XL7L"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXBYB3XL7L');
+</script>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>タイマー | JavaScriptコピペ館</title>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+<link rel="stylesheet" href="/jscopyand/css/style.css" />
+
+<link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+  
+  <p class="header__title">JavaScriptコピペ館</p>
+  
+</header>
+
+      <main class="main">
+        <h1 class="main__title">タイマー</h1>
+        <section class="itemSection">
+          <h2 class="itemSection__title">デモ</h2>
+          
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p data-jscopyand="timer"></p>
+</div>
+<script>
+  (function () {
+    var dayTime = 1000 * 60 * 60 * 24;
+    var afterThreeDayTime = new Date(Date.now() + 3 * dayTime);
+    var year = afterThreeDayTime.getFullYear();
+    var month = afterThreeDayTime.getMonth() + 1;
+    var date = afterThreeDayTime.getDate();
+    var padZero = function (num) {
+      return String(num).length === 1 ? '0' + num : num;
+    };
+    var afterThreeDayStr =
+      year + '-' + padZero(month) + '-' + padZero(date) + ' 23:59:59';
+    var target = document.querySelector('[data-jscopyand="timer"]');
+    target.dataset.jscopyandAttribute = afterThreeDayStr;
+  })();
+</script>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">JSコードコピー</h2>
+          <div class="jscopyand">
+            <div class="jscopyand__codeBlock">
+              <pre
+                class="jscopyand__codeBlock__codes"
+              ><code class="language-js" data-js-selector="jscopyand"></code></pre>
+              <p
+                class="jscopyand__codeBlock__copy"
+                data-js-selector="copy"
+                data-js-attributes="jscopyand"
+              >
+                <span
+                  class="far fa-clipboard jscopyand__codeBlock__copy__icon"
+                ></span
+                >コピーする
+              </p>
+            </div>
+            <p>
+              <a href="/jscopyand/helps/js.html" class="textLink"
+                >どこに置けばいい？貼り付けるだけでいい？ JavaScript
+                の基本を確認する</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">使い方</h2>
+          
+<div class="howToUse">
+  <p class="howToUse__description">
+    任意の空の要素を用意し、そこに<code class="inlineCode"
+      >data-jscopyand="timer"</code
+    >と、期限となる日時を<code class="inlineCode"
+      >data-jscopyand-attribute="2021-01-01 23:59:59"</code
+    >のような形式で付与してください。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">解説</h2>
+          
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <p class="jsDescription__body">
+    まずは時間計算をするための変数を秒単位から日単位まで準備します。<br />
+    続いて<code class="inlineCode">document.querySelector</code
+    >で期限取得元かつ描画先となる要素を取得し、変数<code class="inlineCode"
+      >target</code
+    >に格納します。<br />
+    <code class="inlineCode">target</code>の<code class="inlineCode"
+      >data-jscopyand-attribute</code
+    >の値はそのまま<code class="inlineCode">new Date</code
+    >可能なものとなっているため、<code class="inlineCode">Date</code
+    >作成後、<code class="inlineCode">getTime</code>でミリ秒を取得します。<br />
+    ここから残り時間を描画するための関数を定義していきます。<br />
+    残り時間は先ほど<code class="inlineCode">getTime</code
+    >で取得した期限のミリ秒から、<code class="inlineCode">Date.now</code
+    >で取得できる現在時刻のミリ秒を引くことで求めることができます。<br />
+    ここで求めた残り時間は同様にミリ秒になっているため、最初に定義した時間計算をするための変数を使って日・時間・分・秒を求めていきます。<br />
+    結果を<code class="inlineCode">target.innerText</code>で描画します。<br />
+    最後にアニメーションの設定です。<br />
+    <code class="inlineCode">requestAnimationFrame</code
+    >に自分自身を呼ぶ関数を定義することで、アニメーションに最適な形で関数をループ処理してくれます。<br />
+  </p>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
+          <p class="help">
+            機能に関するご質問は、このページの下部に表示されている Twitter
+            のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br />
+            導入サポートやカスタマイズも有償にてお受け致しますので、 DM
+            等でご連絡ください。<br />
+          </p>
+        </section>
+      </main>
+      <footer class="footer">
+  <ul class="footer__contact">
+    <li class="footer__contact__item">
+      <a
+        href="https://twitter.com/bgn_nakazato"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-twitter"></span>
+      </a>
+    </li>
+    <li class="footer__contact__item">
+      <a
+        href="https://github.com/nkzttt/jscopyand"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-github"></span>
+      </a>
+    </li>
+  </ul>
+  <p class="copyright">
+    <span class="copyright__mark">&copy;</span> 2021 nkzttt
+  </p>
+</footer>
+
+    </div>
+    <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
+<script src="/jscopyand/lib/prism.js" data-manual></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
+</script>
+<!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
+<script
+  src="https://kit.fontawesome.com/f7818d968c.js"
+  crossorigin="anonymous"
+></script>
+<script src="/jscopyand/script.js"></script>
+
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var secondTime = 1000;
+    var minuteTime = secondTime * 60;
+    var hourTime = minuteTime * 60;
+    var dayTime = hourTime * 24;
+    var target = document.querySelector('[data-jscopyand="timer"]');
+    var targetDateTime = new Date(target.dataset.jscopyandAttribute).getTime();
+    var update = function () {
+      var remainingTimeForDay = targetDateTime - Date.now();
+      var day = Math.floor(remainingTimeForDay / dayTime);
+      var remainingTimeForHour = remainingTimeForDay % dayTime;
+      var hour = Math.floor(remainingTimeForHour / hourTime);
+      var remainingTimeForMinute = remainingTimeForHour % hourTime;
+      var minute = Math.floor(remainingTimeForMinute / minuteTime);
+      var remainingTimeForSecond = remainingTimeForMinute % minuteTime;
+      var second = Math.floor(remainingTimeForSecond / secondTime);
+      target.innerText =
+        '終了まで残り' +
+        day +
+        '日と' +
+        hour +
+        '時間' +
+        minute +
+        '分' +
+        second +
+        '秒です';
+    };
+    var animate = function () {
+      update();
+      window.requestAnimationFrame(animate);
+    };
+    animate();
+  })();
+</script>
+
+  </body>
+</html>
+
