@@ -66,22 +66,45 @@
   <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
-  <p class="jsDescription__body">
-    このアコーディオンの機能は１画面で複数の設置を想定しています。<br />
-    まずは<code class="inlineCode">document.querySelectorAll</code
-    >でトリガーとなる全ての要素を取得し、変数<code class="inlineCode"
-      >triggers</code
-    >に格納します。<br />
-    続いて、<code class="inlineCode">triggers</code>に対して反復処理<code
-      class="inlineCode"
-      >forEach</code
-    >を行い、トリガー要素の次の要素を非表示にします。<br />
-    最後にトリガー要素が押された時の処理を<code class="inlineCode"
-      >addEventListener('click', function () {});</code
-    >で登録します。<br />
-    処理内容は style に<code class="inlineCode">display: none;</code
-    >が指定されていれば消す、指定されてなければ付与する、というものです。<br />
-  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      このアコーディオン機能は１画面で複数の設置を想定しているため、<code
+        class="inlineCode"
+        >document.querySelectorAll</code
+      >でトリガーとなる全ての要素を取得し、変数に格納します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2"></code></pre>
+    <p class="jsDescription__body__text">
+      取得した全トリガー要素に対して反復処理を行っていきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 3"></code></pre>
+    <p class="jsDescription__body__text">
+      トリガー要素に隣接する次の要素をアコーディオンの本文とし、初期状態を非表示にします。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 4"></code></pre>
+    <p class="jsDescription__body__text">
+      トリガー要素が押された時の処理を登録します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      <code class="inlineCode">display</code
+      >スタイルが既に指定されていれば消す、指定されてなければ<code
+        class="inlineCode"
+        >none</code
+      >を付与する、という内容です。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 9"></code></pre>
+  </div>
 </div>
 `; %>
 

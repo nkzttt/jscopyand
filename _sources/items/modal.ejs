@@ -81,51 +81,53 @@
   <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
-  <p class="jsDescription__body">
-    まずは３つの要素（開く専用トリガー、モーダル本体、閉じる専用トリガー）を<code
-      class="inlineCode"
-      >document.querySelector</code
-    >で取得し、それぞれ変数に格納します。<br />
-    続いてモーダルの表示を調整していきます。<br />
-    全体を囲う<code class="inlineCode">div</code>要素を変数<code
-      class="inlineCode"
-      >modal</code
-    >で定義します。<br />
-    スタイルは最前面に固定表示されるものにします。<br />
-    画面を黒の半透明で覆うための<code class="inlineCode">div</code
-    >要素を変数<code class="inlineCode">overlay</code>で定義します。<br />
-    スタイルは<code class="inlineCode">modal</code
-    >に対して絶対配置で全体を覆う様にし、背景色を黒の半透明に指定します。<br />
-    モーダル本体を囲う<code class="inlineCode">div</code>要素を変数<code
-      class="inlineCode"
-      >container</code
-    >で定義します。<br />
-    スタイルは<code class="inlineCode">overlay</code
-    >よりも前面に出るようにし、背景色を白に指定します。<br />
-    次にJavaScriptで作った要素をHTMLに追加していきます。<br />
-    モーダル本体と並列になるように<code class="inlineCode">modal</code
-    >を配置し、その中に<code class="inlineCode">overlay</code>と<code
-      class="inlineCode"
-      >container</code
-    >を配置します。<br />
-    モーダル本体は<code class="inlineCode">container</code
-    >の中に移動します。<br />
-    最後にモーダルの表示を切り替えるための関数を定義します。<br />
-    関数<code class="inlineCode">show</code>、関数<code class="inlineCode"
-      >hide</code
-    >は<code class="inlineCode">modal</code>のスタイル<code class="inlineCode"
-      >display</code
-    >を切り替えるだけのシンプルなものです。<br />
-    <code class="inlineCode">modal</code>の<code class="inlineCode"
-      >display</code
-    >は表示調整の際に<code class="inlineCode">flex</code
-    >にしているため、関数<code class="inlineCode">show</code>の設定値は<code
-      class="inlineCode"
-      >flex</code
-    >になります。<br />
-    初期状態を非表示にするため<code class="inlineCode">hide</code
-    >を呼んでおき、各要素にクリックイベントを設定したら完成です。<br />
-  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      まずは３つの要素（開く専用トリガー、モーダル本体、閉じる専用トリガー）を<code
+        class="inlineCode"
+        >document.querySelector</code
+      >で取得し、それぞれ変数に格納します。<br />
+      続いてモーダルの表示を調整していきます。<br />
+      全体を囲う<code class="inlineCode">div</code>要素を変数<code
+        class="inlineCode"
+        >modal</code
+      >で定義します。<br />
+      スタイルは最前面に固定表示されるものにします。<br />
+      画面を黒の半透明で覆うための<code class="inlineCode">div</code
+      >要素を変数<code class="inlineCode">overlay</code>で定義します。<br />
+      スタイルは<code class="inlineCode">modal</code
+      >に対して絶対配置で全体を覆う様にし、背景色を黒の半透明に指定します。<br />
+      モーダル本体を囲う<code class="inlineCode">div</code>要素を変数<code
+        class="inlineCode"
+        >container</code
+      >で定義します。<br />
+      スタイルは<code class="inlineCode">overlay</code
+      >よりも前面に出るようにし、背景色を白に指定します。<br />
+      次にJavaScriptで作った要素をHTMLに追加していきます。<br />
+      モーダル本体と並列になるように<code class="inlineCode">modal</code
+      >を配置し、その中に<code class="inlineCode">overlay</code>と<code
+        class="inlineCode"
+        >container</code
+      >を配置します。<br />
+      モーダル本体は<code class="inlineCode">container</code
+      >の中に移動します。<br />
+      最後にモーダルの表示を切り替えるための関数を定義します。<br />
+      関数<code class="inlineCode">show</code>、関数<code class="inlineCode"
+        >hide</code
+      >は<code class="inlineCode">modal</code>のスタイル<code class="inlineCode"
+        >display</code
+      >を切り替えるだけのシンプルなものです。<br />
+      <code class="inlineCode">modal</code>の<code class="inlineCode"
+        >display</code
+      >は表示調整の際に<code class="inlineCode">flex</code
+      >にしているため、関数<code class="inlineCode">show</code>の設定値は<code
+        class="inlineCode"
+        >flex</code
+      >になります。<br />
+      初期状態を非表示にするため<code class="inlineCode">hide</code
+      >を呼んでおき、各要素にクリックイベントを設定したら完成です。<br />
+    </p>
+  </div>
 </div>
 `; %>
 

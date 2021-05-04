@@ -140,7 +140,12 @@ body {
 
 .jsDescription__body {
   margin: -0.35em 0;
+}
+.jsDescription__body__text {
   line-height: 1.7;
+}
+.jsDescription__body__code + .jsDescription__body__text {
+  margin-top: 24px;
 }
 
 .help {

@@ -93,36 +93,38 @@
   <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
-  <p class="jsDescription__body">
-    まずは<code class="inlineCode">document.querySelector</code
-    >でタブ要素を特定し、変数<code class="inlineCode">tab</code
-    >に格納します。<br />
-    続いて子要素の１番目をトリガー要素のまとまりとして変数<code
-      class="inlineCode"
-      >tabMenu</code
-    >に、２番目をコンテンツ要素のまとまりとして変数<code class="inlineCode"
-      >tabBody</code
-    >に格納します。<br />
-    そこからさらにそれぞれの子要素を取得して変数に格納します。<br />
-    この時に<code class="inlineCode">Array.from()</code>としているのは、<code
-      class="inlineCode"
-      >children</code
-    >で取得できる値が配列に似たループ処理ができない値であるため、ループ処理可能な値に変換しているためです。<br />
-    コンテンツ要素の変数<code class="inlineCode">bodys</code
-    >はループ処理で最初に全て非表示にしておきます。<br />
-    アクティブクラスの付与と表示状態（<code class="inlineCode"
-      >display: none;</code
-    >を削除）にする関数<code class="inlineCode">activate</code
-    >と、その逆の関数<code class="inlineCode">deactivate</code
-    >を定義します。<br />
-    現在のアクティブなタブ番号を保持する変数<code class="inlineCode"
-      >activeIndex</code
-    >を用意し、初期状態では１番目が選択されるようにしておきます。<br />
-    最後にクリックベントを登録し、表示切り替え関数を呼び出すとともに<code
-      class="inlineCode"
-      >activeIndex</code
-    >を更新します。<br />
-  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      まずは<code class="inlineCode">document.querySelector</code
+      >でタブ要素を特定し、変数<code class="inlineCode">tab</code
+      >に格納します。<br />
+      続いて子要素の１番目をトリガー要素のまとまりとして変数<code
+        class="inlineCode"
+        >tabMenu</code
+      >に、２番目をコンテンツ要素のまとまりとして変数<code class="inlineCode"
+        >tabBody</code
+      >に格納します。<br />
+      そこからさらにそれぞれの子要素を取得して変数に格納します。<br />
+      この時に<code class="inlineCode">Array.from()</code>としているのは、<code
+        class="inlineCode"
+        >children</code
+      >で取得できる値が配列に似たループ処理ができない値であるため、ループ処理可能な値に変換しているためです。<br />
+      コンテンツ要素の変数<code class="inlineCode">bodys</code
+      >はループ処理で最初に全て非表示にしておきます。<br />
+      アクティブクラスの付与と表示状態（<code class="inlineCode"
+        >display: none;</code
+      >を削除）にする関数<code class="inlineCode">activate</code
+      >と、その逆の関数<code class="inlineCode">deactivate</code
+      >を定義します。<br />
+      現在のアクティブなタブ番号を保持する変数<code class="inlineCode"
+        >activeIndex</code
+      >を用意し、初期状態では１番目が選択されるようにしておきます。<br />
+      最後にクリックベントを登録し、表示切り替え関数を呼び出すとともに<code
+        class="inlineCode"
+        >activeIndex</code
+      >を更新します。<br />
+    </p>
+  </div>
 </div>
 `; %>
 

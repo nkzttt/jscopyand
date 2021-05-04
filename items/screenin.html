@@ -122,46 +122,50 @@
   <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
-  <p class="jsDescription__body">
-    まずは監視対象となる要素全てを<code class="inlineCode"
-      >document.querySelectorAll</code
-    >で取得し、変数<code class="inlineCode">targets</code>に格納します。<br />
-    画面に入った時に処理したい内容を関数<code class="inlineCode">callback</code
-    >で定義します。<br />
-    関数<code class="inlineCode">callback</code
-    >の第１引数には画面に入った要素が渡ってくるようにします。<br />
-    本デモではこれを利用して要素のテキストをアラートで出すようにしています。<br />
-    続いて監視の設定を行なっていきます。<br />
-    <code class="inlineCode">new IntersectionObserver</code
-    >の戻り値を使うことで監視を利用できるようになります。<br />
-    この戻り値を変数<code class="inlineCode">observer</code>に格納します。<br />
-    <code class="inlineCode">IntersectionObserver</code
-    >の第１引数には対象要素が画面に入った・出たときの処理を書いていきます。<br />
-    <code class="inlineCode">entries[0]</code
-    >には画面に入った・出たときの情報が入っています。<br />
-    <code class="inlineCode">entries[0].isIntersecting</code>が<code
-      class="inlineCode"
-      >true</code
-    >なら画面に入った時と判断できます。<br />
-    <code class="inlineCode">entries[0].target</code
-    >には画面に入った・出た要素が入っているため、これを関数<code
-      class="inlineCode"
-      >callback</code
-    >に渡します。<br />
-    一度画面に入ったら監視は不要のため、<code class="inlineCode"
-      >observer.unobserve(entries[0].target)</code
-    >で監視を解除しておきます。<br />
-    <code class="inlineCode">IntersectionObserver</code
-    >の第２引数には監視の設定を書いていきます。<br />
-    <code class="inlineCode">rootMargin</code
-    >を指定すれば画面に入ったと判断する境界位置をずらすことができます。<br />
-    <code class="inlineCode">threshold</code
-    >は対象要素が何割画面に入ったら、という割合を指定することができます。<br />
-    最後に<code class="inlineCode">targets</code>を反復処理して<code
-      class="inlineCode"
-      >observer.observe(target)</code
-    >で監視を開始します。<br />
-  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      まずは監視対象となる要素全てを<code class="inlineCode"
+        >document.querySelectorAll</code
+      >で取得し、変数<code class="inlineCode">targets</code>に格納します。<br />
+      画面に入った時に処理したい内容を関数<code class="inlineCode"
+        >callback</code
+      >で定義します。<br />
+      関数<code class="inlineCode">callback</code
+      >の第１引数には画面に入った要素が渡ってくるようにします。<br />
+      本デモではこれを利用して要素のテキストをアラートで出すようにしています。<br />
+      続いて監視の設定を行なっていきます。<br />
+      <code class="inlineCode">new IntersectionObserver</code
+      >の戻り値を使うことで監視を利用できるようになります。<br />
+      この戻り値を変数<code class="inlineCode">observer</code
+      >に格納します。<br />
+      <code class="inlineCode">IntersectionObserver</code
+      >の第１引数には対象要素が画面に入った・出たときの処理を書いていきます。<br />
+      <code class="inlineCode">entries[0]</code
+      >には画面に入った・出たときの情報が入っています。<br />
+      <code class="inlineCode">entries[0].isIntersecting</code>が<code
+        class="inlineCode"
+        >true</code
+      >なら画面に入った時と判断できます。<br />
+      <code class="inlineCode">entries[0].target</code
+      >には画面に入った・出た要素が入っているため、これを関数<code
+        class="inlineCode"
+        >callback</code
+      >に渡します。<br />
+      一度画面に入ったら監視は不要のため、<code class="inlineCode"
+        >observer.unobserve(entries[0].target)</code
+      >で監視を解除しておきます。<br />
+      <code class="inlineCode">IntersectionObserver</code
+      >の第２引数には監視の設定を書いていきます。<br />
+      <code class="inlineCode">rootMargin</code
+      >を指定すれば画面に入ったと判断する境界位置をずらすことができます。<br />
+      <code class="inlineCode">threshold</code
+      >は対象要素が何割画面に入ったら、という割合を指定することができます。<br />
+      最後に<code class="inlineCode">targets</code>を反復処理して<code
+        class="inlineCode"
+        >observer.observe(target)</code
+      >で監視を開始します。<br />
+    </p>
+  </div>
 </div>
 
         </section>

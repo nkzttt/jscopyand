@@ -135,7 +135,12 @@ body {
 .jsDescription {
   &__body {
     margin: -0.35em 0;
-    line-height: 1.7;
+    &__text {
+      line-height: 1.7;
+    }
+    &__code + &__text {
+      margin-top: functions.multiplicationSpacingUnit(3);
+    }
   }
 }
 

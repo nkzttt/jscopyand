@@ -48,6 +48,30 @@
 })();
 
 /**
+ * quote jscopyand
+ */
+(function () {
+  var quoters = document.querySelectorAll('[data-js-selector="quote"]');
+  window.addEventListener('DOMContentLoaded', (event) => {
+    quoters.forEach(function (quoter) {
+      var attributes = quoter.dataset.jsAttributes.split(',').map(function (v) {
+        return v.trim();
+      });
+      var target = document.querySelector(
+        '[data-js-selector="' + attributes[0] + '"]'
+      );
+      var lineFrom = Number(attributes[1]);
+      var lineTo = Number(attributes[2]) || lineFrom;
+      quoter.innerText = target.innerText
+        .split('\n')
+        .slice(lineFrom - 1, lineTo)
+        .join('\n');
+      Prism.highlightElement(quoter);
+    });
+  });
+})();
+
+/**
  * accordion
  */
 (function () {

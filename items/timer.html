@@ -131,27 +131,30 @@
   <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
-  <p class="jsDescription__body">
-    まずは時間計算をするための変数を秒単位から日単位まで準備します。<br />
-    続いて<code class="inlineCode">document.querySelector</code
-    >で期限取得元かつ描画先となる要素を取得し、変数<code class="inlineCode"
-      >target</code
-    >に格納します。<br />
-    <code class="inlineCode">target</code>の<code class="inlineCode"
-      >data-jscopyand-attribute</code
-    >の値はそのまま<code class="inlineCode">new Date</code
-    >可能なものとなっているため、<code class="inlineCode">Date</code
-    >作成後、<code class="inlineCode">getTime</code>でミリ秒を取得します。<br />
-    ここから残り時間を描画するための関数を定義していきます。<br />
-    残り時間は先ほど<code class="inlineCode">getTime</code
-    >で取得した期限のミリ秒から、<code class="inlineCode">Date.now</code
-    >で取得できる現在時刻のミリ秒を引くことで求めることができます。<br />
-    ここで求めた残り時間は同様にミリ秒になっているため、最初に定義した時間計算をするための変数を使って日・時間・分・秒を求めていきます。<br />
-    結果を<code class="inlineCode">target.innerText</code>で描画します。<br />
-    最後にアニメーションの設定です。<br />
-    <code class="inlineCode">requestAnimationFrame</code
-    >に自分自身を呼ぶ関数を定義することで、アニメーションに最適な形で関数をループ処理してくれます。<br />
-  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      まずは時間計算をするための変数を秒単位から日単位まで準備します。<br />
+      続いて<code class="inlineCode">document.querySelector</code
+      >で期限取得元かつ描画先となる要素を取得し、変数<code class="inlineCode"
+        >target</code
+      >に格納します。<br />
+      <code class="inlineCode">target</code>の<code class="inlineCode"
+        >data-jscopyand-attribute</code
+      >の値はそのまま<code class="inlineCode">new Date</code
+      >可能なものとなっているため、<code class="inlineCode">Date</code
+      >作成後、<code class="inlineCode">getTime</code
+      >でミリ秒を取得します。<br />
+      ここから残り時間を描画するための関数を定義していきます。<br />
+      残り時間は先ほど<code class="inlineCode">getTime</code
+      >で取得した期限のミリ秒から、<code class="inlineCode">Date.now</code
+      >で取得できる現在時刻のミリ秒を引くことで求めることができます。<br />
+      ここで求めた残り時間は同様にミリ秒になっているため、最初に定義した時間計算をするための変数を使って日・時間・分・秒を求めていきます。<br />
+      結果を<code class="inlineCode">target.innerText</code>で描画します。<br />
+      最後にアニメーションの設定です。<br />
+      <code class="inlineCode">requestAnimationFrame</code
+      >に自分自身を呼ぶ関数を定義することで、アニメーションに最適な形で関数をループ処理してくれます。<br />
+    </p>
+  </div>
 </div>
 
         </section>

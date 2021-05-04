@@ -68,33 +68,35 @@
   <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
-  <p class="jsDescription__body">
-    確認の有無を切り替えるために、確認用関数を変数<code class="inlineCode"
-      >confirm</code
-    >として定義しておきます。<br />
-    window の<code class="inlineCode">beforeunload</code
-    >というイベントから渡ってくる引数で、<code class="inlineCode"
-      >returnValue</code
-    >プロパティに値を設定することで確認を出すことができます。<br />
-    初期状態では確認を出すので<code class="inlineCode"
-      >window.addEventListener('beforeunload', confirm);</code
-    >でイベントを設定しておきます。<br />
-    確認の有無を切り替えるためのトリガー要素を<code class="inlineCode"
-      >document.querySelectorAll</code
-    >で取得し、変数<code class="inlineCode">enableTriggers</code>と変数<code
-      class="inlineCode"
-      >disableTriggers</code
-    >にそれぞれ格納します。<br />
-    <code class="inlineCode">enableTriggers</code>には<code class="inlineCode"
-      >window.addEventListener</code
-    >を、<code class="inlineCode">disableTriggers</code>には<code
-      class="inlineCode"
-      >window.removeEventListener</code
-    >を設定します。<br />
-    <code class="inlineCode">window.removeEventListener</code
-    >の第２引数には<code class="inlineCode">window.addEventListener</code
-    >の第２引数と同じ変数を渡す必要があります。<br />
-  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      確認の有無を切り替えるために、確認用関数を変数<code class="inlineCode"
+        >confirm</code
+      >として定義しておきます。<br />
+      window の<code class="inlineCode">beforeunload</code
+      >というイベントから渡ってくる引数で、<code class="inlineCode"
+        >returnValue</code
+      >プロパティに値を設定することで確認を出すことができます。<br />
+      初期状態では確認を出すので<code class="inlineCode"
+        >window.addEventListener('beforeunload', confirm);</code
+      >でイベントを設定しておきます。<br />
+      確認の有無を切り替えるためのトリガー要素を<code class="inlineCode"
+        >document.querySelectorAll</code
+      >で取得し、変数<code class="inlineCode">enableTriggers</code>と変数<code
+        class="inlineCode"
+        >disableTriggers</code
+      >にそれぞれ格納します。<br />
+      <code class="inlineCode">enableTriggers</code>には<code class="inlineCode"
+        >window.addEventListener</code
+      >を、<code class="inlineCode">disableTriggers</code>には<code
+        class="inlineCode"
+        >window.removeEventListener</code
+      >を設定します。<br />
+      <code class="inlineCode">window.removeEventListener</code
+      >の第２引数には<code class="inlineCode">window.addEventListener</code
+      >の第２引数と同じ変数を渡す必要があります。<br />
+    </p>
+  </div>
 </div>
 `; %>
 

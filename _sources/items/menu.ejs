@@ -89,31 +89,33 @@
   <p class="button" data-js-selector="accordion" data-js-attributes="remove">
     JSコードの解説を見てみる
   </p>
-  <p class="jsDescription__body">
-    まずは３つの要素（開閉トリガー、メニュー本体、閉じる専用トリガー）を<code
-      class="inlineCode"
-      >document.querySelector</code
-    >で取得し、それぞれ変数に格納します。<br />
-    続いてメニューの表示状態を管理する変数<code class="inlineCode"
-      >isVisible</code
-    >を定義します。<br />
-    メニューを開く用の関数<code class="inlineCode">show</code
-    >と、メニューを閉じる用の関数<code class="inlineCode">hide</code
-    >を定義し、初期状態が閉じた状態になるように<code class="inlineCode"
-      >hide</code
-    >関数を呼んでおきます。<br />
-    <code class="inlineCode">hide</code
-    >関数はメニュー要素の横幅を取得し、CSSで横幅分左側に移動させることで非表示にする、というものです。<br />
-    次に開閉トリガー要素と閉じる専用トリガー要素に対してイベントを設定します。<br />
-    開閉トリガー要素は変数<code class="inlineCode">isVisible</code
-    >を見て開くか閉じるかを決めています。<br />
-    最後にアニメーション用CSSをメニュー要素に追加します。<br />
-    <code class="inlineCode">setTimeout</code
-    >をしているのは、初期状態が閉じた状態になるように呼んだ関数<code
-      class="inlineCode"
-      >hide</code
-    >がアニメーションにならないようにするためです。<br />
-  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      まずは３つの要素（開閉トリガー、メニュー本体、閉じる専用トリガー）を<code
+        class="inlineCode"
+        >document.querySelector</code
+      >で取得し、それぞれ変数に格納します。<br />
+      続いてメニューの表示状態を管理する変数<code class="inlineCode"
+        >isVisible</code
+      >を定義します。<br />
+      メニューを開く用の関数<code class="inlineCode">show</code
+      >と、メニューを閉じる用の関数<code class="inlineCode">hide</code
+      >を定義し、初期状態が閉じた状態になるように<code class="inlineCode"
+        >hide</code
+      >関数を呼んでおきます。<br />
+      <code class="inlineCode">hide</code
+      >関数はメニュー要素の横幅を取得し、CSSで横幅分左側に移動させることで非表示にする、というものです。<br />
+      次に開閉トリガー要素と閉じる専用トリガー要素に対してイベントを設定します。<br />
+      開閉トリガー要素は変数<code class="inlineCode">isVisible</code
+      >を見て開くか閉じるかを決めています。<br />
+      最後にアニメーション用CSSをメニュー要素に追加します。<br />
+      <code class="inlineCode">setTimeout</code
+      >をしているのは、初期状態が閉じた状態になるように呼んだ関数<code
+        class="inlineCode"
+        >hide</code
+      >がアニメーションにならないようにするためです。<br />
+    </p>
+  </div>
 </div>
 `; %>
 
