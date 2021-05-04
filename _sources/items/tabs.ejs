@@ -32,28 +32,25 @@
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
   (function () {
     var tab = document.querySelector('[data-jscopyand="tab"]');
-    var tabMenu = tab.children[0];
-    var tabBody = tab.children[1];
-    var triggers = Array.from(tabMenu.children);
-    var bodys = Array.from(tabBody.children);
-    bodys.forEach(function (body) {
+    var triggers = Array.from(tab.children[0].children);
+    var bodies = Array.from(tab.children[1].children);
+    bodies.forEach(function (body) {
       body.style.display = 'none';
     });
     var activate = function (index) {
       triggers[index].classList.add('active');
-      bodys[index].style.display = '';
+      bodies[index].style.display = '';
     };
     var deactivate = function (index) {
       triggers[index].classList.remove('active');
-      bodys[index].style.display = 'none';
+      bodies[index].style.display = 'none';
     };
     var activeIndex = 0;
     activate(activeIndex);
     triggers.forEach(function (trigger, index) {
-      var boundedIndex = index;
       trigger.addEventListener('click', function () {
         deactivate(activeIndex);
-        activeIndex = boundedIndex;
+        activeIndex = index;
         activate(activeIndex);
       });
     });
@@ -95,35 +92,52 @@
   </p>
   <div class="jsDescription__body">
     <p class="jsDescription__body__text">
-      まずは<code class="inlineCode">document.querySelector</code
-      >でタブ要素を特定し、変数<code class="inlineCode">tab</code
-      >に格納します。<br />
-      続いて子要素の１番目をトリガー要素のまとまりとして変数<code
+      タブ要素を特定し、変数に格納します。<br />
+      タブ要素の１番目の子要素をトリガー要素のまとまり、２番目の子要素をコンテンツ要素のまとまりとしてそれぞれ変数に格納します。<br />
+      <code class="inlineCode">children</code
+      >で取得した値はそのままでは反復処理ができないため、<code
         class="inlineCode"
-        >tabMenu</code
-      >に、２番目をコンテンツ要素のまとまりとして変数<code class="inlineCode"
-        >tabBody</code
-      >に格納します。<br />
-      そこからさらにそれぞれの子要素を取得して変数に格納します。<br />
-      この時に<code class="inlineCode">Array.from()</code>としているのは、<code
+        >Array.from()</code
+      >で配列に変換します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 4"></code></pre>
+    <p class="jsDescription__body__text">
+      コンテンツ要素は反復処理で一度全て非表示にしておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 5, 7"></code></pre>
+    <p class="jsDescription__body__text">
+      表示状態を切り替える関数を定義します。<br />
+      引数には何番目を表示・非表示にするか？という値を受け取ります。<br />
+      この引数を利用して、トリガー要素はアクティブクラスの付け替え、コンテンツ要素は<code
         class="inlineCode"
-        >children</code
-      >で取得できる値が配列に似たループ処理ができない値であるため、ループ処理可能な値に変換しているためです。<br />
-      コンテンツ要素の変数<code class="inlineCode">bodys</code
-      >はループ処理で最初に全て非表示にしておきます。<br />
-      アクティブクラスの付与と表示状態（<code class="inlineCode"
-        >display: none;</code
-      >を削除）にする関数<code class="inlineCode">activate</code
-      >と、その逆の関数<code class="inlineCode">deactivate</code
-      >を定義します。<br />
-      現在のアクティブなタブ番号を保持する変数<code class="inlineCode"
-        >activeIndex</code
-      >を用意し、初期状態では１番目が選択されるようにしておきます。<br />
-      最後にクリックベントを登録し、表示切り替え関数を呼び出すとともに<code
-        class="inlineCode"
+        >display</code
+      >スタイルで表示の切り替えを行います。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 8, 15"></code></pre>
+    <p class="jsDescription__body__text">
+      現在のアクティブなタブ番号を保持する変数を用意します。<br />
+      初期状態では１番目が選択されるように<code class="inlineCode">0</code
+      >を設定し、関数<code class="inlineCode">activate</code
+      >を呼んで１番目を表示しておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 16, 17"></code></pre>
+    <p class="jsDescription__body__text">
+      全てのトリガー要素にクリックイベントを設定するため、反復処理を行います。<br />
+      表示切り替え関数を呼び出すとともに<code class="inlineCode"
         >activeIndex</code
       >を更新します。<br />
     </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 18, 24"></code></pre>
   </div>
 </div>
 `; %>

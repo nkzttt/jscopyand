@@ -134,10 +134,16 @@
         class="inlineCode"
         >callCount</code
       >を持っています。<br />
-      返却された関数はそのローカル変数を参照しており、10回に1度だけコールバック変数を処理するため<code
+      返却された関数はそのローカル変数を参照しており、10回に1度だけコールバック変数を処理するためのカウントアップ処理（<code
         class="inlineCode"
-        >++callCount % 10 === 0</code
-      >というカウントアップ処理と10の倍数チェックを同時に行っています。<br />
+        >++callCount</code
+      >）と10の倍数チェック（<code class="inlineCode">callCount % 10 === 0</code
+      >）を同時に行っています。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 1, 6"></code></pre>
+    <p class="jsDescription__body__text">
       <code class="inlineCode">debounce</code
       >は即時関数になっており、内部でタイマー情報を保持するローカル変数<code
         class="inlineCode"
@@ -145,6 +151,9 @@
       >を持っています。<br />
       返却された関数はそのローカル変数を参照しており、300ミリ秒後にコールバック関数を処理するタイマー設定と、前に呼び出された時から300ミリ秒経過していなければ前をタイマーをキャンセルする、という処理を行っています。<br />
     </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 7, 15"></code></pre>
   </div>
 </div>
 

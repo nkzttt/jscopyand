@@ -124,32 +124,67 @@
   </p>
   <div class="jsDescription__body">
     <p class="jsDescription__body__text">
-      確認の有無を切り替えるために、確認用関数を変数<code class="inlineCode"
-        >confirm</code
-      >として定義しておきます。<br />
-      window の<code class="inlineCode">beforeunload</code
+      最初に確認を有効にするための関数を定義しておきます。<br />
+      <code class="inlineCode">e</code>は<code class="inlineCode"
+        >beforeunload</code
       >というイベントから渡ってくる引数で、<code class="inlineCode"
         >returnValue</code
-      >プロパティに値を設定することで確認を出すことができます。<br />
-      初期状態では確認を出すので<code class="inlineCode"
-        >window.addEventListener('beforeunload', confirm);</code
-      >でイベントを設定しておきます。<br />
-      確認の有無を切り替えるためのトリガー要素を<code class="inlineCode"
+      >というプロパティに値を設定することで離脱前に確認することができます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 4"></code></pre>
+    <p class="jsDescription__body__text">
+      <code class="inlineCode">window</code>に<code class="inlineCode"
+        >beforeunload</code
+      >というイベントを設定することで、離脱前に任意の処理をすることができます。<br />
+      初期状態では離脱前に確認するので、処理には<code class="inlineCode"
+        >confirm</code
+      >を指定しておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      確認有無の切り替えのトリガーとなる要素は複数あることを想定し、<code
+        class="inlineCode"
         >document.querySelectorAll</code
-      >で取得し、変数<code class="inlineCode">enableTriggers</code>と変数<code
+      >で全て取得しておきます。<br />
+      確認を有効にするための全トリガー要素を変数<code class="inlineCode"
+        >enableTriggers</code
+      >に、無効にするための全トリガー要素を変数<code class="inlineCode"
+        >disableTriggers</code
+      >に格納します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 11"></code></pre>
+    <p class="jsDescription__body__text">
+      本デモでは特定要素をクリックすることで確認が有効になると想定し、<code
+        class="inlineCode"
+        >enableTriggers</code
+      >に反復処理を行い、全てにクリックイベントを設定します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 12, 16"></code></pre>
+    <p class="jsDescription__body__text">
+      同様に本デモでは特定要素をクリックすることで確認が無効になると想定し、<code
         class="inlineCode"
         >disableTriggers</code
-      >にそれぞれ格納します。<br />
-      <code class="inlineCode">enableTriggers</code>には<code class="inlineCode"
-        >window.addEventListener</code
-      >を、<code class="inlineCode">disableTriggers</code>には<code
+      >に反復処理を行い、全てにクリックイベントを設定します。<br />
+      無効にするには<code class="inlineCode">window</code>に設定した<code
         class="inlineCode"
-        >window.removeEventListener</code
-      >を設定します。<br />
-      <code class="inlineCode">window.removeEventListener</code
-      >の第２引数には<code class="inlineCode">window.addEventListener</code
-      >の第２引数と同じ変数を渡す必要があります。<br />
+        >beforeunload</code
+      >イベントを削除する必要があります。<br />
+      <code class="inlineCode">removeEventListener</code
+      >というものを使い、第２引数に<code class="inlineCode"
+        >addEventListener</code
+      >の時の第２引数と同じ関数を指定します。<br />
     </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 17, 21"></code></pre>
   </div>
 </div>
 

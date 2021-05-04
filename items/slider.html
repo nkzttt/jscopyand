@@ -129,42 +129,74 @@
   </p>
   <div class="jsDescription__body">
     <p class="jsDescription__body__text">
-      まずは<code class="inlineCode">document.querySelector</code
-      >でスライダー要素を特定し、変数<code class="inlineCode">slider</code
-      >に格納します。<br />
-      続いて子要素の画像を取得して変数<code class="inlineCode">images</code
-      >に格納します。<br />
-      この時に<code class="inlineCode">Array.from()</code>としているのは、<code
+      スライダー要素を特定し、変数に格納します。<br />
+      スライダー要素の子要素の画像一覧も変数に格納します。<br />
+      <code class="inlineCode">children</code
+      >で取得した値はそのままでは反復処理ができないため、<code
         class="inlineCode"
-        >children</code
-      >で取得できる値が配列に似たループ処理ができない値であるため、ループ処理可能な値に変換しているためです。<br />
-      次に画像を横並びにしてアニメーションさせるための<code class="inlineCode"
-        >div</code
-      >要素、変数<code class="inlineCode">innerDiv</code>を準備します。<br />
-      ここからスライダーに必要なスタイルを設定していきます。<br />
-      １枚目の画像サイズを親コンテナの横幅いっぱいにした後、縦横のサイズを取得して変数<code
-        class="inlineCode"
-        >firstImageSize</code
-      >に格納します。<br />
-      変数<code class="inlineCode">setupStyles</code
-      >で行っているの各要素の縦横幅設定、<code class="inlineCode">innerDiv</code
-      >の横並びとアニメーションの設定です。<br />
-      次はスライダーの設定です。<br />
-      変数<code class="inlineCode">setupSlider</code
-      >では現在の表示位置を保持するプロパティ<code class="inlineCode"
+        >Array.from()</code
+      >で配列に変換します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 3"></code></pre>
+    <p class="jsDescription__body__text">
+      アニメーションの準備をします。<br />
+      <code class="inlineCode">div</code
+      >要素を作り、スライダー要素の中に配置します。<br />
+      画像一覧はこの<code class="inlineCode">div</code
+      >要素の中に移動します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 4, 8"></code></pre>
+    <p class="jsDescription__body__text">
+      スライドアニメーションは１枚目の画像を基準に行います。<br />
+      １枚目の画像を親コンテナの横幅いっぱいにした後、縦・横のサイズを取得して変数に格納します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 9, 11"></code></pre>
+    <p class="jsDescription__body__text">
+      各要素にスタイルを当てていきます。<br />
+      スタイル設定はわかりやすいように<code class="inlineCode">setupStyles</code
+      >というオブジェクトにまとめておきます。<br />
+      １枚目の画像を基準にサイズを設定する汎用関数<code class="inlineCode"
+        >_setImageSizeWithFirstImage</code
+      >を定義しています。<br />
+      これを利用しながら各画像や親<code class="inlineCode">div</code
+      >要素のサイズを設定していきます。<br />
+      <code class="inlineCode">innerDiv</code
+      >には横並びにするスタイルとアニメーションスタイルを当てています。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 12, 35"></code></pre>
+    <p class="jsDescription__body__text">
+      スライダーの設定をします。<br />
+      スライダー設定はわかりやすいように<code class="inlineCode"
+        >setupSlider</code
+      >というオブジェクトにまとめておきます。<br />
+      現在の表示位置を保持するプロパティ<code class="inlineCode"
         >_currentIndex</code
-      >、それを用いて次の表示位置を決めるプロパティ<code class="inlineCode"
+      >、それを利用して次の表示位置を決める関数<code class="inlineCode"
         >_next</code
-      >、さらに一定間隔で表示位置をずらしていくプロパティ<code
-        class="inlineCode"
+      >、さらに一定間隔で表示位置をずらしていく関数<code class="inlineCode"
         >slide</code
       >を定義しています。<br />
-      最後に<code class="inlineCode">setupStyles</code>と<code
-        class="inlineCode"
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 36, 53"></code></pre>
+    <p class="jsDescription__body__text">
+      <code class="inlineCode">setupStyles</code>と<code class="inlineCode"
         >setupSlider</code
-      >に用意した実装プロパティ<code class="inlineCode">run</code
+      >に用意した実行関数<code class="inlineCode">run</code
       >を呼べば完了です。<br />
     </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 54, 55"></code></pre>
   </div>
 </div>
 

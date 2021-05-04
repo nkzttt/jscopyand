@@ -91,30 +91,65 @@
   </p>
   <div class="jsDescription__body">
     <p class="jsDescription__body__text">
-      まずは３つの要素（開閉トリガー、メニュー本体、閉じる専用トリガー）を<code
+      まずは３つの要素（開閉トリガー、メニュー本体、閉じる専用トリガー）を変数に格納します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 4"></code></pre>
+    <p class="jsDescription__body__text">
+      続いてメニューの表示状態を管理する変数を定義します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      メニューを開く用の関数を定義します。<br />
+      メニューは画面外から画面内に入ってくるようなアニメーションにするため、<code
         class="inlineCode"
-        >document.querySelector</code
-      >で取得し、それぞれ変数に格納します。<br />
-      続いてメニューの表示状態を管理する変数<code class="inlineCode"
-        >isVisible</code
-      >を定義します。<br />
-      メニューを開く用の関数<code class="inlineCode">show</code
-      >と、メニューを閉じる用の関数<code class="inlineCode">hide</code
-      >を定義し、初期状態が閉じた状態になるように<code class="inlineCode"
-        >hide</code
-      >関数を呼んでおきます。<br />
-      <code class="inlineCode">hide</code
-      >関数はメニュー要素の横幅を取得し、CSSで横幅分左側に移動させることで非表示にする、というものです。<br />
-      次に開閉トリガー要素と閉じる専用トリガー要素に対してイベントを設定します。<br />
-      開閉トリガー要素は変数<code class="inlineCode">isVisible</code
-      >を見て開くか閉じるかを決めています。<br />
-      最後にアニメーション用CSSをメニュー要素に追加します。<br />
+        >transform</code
+      >スタイルを使用します。<br />
+      表示状態を管理する変数は<code class="inlineCode">true</code
+      >にしておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 9"></code></pre>
+    <p class="jsDescription__body__text">
+      メニューを閉じる用の関数を定義します。<br />
+      <code class="inlineCode">transform</code
+      >スタイルで自身の横幅分左にずらし、画面外へ押し出します。<br />
+      表示状態を管理する変数は<code class="inlineCode">false</code
+      >にしておきます。<br />
+      初期状態が閉じた状態になるように関数を呼んでおきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 10, 14"></code></pre>
+    <p class="jsDescription__body__text">
+      開閉トリガー要素にイベントを設定します。<br />
+      表示状態を管理している変数<code class="inlineCode">isVisible</code
+      >を見て、開くか閉じるかを判断しています。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 15, 17"></code></pre>
+    <p class="jsDescription__body__text">
+      閉じる専用トリガー要素にイベントを設定します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 18"></code></pre>
+    <p class="jsDescription__body__text">
+      最後にアニメーションを有効にするためのスタイルをメニュー要素に追加します。<br />
       <code class="inlineCode">setTimeout</code
       >をしているのは、初期状態が閉じた状態になるように呼んだ関数<code
         class="inlineCode"
         >hide</code
       >がアニメーションにならないようにするためです。<br />
     </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 19, 21"></code></pre>
   </div>
 </div>
 `; %>
