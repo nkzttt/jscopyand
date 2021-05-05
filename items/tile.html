@@ -1,0 +1,339 @@
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NXBYB3XL7L"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXBYB3XL7L');
+</script>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>タイル配置 | JavaScriptコピペ館</title>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+<link rel="stylesheet" href="/jscopyand/css/style.css" />
+
+<link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+  
+  <p class="header__title">JavaScriptコピペ館</p>
+  
+</header>
+
+      <main class="main">
+        <h1 class="main__title">タイル配置</h1>
+        <section class="itemSection">
+          <h2 class="itemSection__title">デモ</h2>
+          
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <style>
+    .demoBox {
+      padding: 50px 10px;
+      background: white;
+    }
+  </style>
+  <div data-jscopyand="tile">
+    <p class="demoBox">コンテンツ</p>
+    <p class="demoBox">
+      コンテンツ<br />
+      コンテンツ<br />
+    </p>
+    <p class="demoBox">
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+    </p>
+    <p class="demoBox">
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+    </p>
+    <p class="demoBox">コンテンツ</p>
+    <p class="demoBox">
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+    </p>
+    <p class="demoBox">
+      コンテンツ<br />
+      コンテンツ<br />
+    </p>
+    <p class="demoBox">
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+      コンテンツ<br />
+    </p>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">JSコードコピー</h2>
+          <div class="jscopyand">
+            <div class="jscopyand__codeBlock">
+              <pre
+                class="jscopyand__codeBlock__codes"
+              ><code class="language-js" data-js-selector="jscopyand"></code></pre>
+              <p
+                class="jscopyand__codeBlock__copy"
+                data-js-selector="copy"
+                data-js-attributes="jscopyand"
+              >
+                <span
+                  class="far fa-clipboard jscopyand__codeBlock__copy__icon"
+                ></span
+                >コピーする
+              </p>
+            </div>
+            <p>
+              <a href="/jscopyand/helps/js.html" class="textLink"
+                >どこに置けばいい？貼り付けるだけでいい？ JavaScript
+                の基本を確認する</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">使い方</h2>
+          
+<div class="howToUse">
+  <p class="howToUse__description">
+    タイル配置をしたい任意の場所に<code class="inlineCode">div</code
+    >要素を１つ用意し、<code class="inlineCode">data-jscopyand="tile"</code
+    >を付与してください。<br />
+    子要素には任意の数・任意の要素を配置してください。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">解説</h2>
+          
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      最初にタイル配置の設定変数を定義しておきます。<br />
+      本デモでは３列にするために、１列の横幅比率は<code class="inlineCode"
+        >33.333%</code
+      >、余白は<code class="inlineCode">10px</code>とします。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 4"></code></pre>
+    <p class="jsDescription__body__text">
+      タイル配置を行う要素を特定し、横並びのためのスタイルを付与します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 5, 7"></code></pre>
+    <p class="jsDescription__body__text">
+      子要素を変数に格納します。<br />
+      <code class="inlineCode">children</code
+      >で取得した値はそのままでは反復処理ができないため、<code
+        class="inlineCode"
+        >Array.from()</code
+      >で配列に変換します。<br />
+      反復処理を行い、全ての子要素に基本のスタイルを付与していきます。<br />
+      子要素の表示に影響を与えないよう、<code class="inlineCode">div</code
+      >要素で囲んでからスタイルを付与しています。<br />
+      内容は最初に定義した設定変数による横幅指定・余白指定です。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 8, 21"></code></pre>
+    <p class="jsDescription__body__text">
+      この後のタイル配置のために使う汎用関数を定義しておきます。<br />
+      内容は渡ってきた要素配列のそれぞれの終了位置を求めて返すものです。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 22, 27"></code></pre>
+    <p class="jsDescription__body__text">
+      子要素の配列を行毎に分割していきます。<br />
+      本デモでは３列になるため、子要素の配列を３つずつ切り出していき、切り出し終えたところでループを終えるようにしています。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 28, 31"></code></pre>
+    <p class="jsDescription__body__text">
+      行毎に反復処理を行なっていきます。<br />
+      １行目はそのまま表示すればよいため、早期に処理を終了します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 32, 33"></code></pre>
+    <p class="jsDescription__body__text">
+      先に定義しておいた汎用関数を使い、１つ前の行の各要素の終了位置を取得します。<br />
+      さらにその中で一番下になっている要素の位置を取得します。<br />
+      <code class="inlineCode">Math.max</code
+      >は引数に配列は受け取れないため、<code class="inlineCode">apply</code
+      >というメソッドを通して配列を渡せるようにしています。<br />
+      現在の行の要素配列に対して反復処理を行い、隙間がある（=
+      <code class="inlineCode"
+        >prevEndPositions[index] - prevMaxEndPosition</code
+      >）場合には上に詰めるようにします。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 34, 41"></code></pre>
+    <p class="jsDescription__body__text">
+      最終行まで処理したら、タイル配置全体の高さを設定します。<br />
+      これは「最終行の要素の中で一番下になっている要素の位置」から「タイル配置要素の開始位置」を引くことで求めることができます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 42, 46"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
+          <p class="help">
+            機能に関するご質問は、このページの下部に表示されている Twitter
+            のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br />
+            導入サポートやカスタマイズも有償にてお受け致しますので、 DM
+            等でご連絡ください。<br />
+          </p>
+        </section>
+      </main>
+      <footer class="footer">
+  <ul class="footer__contact">
+    <li class="footer__contact__item">
+      <a
+        href="https://twitter.com/bgn_nakazato"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-twitter"></span>
+      </a>
+    </li>
+    <li class="footer__contact__item">
+      <a
+        href="https://github.com/nkzttt/jscopyand"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-github"></span>
+      </a>
+    </li>
+  </ul>
+  <p class="copyright">
+    <span class="copyright__mark">&copy;</span> 2021 nkzttt
+  </p>
+</footer>
+
+    </div>
+    <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
+<script src="/jscopyand/lib/prism.js" data-manual></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
+</script>
+<!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
+<script
+  src="https://kit.fontawesome.com/f7818d968c.js"
+  crossorigin="anonymous"
+></script>
+<script src="/jscopyand/script.js"></script>
+
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var colRatio = 33.333;
+    var colNum = Math.floor(100 / colRatio);
+    var space = 10;
+    var tile = document.querySelector('[data-jscopyand="tile"]');
+    tile.style =
+      'display: flex; flex-wrap: wrap; margin-left: ' + -space + 'px;';
+    var items = Array.from(tile.children);
+    items.forEach(function (item) {
+      var wrapper = document.createElement('div');
+      item.parentElement.append(wrapper);
+      wrapper.append(item);
+      wrapper.style =
+        'flex-basis: ' +
+        colRatio +
+        '%; padding-left: ' +
+        space +
+        'px; padding-bottom: ' +
+        space +
+        'px;';
+    });
+    var getEndPositions = function (domArr) {
+      return domArr.map(function (dom) {
+        var domRect = dom.getBoundingClientRect();
+        return domRect.y + domRect.height;
+      });
+    };
+    var columns = [];
+    while (items.length) {
+      columns.push(items.splice(0, colNum));
+    }
+    columns.forEach(function (column, colIndex) {
+      if (colIndex === 0) return;
+      var prevEndPositions = getEndPositions(columns[colIndex - 1]);
+      var prevMaxEndPosition = Math.max.apply(null, prevEndPositions);
+      column.forEach(function (item, index) {
+        item.style.transform =
+          'translateY(' +
+          (prevEndPositions[index] - prevMaxEndPosition) +
+          'px)';
+      });
+      if (columns.length - 1 === colIndex) {
+        var startPosition = tile.getBoundingClientRect().y;
+        var endPosition = Math.max.apply(null, getEndPositions(column));
+        tile.style.height = endPosition - startPosition + 'px';
+      }
+    });
+  })();
+</script>
+
+  </body>
+</html>
+
