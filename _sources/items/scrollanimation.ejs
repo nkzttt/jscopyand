@@ -1,0 +1,172 @@
+<!-- prettier-ignore -->
+<% const localTitle = 'スクロールアニメーション'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <style>
+    .demoScrollAnimation {
+      padding: 50vh 0;
+    }
+  </style>
+  <p data-jscopyand="scrollanimation" data-jscopyand-attributes="target">
+    押してください。特定の要素までスクロールします。
+  </p>
+  <p class="demoScrollAnimation">余白です。</p>
+  <p id="target" data-jscopyand="scrollanimation">
+    押してください。ページトップまでスクロールします。
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var scrollStep = 50;
+    var triggers = document.querySelectorAll(
+      '[data-jscopyand="scrollanimation"]'
+    );
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        var targetId = this.dataset.jscopyandAttributes;
+        var target = targetId
+          ? document.querySelector('#' + targetId)
+          : document.body;
+        if (!target) return;
+        var remainingScrollAmount = Math.floor(
+          target.getBoundingClientRect().top
+        );
+        var isMinus = remainingScrollAmount < 0;
+        var animate = function () {
+          var scrollAmount =
+            Math.max(
+              Math.min(
+                Math.round(Math.abs(remainingScrollAmount * 0.2)),
+                scrollStep
+              ),
+              1
+            ) * (isMinus ? -1 : 1);
+          scrollBy(0, scrollAmount);
+          remainingScrollAmount -= scrollAmount;
+          if (remainingScrollAmount !== 0)
+            window.requestAnimationFrame(animate);
+        };
+        animate();
+      });
+    });
+  })();
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    スクロールアニメーションのトリガーとなる要素に<code class="inlineCode"
+      >data-jscopyand="scrollanimation"</code
+    >を付与してください。<br />
+    特定の要素までスクロールする場合は、対象の要素に<code class="inlineCode"
+      >id</code
+    >属性を付与した後、トリガー要素に<code class="inlineCode"
+      >data-jscopyand-attributes="id名"</code
+    >を付与してください。<br />
+    トリガー要素に<code class="inlineCode"
+      >data-jscopyand-attributes="id名"</code
+    >を付与しなかった場合はページトップへスクロールアニメーションします。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      最初にスクロールアニメーションの速度を指定します。<br />
+      この値が大きいほどアニメーションが速くなります。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2"></code></pre>
+    <p class="jsDescription__body__text">
+      このスクロールアニメーション機能は１画面で複数の設置を想定しているため、<code
+        class="inlineCode"
+        >document.querySelectorAll</code
+      >でトリガーとなる全ての要素を取得し、変数に格納します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 3, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      取得した全トリガー要素に対して反復処理を行い、イベントを設定していきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 7"></code></pre>
+    <p class="jsDescription__body__text">
+      スクロール先の要素を特定します。<br />
+      <code class="inlineCode">data-jscopyand-attributes="id名"</code
+      >が付与されている場合は、その値を使って要素の特定を試みます。<br />
+      付与されていない場合はページトップへスクロールさせるため、<code
+        class="inlineCode"
+        >document.body</code
+      >にします。<br />
+      要素が特定できなかった場合には処理を終了します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 8, 12"></code></pre>
+    <p class="jsDescription__body__text">
+      <code class="inlineCode">getBoundingClientRect().top</code
+      >で対象要素までのスクロール量を取得します。<br />
+      １回のスクロール量計算の際に使うため、負の値かどうかを確認し、結果を変数に格納しておきます。<br />
+      アニメーション関数を定義していきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 13, 17"></code></pre>
+    <p class="jsDescription__body__text">
+      １度のスクロール量を計算します。<br />
+      内容は、最大値を最初に設定したアニメーション速度に、最小値を１に制限する、というものです。<br />
+      <code class="inlineCode">remainingScrollAmount * 0.2</code
+      >とすることで緩急をつけています。<br />
+      最初に絶対値で計算した後、<code class="inlineCode">isMinus</code
+      >なら負の値に戻します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 18, 25"></code></pre>
+    <p class="jsDescription__body__text">
+      ここで一度スクロールを実行します。<br />
+      残りのスクロール量から今回のスクロール量を引き、まだ残っている場合には<code
+        class="inlineCode"
+        >requestAnimationFrame</code
+      >で自身を呼び、ループさせます。<br />
+      <code class="inlineCode">requestAnimationFrame</code
+      >はアニメーションに最適な形で関数をループ処理してくれます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 26, 29"></code></pre>
+    <p class="jsDescription__body__text">
+      最後に定義したアニメーション関数を呼んで完了です。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 31"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
