@@ -73,19 +73,15 @@
         space +
         'px;';
     });
-    var getEndPositions = function (domArr) {
-      return domArr.map(function (dom) {
-        var domRect = dom.getBoundingClientRect();
-        return domRect.y + domRect.height;
-      });
-    };
     var columns = [];
     while (items.length) {
       columns.push(items.splice(0, colNum));
     }
     columns.forEach(function (column, colIndex) {
       if (colIndex === 0) return;
-      var prevEndPositions = getEndPositions(columns[colIndex - 1]);
+      var prevEndPositions = columns[colIndex - 1].map(function (item) {
+        return item.getBoundingClientRect().bottom;
+      });
       var prevMaxEndPosition = Math.max.apply(null, prevEndPositions);
       column.forEach(function (item, index) {
         item.style.transform =
@@ -95,7 +91,12 @@
       });
       if (columns.length - 1 === colIndex) {
         var startPosition = tile.getBoundingClientRect().y;
-        var endPosition = Math.max.apply(null, getEndPositions(column));
+        var endPosition = Math.max.apply(
+          null,
+          column.map(function (item) {
+            return item.getBoundingClientRect().bottom;
+          })
+        );
         tile.style.height = endPosition - startPosition + 'px';
       }
     });
@@ -159,28 +160,24 @@
       class="jsDescription__body__code"
     ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 8, 21"></code></pre>
     <p class="jsDescription__body__text">
-      この後のタイル配置のために使う汎用関数を定義しておきます。<br />
-      内容は渡ってきた要素配列のそれぞれの終了位置を求めて返すものです。<br />
-    </p>
-    <pre
-      class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 22, 27"></code></pre>
-    <p class="jsDescription__body__text">
       子要素の配列を行毎に分割していきます。<br />
       本デモでは３列になるため、子要素の配列を３つずつ切り出していき、切り出し終えたところでループを終えるようにしています。<br />
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 28, 31"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 22, 25"></code></pre>
     <p class="jsDescription__body__text">
       行毎に反復処理を行なっていきます。<br />
       １行目はそのまま表示すればよいため、早期に処理を終了します。<br />
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 32, 33"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 26, 27"></code></pre>
     <p class="jsDescription__body__text">
-      先に定義しておいた汎用関数を使い、１つ前の行の各要素の終了位置を取得します。<br />
+      １つ前の行の要素配列に対して反復処理を行い、それぞれの終了位置を<code
+        class="inlineCode"
+        >getBoundingClientRect().bottom</code
+      >で取得します。<br />
       さらにその中で一番下になっている要素の位置を取得します。<br />
       <code class="inlineCode">Math.max</code
       >は引数に配列は受け取れないため、<code class="inlineCode">apply</code
@@ -192,14 +189,14 @@
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 34, 41"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 28, 37"></code></pre>
     <p class="jsDescription__body__text">
       最終行まで処理したら、タイル配置全体の高さを設定します。<br />
       これは「最終行の要素の中で一番下になっている要素の位置」から「タイル配置要素の開始位置」を引くことで求めることができます。<br />
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 42, 46"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 38, 47"></code></pre>
   </div>
 </div>
 `; %>
