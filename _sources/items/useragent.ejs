@@ -1,0 +1,82 @@
+<!-- prettier-ignore -->
+<% const localTitle = 'パソコンなら〜スマホなら〜（ユーザーエージェント）'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p data-jscopyand="useragent"></p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  var target = document.querySelector('[data-jscopyand="useragent"]');
+  if (/iPhone|Android.+Mobile/.test(window.navigator.userAgent)) {
+    target.innerText = 'スマートフォンでアクセスされています';
+  } else if (/iPad|Android/.test(window.navigator.userAgent)) {
+    target.innerText = 'タブレットでアクセスされています';
+  } else {
+    target.innerText = 'パソコンでアクセスされています';
+  }
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode"
+      >if (/iPhone|Android.+Mobile/.test(window.navigator.userAgent)) {
+      スマートフォン向けの処理をここに記述してください }</code
+    ><br />
+    <code class="inlineCode"
+      >else if (/iPad|Android/.test(window.navigator.userAgent)) {
+      タブレット向けの処理をここに記述してください }</code
+    ><br />
+    <code class="inlineCode"
+      >else { パソコン向けの処理をここに記述してください }</code
+    ><br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      <code class="inlineCode">window.navigator.userAgent</code
+      >の文字列を確認することで端末を特定することできます。<br />
+      スマートフォンの場合、iPhone または Android という文字列の後に Mobile
+      という文字列が来ます。<br />
+      これを正規表現と、正規表現で表した文字列があるかどうかを確認する<code
+        class="inlineCode"
+        >test</code
+      >というメソッドを使って確認します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 3"></code></pre>
+    <p class="jsDescription__body__text">
+      スマートフォンではなかった場合、iPad または Android
+      という文字列があればタブレットになります。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 4, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      スマートフォンでもタブレットでもなかった場合はパソコンとして扱います。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 7"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
