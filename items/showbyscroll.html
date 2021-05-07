@@ -1,0 +1,279 @@
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NXBYB3XL7L"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXBYB3XL7L');
+</script>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>スクロールしたら要素を表示する | JavaScriptコピペ館</title>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+<link rel="stylesheet" href="/jscopyand/css/style.css" />
+
+<link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+  
+  <p class="header__title">JavaScriptコピペ館</p>
+  
+</header>
+
+      <main class="main">
+        <h1 class="main__title">スクロールしたら要素を表示する</h1>
+        <section class="itemSection">
+          <h2 class="itemSection__title">デモ</h2>
+          
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <style>
+    .demoShowByScroll {
+      background: white;
+      padding: 30px;
+    }
+  </style>
+  <p>
+    スクロールしてください。一定位置にスクロールすると上部要素が表示・非表示になります。<br />
+  </p>
+  <div data-jscopyand="showbyscroll">
+    <p class="demoShowByScroll">余白です。</p>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">JSコードコピー</h2>
+          <div class="jscopyand">
+            <div class="jscopyand__codeBlock">
+              <pre
+                class="jscopyand__codeBlock__codes"
+              ><code class="language-js" data-js-selector="jscopyand"></code></pre>
+              <p
+                class="jscopyand__codeBlock__copy"
+                data-js-selector="copy"
+                data-js-attributes="jscopyand"
+              >
+                <span
+                  class="far fa-clipboard jscopyand__codeBlock__copy__icon"
+                ></span
+                >コピーする
+              </p>
+            </div>
+            <p>
+              <a href="/jscopyand/helps/js.html" class="textLink"
+                >どこに置けばいい？貼り付けるだけでいい？ JavaScript
+                の基本を確認する</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">使い方</h2>
+          
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode">data-jscopyand="showbyscroll"</code>を付与した<code
+      class="inlineCode"
+      >div</code
+    >要素を任意の場所に配置してください。<br />
+    子要素には画面上部に固定表示したい任意の要素を置いてください。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">解説</h2>
+          
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      どの位置までスクロールしたら表示を切り替えるか？の境界線を変数で定義します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2"></code></pre>
+    <p class="jsDescription__body__text">
+      境界線を超えているかどうか？の判定を保持する変数を定義します。<br />
+      画面リロードした場合など、最初から境界線を超えている可能性もあるため、現在のスクロール位置と境界線を比較します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 3"></code></pre>
+    <p class="jsDescription__body__text">
+      表示・非表示を切り替える要素を特定します。<br />
+      同時に上部固定になるようにスタイルを付与します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 4, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      表示切り替え関数を定義します。<br />
+      画面外から画面内に入ってくるようなアニメーションにするため、<code
+        class="inlineCode"
+        >transform</code
+      >スタイルを使用します。<br />
+      非表示関数は自身の高さ分上にずらすようにします。<br />
+      表示関数はずらしたスタイルを消すだけです。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 11"></code></pre>
+    <p class="jsDescription__body__text">
+      <code class="inlineCode">isOver</code>変数を確認し、初期状態を表示 or
+      非表示にしておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 12"></code></pre>
+    <p class="jsDescription__body__text">
+      スクロールイベントを設定していきます。<br />
+      現在のスクロール位置が境界線を超えているか？<br />
+      前回のスクロールイベント時に境界線を超えていたか？（<code
+        class="inlineCode"
+        >isOver</code
+      >変数の確認）<br />
+      の２つをセットで確認します。<br />
+      この条件に応じて表示切り替え関数と<code class="inlineCode">isOver</code
+      >変数の更新を行います。<br />
+      <code class="inlineCode">isOver</code
+      >変数は境界線を跨いだ時に処理を１度だけに制限するのに役立ちます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 13, 22"></code></pre>
+    <p class="jsDescription__body__text">
+      最後にアニメーションを有効にするためのスタイルを追加します。<br />
+      <code class="inlineCode">setTimeout</code
+      >をしているのは、初期状態を決める時に呼んだ関数がアニメーションにならないようにするためです。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 23, 25"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
+          <p class="help">
+            機能に関するご質問は、このページの下部に表示されている Twitter
+            のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br />
+            導入サポートやカスタマイズも有償にてお受け致しますので、 DM
+            等でご連絡ください。<br />
+          </p>
+        </section>
+      </main>
+      <footer class="footer">
+  <ul class="footer__contact">
+    <li class="footer__contact__item">
+      <a
+        href="https://twitter.com/bgn_nakazato"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-twitter"></span>
+      </a>
+    </li>
+    <li class="footer__contact__item">
+      <a
+        href="https://github.com/nkzttt/jscopyand"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-github"></span>
+      </a>
+    </li>
+  </ul>
+  <p class="copyright">
+    <span class="copyright__mark">&copy;</span> 2021 nkzttt
+  </p>
+</footer>
+
+    </div>
+    <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
+<script src="/jscopyand/lib/prism.js" data-manual></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
+</script>
+<!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
+<script
+  src="https://kit.fontawesome.com/f7818d968c.js"
+  crossorigin="anonymous"
+></script>
+<script src="/jscopyand/script.js"></script>
+
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var border = 100;
+    var isOver = window.pageYOffset >= border;
+    var target = document.querySelector('[data-jscopyand="showbyscroll"]');
+    target.style = 'position: fixed; top: 0; left: 0; right: 0; z-index: 99;';
+    var show = function () {
+      target.style.transform = 'translateY(0)';
+    };
+    var hide = function () {
+      target.style.transform = 'translateY(' + -target.offsetHeight + 'px)';
+    };
+    isOver ? show() : hide();
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset >= border && !isOver) {
+        show();
+        isOver = true;
+      }
+      if (window.pageYOffset < border && isOver) {
+        hide();
+        isOver = false;
+      }
+    });
+    setTimeout(function () {
+      target.style.transition = 'transform 300ms ease-out';
+    }, 0);
+  })();
+</script>
+
+  </body>
+</html>
+
