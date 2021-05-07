@@ -134,13 +134,6 @@
   </p>
   <div class="jsDescription__body">
     <p class="jsDescription__body__text">
-      最初にスクロールアニメーションの速度を指定します。<br />
-      この値が大きいほどアニメーションが速くなります。<br />
-    </p>
-    <pre
-      class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2"></code></pre>
-    <p class="jsDescription__body__text">
       このスクロールアニメーション機能は１画面で複数の設置を想定しているため、<code
         class="inlineCode"
         >document.querySelectorAll</code
@@ -148,13 +141,13 @@
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 3, 5"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 4"></code></pre>
     <p class="jsDescription__body__text">
       取得した全トリガー要素に対して反復処理を行い、イベントを設定していきます。<br />
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 7"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 5, 6"></code></pre>
     <p class="jsDescription__body__text">
       スクロール先の要素を特定します。<br />
       <code class="inlineCode">data-jscopyand-attributes="id名"</code
@@ -167,43 +160,20 @@
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 8, 12"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 7, 11"></code></pre>
     <p class="jsDescription__body__text">
-      <code class="inlineCode">getBoundingClientRect().top</code
-      >で対象要素までのスクロール量を取得します。<br />
-      １回のスクロール量計算の際に使うため、負の値かどうかを確認し、結果を変数に格納しておきます。<br />
-      アニメーション関数を定義していきます。<br />
+      <code class="inlineCode">window.scrollTo</code
+      >で任意の位置までスクロールさせます。<br />
+      オプションの<code class="inlineCode">top</code
+      >にスクロール後の位置を指定します。<br />
+      これは現在のスクロール位置 +
+      スクロール先の要素までのスクロール量で求めます。<br />
+      オプションに<code class="inlineCode">behavior: 'smooth'</code
+      >を指定することでアニメーションになります。<br />
     </p>
     <pre
       class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 13, 17"></code></pre>
-    <p class="jsDescription__body__text">
-      １度のスクロール量を計算します。<br />
-      内容は、最大値を最初に設定したアニメーション速度に、最小値を１に制限する、というものです。<br />
-      最初に絶対値で計算した後、<code class="inlineCode">isMinus</code
-      >なら負の値に戻します。<br />
-    </p>
-    <pre
-      class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 18, 25"></code></pre>
-    <p class="jsDescription__body__text">
-      ここで一度スクロールを実行します。<br />
-      残りのスクロール量から今回のスクロール量を引き、まだ残っている場合には<code
-        class="inlineCode"
-        >requestAnimationFrame</code
-      >で自身を呼び、ループさせます。<br />
-      <code class="inlineCode">requestAnimationFrame</code
-      >はアニメーションに最適な形で関数をループ処理してくれます。<br />
-    </p>
-    <pre
-      class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 26, 29"></code></pre>
-    <p class="jsDescription__body__text">
-      最後に定義したアニメーション関数を呼んで完了です。<br />
-    </p>
-    <pre
-      class="jsDescription__body__code"
-    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 31"></code></pre>
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 12, 15"></code></pre>
   </div>
 </div>
 
@@ -261,7 +231,6 @@
  
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
   (function () {
-    var scrollStep = 50;
     var triggers = document.querySelectorAll(
       '[data-jscopyand="scrollanimation"]'
     );
@@ -272,25 +241,10 @@
           ? document.querySelector('#' + targetId)
           : document.body;
         if (!target) return;
-        var remainingScrollAmount = Math.floor(
-          target.getBoundingClientRect().top
-        );
-        var isMinus = remainingScrollAmount < 0;
-        var animate = function () {
-          var scrollAmount =
-            Math.max(
-              Math.min(
-                Math.round(Math.abs(remainingScrollAmount) * 0.2),
-                scrollStep
-              ),
-              1
-            ) * (isMinus ? -1 : 1);
-          scrollBy(0, scrollAmount);
-          remainingScrollAmount -= scrollAmount;
-          if (remainingScrollAmount !== 0)
-            window.requestAnimationFrame(animate);
-        };
-        animate();
+        window.scrollTo({
+          top: window.pageYOffset + target.getBoundingClientRect().top,
+          behavior: 'smooth',
+        });
       });
     });
   })();
