@@ -1,0 +1,77 @@
+<!-- prettier-ignore -->
+<% const localTitle = 'パラメータパース'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p>パース結果：<span data-js-selector="demo"></span></p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  var params = {};
+  new URLSearchParams(location.search.substring(1)).forEach(function (
+    value,
+    key
+  ) {
+    params[key] = value;
+  });
+</script>
+<script>
+  document.querySelector(
+    '[data-js-selector="demo"]'
+  ).innerText = JSON.stringify(params);
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    本コードをコピー＆ペーストした後、<code class="inlineCode">params</code
+    >変数を利用して任意の処理を行ってください。<br />
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      URLのパラーメタ文字列をオブジェクトに変換するため、変数を定義しておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 1"></code></pre>
+    <p class="jsDescription__body__text">
+      <code class="inlineCode">location.search</code>には URL
+      のパラーメタ部分の文字列が入っています。<br />
+      これは ? を含むため、<code class="inlineCode">substring(1)</code>で ?
+      を除外した文字列を取得します。<br />
+      取得した文字列を<code class="inlineCode">URLSearchParams</code
+      >という関数に渡すことで、パラメータに対して様々な処理を行うことができるようになります。<br />
+      今回は<code class="inlineCode">forEach</code>というメソッドで、 value /
+      key の組み合わせが引数に渡ってくる反復処理を行います。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      渡ってきた value / key
+      を最初に定義したオブジェクトの変数に入れていきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
