@@ -51,6 +51,28 @@ body {
     transform: translateY(3px);
   }
 }
+.notification {
+  display: flex;
+  position: fixed;
+  bottom: functions.multiplicationSpacingUnit(2);
+  right: functions.multiplicationSpacingUnit(2);
+  padding: functions.multiplicationSpacingUnit(2);
+  color: variables.$color-black;
+  background: variables.$color-visual-thick;
+  text-decoration: none;
+  &__icon {
+    font-size: variables.$size-large;
+  }
+  &__text {
+    padding-left: variables.$spacing-unit;
+    font-size: variables.$size-small;
+    line-height: 1.5;
+    text-decoration: underline;
+  }
+  &:hover &__text {
+    text-decoration: none;
+  }
+}
 
 .main {
   padding: functions.multiplicationSpacingUnit(5);

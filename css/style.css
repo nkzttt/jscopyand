@@ -62,6 +62,29 @@ body {
   transform: translateY(3px);
 }
 
+.notification {
+  display: flex;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  padding: 16px;
+  color: #4d4d4d;
+  background: #dedebf;
+  text-decoration: none;
+}
+.notification__icon {
+  font-size: 18px;
+}
+.notification__text {
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: underline;
+}
+.notification:hover .notification__text {
+  text-decoration: none;
+}
+
 .main {
   padding: 40px;
 }
