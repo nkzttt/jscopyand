@@ -18,9 +18,18 @@ body {
 .header {
   padding: functions.multiplicationSpacingUnit(2);
   background: variables.$color-visual-thick;
-  &__title {
-    font-size: variables.$size-large;
-    font-weight: normal;
+  &__titleLink {
+    display: inline-block;
+    color: variables.$color-black;
+    text-decoration: none;
+    &__text {
+      font-size: variables.$size-large;
+      font-weight: normal;
+      &__prefixIcon {
+        display: inline-block;
+        margin-right: variables.$spacing-unit;
+      }
+    }
   }
 }
 

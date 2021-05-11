@@ -28,9 +28,18 @@ body {
   padding: 16px;
   background: #dedebf;
 }
-.header__title {
+.header__titleLink {
+  display: inline-block;
+  color: #4d4d4d;
+  text-decoration: none;
+}
+.header__titleLink__text {
   font-size: 18px;
   font-weight: normal;
+}
+.header__titleLink__text__prefixIcon {
+  display: inline-block;
+  margin-right: 8px;
 }
 
 .footer {
