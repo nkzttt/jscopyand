@@ -19,7 +19,7 @@
     var afterThreeDayStr =
       year + '-' + padZero(month) + '-' + padZero(date) + ' 23:59:59';
     var target = document.querySelector('[data-jscopyand="timer"]');
-    target.dataset.jscopyandAttribute = afterThreeDayStr;
+    target.dataset.jscopyandAttributes = afterThreeDayStr;
   })();
 </script>
 `; %>
@@ -33,7 +33,7 @@
     var hourTime = minuteTime * 60;
     var dayTime = hourTime * 24;
     var target = document.querySelector('[data-jscopyand="timer"]');
-    var targetDateTime = new Date(target.dataset.jscopyandAttribute).getTime();
+    var targetDateTime = new Date(target.dataset.jscopyandAttributes).getTime();
     var update = function () {
       var remainingTimeForDay = targetDateTime - Date.now();
       var day = Math.floor(remainingTimeForDay / dayTime);
@@ -70,7 +70,7 @@
     任意の空の要素を用意し、そこに<code class="inlineCode"
       >data-jscopyand="timer"</code
     >と、期限となる日時を<code class="inlineCode"
-      >data-jscopyand-attribute="2021-01-01 23:59:59"</code
+      >data-jscopyand-attributes="2021-01-01 23:59:59"</code
     >のような形式で付与してください。<br />
   </p>
   <div>
@@ -97,7 +97,7 @@
     ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 5"></code></pre>
     <p class="jsDescription__body__text">
       期限取得元かつ描画先となる要素を取得し、変数に格納します。<br />
-      <code class="inlineCode">data-jscopyand-attribute</code>属性には<code
+      <code class="inlineCode">data-jscopyand-attributes</code>属性には<code
         class="inlineCode"
         >new Date</code
       >可能な文字列が入っているため、その値で<code class="inlineCode">Date</code

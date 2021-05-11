@@ -37,7 +37,7 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>１つ前の画面に戻る | JavaScriptコピペ館</title>
+<title>画面を閉じる | JavaScriptコピペ館</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" href="/jscopyand/css/style.css" />
 
@@ -53,12 +53,18 @@
 </header>
 
       <main class="main">
-        <h1 class="main__title">１つ前の画面に戻る</h1>
+        <h1 class="main__title">画面を閉じる</h1>
         <section class="itemSection">
           <h2 class="itemSection__title">デモ</h2>
           
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
-  <p data-jscopyand="back">押してください</p>
+  <p
+    data-jscopyand="open"
+    data-jscopyand-attributes="/jscopyand/items/close.html"
+  >
+    押してください（別画面を開きます）
+  </p>
+  <p data-jscopyand="close">押してください（自画面を閉じます）</p>
 </div>
 
         </section>
@@ -93,10 +99,19 @@
           
 <div class="howToUse">
   <p class="howToUse__description">
-    １つ前の画面に戻すためのトリガーとなる任意の要素を１つ置き、<code
+    JavaScript で閉じる機能を使うためには、閉じる対象となる画面を JavaScript
+    から開く必要があります。<br />
+    画面を開くためのトリガーとなる任意の要素を１つ置き、<code class="inlineCode"
+      >data-jscopyand="open"</code
+    >と、開く画面の URL を<code class="inlineCode"
+      >data-jscopyand-attributes="URL"</code
+    >の形で付与してください。<br />
+    閉じる対象となる画面に、画面を閉じるためのトリガーとなる任意の要素を１つ置き、<code
       class="inlineCode"
-      >data-jscopyand="back"</code
+      >data-jscopyand="close"</code
     >を付与してください。<br />
+    もし JavaScript
+    で開かれた画面ではない場合、この要素を押しても何も起きません。<br />
   </p>
   <div>
     <p class="button" data-js-selector="accordion" data-js-attributes="remove">
@@ -116,18 +131,35 @@
   </p>
   <div class="jsDescription__body">
     <p class="jsDescription__body__text">
-      トリガー要素を取得し、イベントを設定します。<br />
+      画面を開くためのトリガー要素を取得し、イベントを設定します。<br />
     </p>
     <pre
       class="jsDescription__body__code"
     ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 3"></code></pre>
     <p class="jsDescription__body__text">
-      画面を１つ前に戻すには<code class="inlineCode">history.back</code
+      画面を JavaScript から開くには<code class="inlineCode">window.open</code
       >というメソッドを使用します。<br />
+      引数には URL 情報としてトリガー要素に付与されている<code
+        class="inlineCode"
+        >data-jscopyand-attributes</code
+      >を使います。<br />
     </p>
     <pre
       class="jsDescription__body__code"
     ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 4"></code></pre>
+    <p class="jsDescription__body__text">
+      画面を閉じるためのトリガー要素を取得し、イベントを設定します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 7"></code></pre>
+    <p class="jsDescription__body__text">
+      画面を閉じるには<code class="inlineCode">window.close</code
+      >というメソッドを使用します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 8"></code></pre>
   </div>
 </div>
 
@@ -185,9 +217,13 @@
  
 <script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
   (function () {
-    var trigger = document.querySelector('[data-jscopyand="back"]');
-    trigger.addEventListener('click', function () {
-      history.back();
+    var openTrigger = document.querySelector('[data-jscopyand="open"]');
+    openTrigger.addEventListener('click', function () {
+      window.open(this.dataset.jscopyandAttributes);
+    });
+    var closeTrigger = document.querySelector('[data-jscopyand="close"]');
+    closeTrigger.addEventListener('click', function () {
+      window.close();
     });
   })();
 </script>

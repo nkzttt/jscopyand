@@ -4,7 +4,7 @@
 <!-- prettier-ignore -->
 <% const demo = `
 <div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
-  <p data-jscopyand="copytext" data-jscopyand-attribute="target">
+  <p data-jscopyand="copytext" data-jscopyand-attributes="target">
     押してください
   </p>
   <p id="target">
@@ -23,7 +23,7 @@
     triggers.forEach(function (trigger) {
       trigger.addEventListener('click', function () {
         var target = document.querySelector(
-          '#' + this.dataset.jscopyandAttribute
+          '#' + this.dataset.jscopyandAttributes
         );
         if (!target) return;
         window.navigator.clipboard
@@ -48,7 +48,7 @@
       >id</code
     >を付与してください。<br />
     コピーのトリガーになる要素に<code class="inlineCode"
-      >data-jscopyand-attribute="id名"</code
+      >data-jscopyand-attributes="id名"</code
     >を付与してください。<br />
   </p>
   <div>
@@ -84,7 +84,7 @@
     ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 3, 4"></code></pre>
     <p class="jsDescription__body__text">
       トリガー要素が持っている<code class="inlineCode"
-        >data-jscopyand-attribute</code
+        >data-jscopyand-attributes</code
       >属性を使い、コピーの対象となる要素を特定します。<br />
       もしも対象の要素が存在しなかった場合は処理を終了します。<br />
     </p>
