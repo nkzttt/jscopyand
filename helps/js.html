@@ -50,23 +50,59 @@
               どこに書けばいい？
             </p>
             <p class="jsBasics__item__body">
+              既に<code class="inlineCode">.js</code
+              >ファイルがある、または新たに作成する場合はそこにコードを書いてください。<br />
+              <code class="inlineCode">.js</code
+              >を作りたくない、よくわからない場合は<code class="inlineCode"
+                >&lt;script&gt;&lt;/script&gt;</code
+              >というタグを作成し、その中にコードを書いてください。
+            </p>
+          </li>
+          <li class="jsBasics__item">
+            <p data-js-selector="accordion" class="jsBasics__item__trigger">
+              どこで読み込めばいい？
+            </p>
+            <p class="jsBasics__item__body">
               <code class="inlineCode">&lt;/body&gt;</code
-              >の直上に書いてください。<br />
+              >の直上で読み込んでください。<br />
               当サイトで紹介している JavaScript コードは、 HTML
               コードが先に読み込まれている必要があります。<br />
             </p>
           </li>
           <li class="jsBasics__item">
             <p data-js-selector="accordion" class="jsBasics__item__trigger">
-              貼り付けるだけでいい？
+              <code class="inlineCode">(function () {})()</code>ってなに？
             </p>
             <p class="jsBasics__item__body">
-              既に<code class="inlineCode">.js</code
-              >ファイルがある、または新たに作成する場合は貼り付けるだけで良いです。<br />
-              <code class="inlineCode">.js</code
-              >を作りたくない、よくわからない場合は<code class="inlineCode"
-                >&lt;script&gt;&lt;/script&gt;</code
-              >というタグを作成し、その中に貼り付けてください。
+              即時関数と呼ばれるものです。<br />
+              JavaScript
+              にはスコープというものが存在し、もし同じ名前の変数を定義してしまうと、先に定義してあったものは上書きされてしまいます。<br />
+              即時関数はスコープを作ることができるため、意図せず他のライブラリの変数などを上書きしてしまう、といったことを避けることができます。<br />
+            </p>
+          </li>
+          <li class="jsBasics__item">
+            <p data-js-selector="accordion" class="jsBasics__item__trigger">
+              <code class="inlineCode">window</code>とか<code class="inlineCode"
+                >document</code
+              >ってなに？
+            </p>
+            <p class="jsBasics__item__body">
+              JavaScript には<code class="inlineCode">window</code
+              >という特別な変数が最初から存在しています。<br />
+              <code class="inlineCode">window</code>変数の中には<code
+                class="inlineCode"
+                >document</code
+              >などの様々なプロパティが存在しています。<br />
+              <code class="inlineCode">window</code
+              >変数の中のプロパティはグローバル変数になるため、<code
+                class="inlineCode"
+                >window.document</code
+              >でも<code class="inlineCode">document</code
+              >でもアクセス可能となっています。<br />
+              もしもグローバルスコープで独自の変数を定義した場合、それは<code
+                class="inlineCode"
+                >window</code
+              >のプロパティとしてもアクセス可能になります。<br />
             </p>
           </li>
         </ul>
