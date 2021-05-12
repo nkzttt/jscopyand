@@ -106,3 +106,27 @@
     history.back();
   });
 })();
+
+/**
+ * keyword filter
+ */
+(function () {
+  var keywordFilter = document.querySelector(
+    '[data-js-selector="keywordFilter"]'
+  );
+  var input = keywordFilter.querySelector('input');
+  var indexes = Array.from(keywordFilter.nextElementSibling.children);
+  input.addEventListener('input', function () {
+    var value = this.value;
+    var reg = new RegExp(value);
+    indexes.forEach(function (item) {
+      if (!value) {
+        item.style.display = '';
+        return;
+      }
+      var hasValue =
+        reg.test(item.innerText) || reg.test(item.dataset.jsAttributes);
+      item.style.display = hasValue ? '' : 'none';
+    });
+  });
+})();

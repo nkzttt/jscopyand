@@ -2,86 +2,107 @@
 <% const items = [
   {
     label: '全画面ローディング',
+    forSearch: 'ぜんがめんろーでぃんぐ',
     linkTo: '/jscopyand/items/loading.html'
   },
   {
     label: '開閉項目（アコーディオン）',
+    forSearch: 'かいへいこうもく（アコーディオン）',
     linkTo: '/jscopyand/items/accordion.html'
   },
   {
     label: 'タブ',
+    forSearch: 'たぶ',
     linkTo: '/jscopyand/items/tabs.html'
   },
   {
     label: 'メニュー',
+    forSearch: 'めにゅー',
     linkTo: '/jscopyand/items/menu.html'
   },
   {
     label: 'スライダー（カルーセル）',
+    forSearch: 'すらいだー（かるーせる）',
     linkTo: '/jscopyand/items/slider.html'
   },
   {
     label: 'モーダル',
+    forSearch: 'もーだる',
     linkTo: '/jscopyand/items/modal.html'
   },
   {
     label: 'タイル配置',
+    forSearch: 'たいるはいち',
     linkTo: '/jscopyand/items/tile.html'
   },
   {
     label: 'スクロールアニメーション',
+    forSearch: 'すくろーるあにめーしょん',
     linkTo: '/jscopyand/items/scrollanimation.html'
   },
   {
     label: 'スクロールしたら要素を表示する',
+    forSearch: 'すくろーるしたらようそをひょうじする',
     linkTo: '/jscopyand/items/showbyscroll.html'
   },
   {
     label: 'タイマー',
+    forSearch: 'たいまー',
     linkTo: '/jscopyand/items/timer.html'
   },
   {
     label: 'テキストコピー',
+    forSearch: 'てきすとこぴー',
     linkTo: '/jscopyand/items/copytext.html'
   },
   {
     label: '画面リロード',
+    forSearch: 'がめんりろーど',
     linkTo: '/jscopyand/items/reload.html'
   },
   {
     label: '１つ前の画面に戻る',
+    forSearch: 'ひとつまえのがめんにもどる',
     linkTo: '/jscopyand/items/back.html'
   },
   {
     label: '画面を閉じる',
+    forSearch: 'がめんをとじる',
     linkTo: '/jscopyand/items/close.html'
   },
   {
     label: '間引き（throttle / debounce）',
+    forSearch: 'まびき（throttle / debounce）',
     linkTo: '/jscopyand/items/thinning.html'
   },
   {
     label: 'スクロールしたら〜',
+    forSearch: 'すくろーるしたら',
     linkTo: '/jscopyand/items/scroll.html'
   },
   {
     label: 'リサイズしたら〜',
+    forSearch: 'りさいずしたら',
     linkTo: '/jscopyand/items/resize.html'
   },
   {
     label: '画面に入ったら〜',
+    forSearch: 'がめんにはいったら',
     linkTo: '/jscopyand/items/screenin.html'
   },
   {
     label: 'パソコンなら〜スマホなら〜（ユーザーエージェント）',
+    forSearch: 'ぱそこんならすまほまら（ゆーざーえーじぇんと）',
     linkTo: '/jscopyand/items/useragent.html'
   },
   {
     label: '離脱前に確認する',
+    forSearch: 'りだつまえにかくにんする',
     linkTo: '/jscopyand/items/beforeunload.html'
   },
   {
     label: 'パラメータパース',
+    forSearch: 'ぱらめーたぱーす',
     linkTo: '/jscopyand/items/params.html'
   },
 ];%>
@@ -94,9 +115,13 @@
     <div class="container">
       <%- include('./_ejsModules/header', { isIndex: true }) %>
       <main class="main">
+        <div class="keywordFilter" data-js-selector="keywordFilter">
+          <p class="keywordFilter__label">キーワードで絞り込む</p>
+          <input type="text" class="keywordFilter__input" />
+        </div>
         <ul class="indexes">
-          <% items.forEach(({label, linkTo}) => { %>
-          <li class="indexes__item">
+          <% items.forEach(({label, forSearch, linkTo}) => { %>
+          <li class="indexes__item" data-js-attributes="<%= forSearch %>">
             <a href="<%= linkTo %>" class="indexes__item__link">
               <%= label %>
             </a>

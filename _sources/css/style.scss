@@ -95,6 +95,21 @@ body {
   }
 }
 
+.keywordFilter {
+  display: flex;
+  align-items: center;
+  margin-bottom: functions.multiplicationSpacingUnit(5);
+  &__label {
+    margin-right: functions.multiplicationSpacingUnit(2);
+  }
+  &__input {
+    height: functions.multiplicationSpacingUnit(5);
+    padding: 0 variables.$spacing-unit;
+    border: solid 1px variables.$color-gray;
+    background: variables.$color-white;
+  }
+}
+
 .indexes {
   list-style: none;
   &__item {

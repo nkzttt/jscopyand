@@ -106,6 +106,21 @@ body {
   font-weight: normal;
 }
 
+.keywordFilter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.keywordFilter__label {
+  margin-right: 16px;
+}
+.keywordFilter__input {
+  height: 40px;
+  padding: 0 8px;
+  border: solid 1px #969696;
+  background: #fafafa;
+}
+
 .indexes {
   list-style: none;
 }
