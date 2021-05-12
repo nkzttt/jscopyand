@@ -114,6 +114,7 @@
   var keywordFilter = document.querySelector(
     '[data-js-selector="keywordFilter"]'
   );
+  if (!keywordFilter) return;
   var input = keywordFilter.querySelector('input');
   var indexes = Array.from(keywordFilter.nextElementSibling.children);
   input.addEventListener('input', function () {
@@ -128,5 +129,20 @@
         reg.test(item.innerText) || reg.test(item.dataset.jsAttributes);
       item.style.display = hasValue ? '' : 'none';
     });
+  });
+})();
+
+/**
+ * for root
+ */
+(function () {
+  if (window === window.parent) return;
+  document.body.classList.add('as-iframe');
+  Array.from(document.querySelector('.container').children).forEach(function (
+    element
+  ) {
+    if (!element.classList.contains('main')) {
+      element.style.display = 'none';
+    }
   });
 })();

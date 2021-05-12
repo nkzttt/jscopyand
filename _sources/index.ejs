@@ -7,7 +7,7 @@
   },
   {
     label: '開閉項目（アコーディオン）',
-    forSearch: 'かいへいこうもく（アコーディオン）',
+    forSearch: 'かいへいこうもく（あこーでぃおん）',
     linkTo: '/jscopyand/items/accordion.html'
   },
   {
@@ -72,7 +72,7 @@
   },
   {
     label: '間引き（throttle / debounce）',
-    forSearch: 'まびき（throttle / debounce）',
+    forSearch: 'まびき（すろっとる / でばうんす）',
     linkTo: '/jscopyand/items/thinning.html'
   },
   {
@@ -122,7 +122,11 @@
         <ul class="indexes">
           <% items.forEach(({label, forSearch, linkTo}) => { %>
           <li class="indexes__item" data-js-attributes="<%= forSearch %>">
-            <a href="<%= linkTo %>" class="indexes__item__link">
+            <a
+              href="<%= linkTo %>"
+              target="_parent"
+              class="indexes__item__link"
+            >
               <%= label %>
             </a>
           </li>

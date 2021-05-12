@@ -9,6 +9,18 @@ body {
   font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ',
     'Meiryo', sans-serif;
   line-height: 1;
+  &.as-iframe {
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+    &::-webkit-scrollbar:vertical {
+      width: variables.$spacing-unit;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: variables.$spacing-unit;
+      background: variables.$color-gray;
+    }
+  }
 }
 
 .container {
@@ -232,4 +244,10 @@ body {
   &__icon {
     margin-right: variables.$spacing-unit;
   }
+}
+
+.indexesFrame {
+  width: 100%;
+  height: 30vh;
+  border: solid 1px variables.$color-visual-thick;
 }

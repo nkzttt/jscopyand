@@ -19,6 +19,16 @@ body {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
   line-height: 1;
 }
+body.as-iframe::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+body.as-iframe::-webkit-scrollbar:vertical {
+  width: 8px;
+}
+body.as-iframe::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #969696;
+}
 
 .container {
   background: #f2f2e9;
@@ -237,4 +247,10 @@ body {
 }
 .backLink__icon {
   margin-right: 8px;
+}
+
+.indexesFrame {
+  width: 100%;
+  height: 30vh;
+  border: solid 1px #dedebf;
 }
