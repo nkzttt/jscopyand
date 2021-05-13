@@ -71,7 +71,12 @@
 <!-- prettier-ignore -->
 <% const jsDescription = `
 <div class="jsDescription">
-  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+  <p
+    class="button"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+    onclick="gtag('event', 'cv', { event_category: 'openedJsCodes' })"
+  >
     JSコードの解説を見てみる
   </p>
   <div class="jsDescription__body">

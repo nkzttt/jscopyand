@@ -78,6 +78,7 @@
                 class="jscopyand__codeBlock__copy"
                 data-js-selector="copy"
                 data-js-attributes="jscopyand"
+                onclick="gtag('event', 'cv', { event_category: 'copiedJsCodes' })"
               >
                 <span
                   class="far fa-clipboard jscopyand__codeBlock__copy__icon"
@@ -117,7 +118,12 @@
           <h2 class="itemSection__title">解説</h2>
           
 <div class="jsDescription">
-  <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+  <p
+    class="button"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+    onclick="gtag('event', 'cv', { event_category: 'openedJsCodes' })"
+  >
     JSコードの解説を見てみる
   </p>
   <div class="jsDescription__body">
