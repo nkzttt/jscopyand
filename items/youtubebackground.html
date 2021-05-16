@@ -1,0 +1,381 @@
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NXBYB3XL7L"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXBYB3XL7L');
+</script>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>YouTube動画を背景全画面で再生する | JavaScriptコピペ館</title>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+<link rel="stylesheet" href="/jscopyand/css/style.css" />
+
+<link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <a href="/jscopyand/" class="header__titleLink">
+    
+    <p class="header__titleLink__text">
+      <span class="header__titleLink__text__prefixIcon fas fa-code"></span
+      >JavaScriptコピペ館
+    </p>
+    
+  </a>
+</header>
+
+      <main class="main">
+        <h1 class="main__title">YouTube動画を背景全画面で再生する</h1>
+        <section class="itemSection">
+          <h2 class="itemSection__title">デモ</h2>
+          
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <div
+    data-js-selector="youtubeBackground"
+    data-jscopyand-attributes="2jfhsE6eJrg"
+  ></div>
+  <!-- 以下は本機能には関係ありません -->
+  <p>パソコンで閲覧いただくと背景に動画がループ再生されます</p>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">JSコードコピー</h2>
+          <div class="jscopyand">
+            <div class="jscopyand__codeBlock">
+              <pre
+                class="jscopyand__codeBlock__codes"
+              ><code class="language-js" data-js-selector="jscopyand"></code></pre>
+              <p
+                class="jscopyand__codeBlock__copy"
+                data-js-selector="copy"
+                data-js-attributes="jscopyand"
+                onclick="gtag('event', 'cv', { event_category: 'copiedJsCodes' })"
+              >
+                <span
+                  class="far fa-clipboard jscopyand__codeBlock__copy__icon"
+                ></span
+                >コピーする
+              </p>
+            </div>
+            <p>
+              <a href="/jscopyand/helps/js.html" class="textLink"
+                >どこに書けばいい？どこで読み込めばいい？ JavaScript
+                の基本を確認する</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">使い方</h2>
+          
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode">div</code
+    >要素を１つ用意し、任意の場所を配置してください。<br />
+    （配置場所によって表示が変わる可能性があります。うまくいかない場合は配置場所を変えてみてください。）<br />
+    その要素に<code class="inlineCode">data-jscopyand="youtubeBackground"</code
+    >と、<code class="inlineCode">data-jscopyand-attributes="動画ID"</code
+    >を付与してください。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">解説</h2>
+          
+<div class="jsDescription">
+  <p
+    class="button"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+    onclick="gtag('event', 'cv', { event_category: 'openedJsCodes' })"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      YouTube動画を配置する要素を<code class="inlineCode"
+        >document.querySelector</code
+      >で取得します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 4"></code></pre>
+    <p class="jsDescription__body__text">
+      YouTube動画は指定した要素を<code class="inlineCode">iframe</code
+      >に変えて表示します。<br />
+      （詳しくは
+      <a
+        href="https://developers.google.com/youtube/iframe_api_reference?hl=ja"
+        class="textLink"
+        target="_blank"
+        >Youtube IFrame Player API</a
+      >
+      を参照してください。）<br />
+      そのため、<code class="inlineCode">iframe</code>に書き変わる<code
+        class="inlineCode"
+        >div</code
+      >要素を子要素に持つようにしておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 5, 6"></code></pre>
+    <p class="jsDescription__body__text">
+      動画を背景全画面に配置するため、サイズを特定していきます。<br />
+      <code class="inlineCode">baseWidth / baseHeight</code
+      >の値は動画プレイヤーの初期値です。<br />
+      これを使って横幅を比率を求め、変数<code class="inlineCode"
+        >widthRatio</code
+      >に保持しておきます。<br />
+      現在の画面サイズが<code class="inlineCode">widthRatio</code
+      >を超えているかどうか？の判定結果を変数<code class="inlineCode"
+        >isWideWindow</code
+      >に保持しておきます。<br />
+      最終的なサイズは<code class="inlineCode">isWideWindow</code>と<code
+        class="inlineCode"
+        >widthRatio</code
+      >を使い、現在の画面サイズに演算して求めます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 7, 16"></code></pre>
+    <p class="jsDescription__body__text">
+      スタイルを当てていきます。<br />
+      背景に固定表示するためのスタイルと、再生が開始されるまで画面がチラつかないように<code
+        class="inlineCode"
+        >opacity: 0;</code
+      >を当てておきます。<br />
+      <code class="inlineCode">isWideWindow</code
+      >を使い、動画が画面中央になるように位置調整をしておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 17, 23"></code></pre>
+    <p class="jsDescription__body__text">
+      動画プレイヤーの設定をしていきます。<br />
+      準備できた動画プレイヤーを保持しておくための変数<code class="inlineCode"
+        >player</code
+      >を定義しておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 24"></code></pre>
+    <p class="jsDescription__body__text">
+      まずは動画の設定が可能になった時に呼び出させれる関数を定義します。<br />
+      <a
+        href="https://developers.google.com/youtube/iframe_api_reference?hl=ja"
+        class="textLink"
+        target="_blank"
+        >Youtube IFrame Player API</a
+      >
+      を参考にしつつ、引数に先に求めていた動画サイズの指定、YouTube動画を配置する要素に指定してあった動画IDの取得と指定、この後に呼び出される各関数の指定をしておきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 25, 35"></code></pre>
+    <p class="jsDescription__body__text">
+      次に動画プレイヤーの準備ができた時に呼び出される関数を定義します。<br />
+      自動再生をするためにミュートにしてから再生を指示します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 36, 39"></code></pre>
+    <p class="jsDescription__body__text">
+      続いて再生状況が変わった時に呼び出される関数を定義します。<br />
+      引数に渡ってくるオブジェクトの<code class="inlineCode">data</code
+      >というプロパティには、状況を判断できる数値が入っています。<br />
+      <code class="inlineCode">1</code
+      >は再生が始まったことを表しています。<br />
+      この段階で<code class="inlineCode">opacity: 0;</code
+      >で非表示にしていた動画プレイヤーを表示状態に戻します。<br />
+      <code class="inlineCode">0</code
+      >は再生時間が最後まで到達し、終了したことを表しています。<br />
+      再生をループさせるため、再度動画再生を指示します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 40, 51"></code></pre>
+    <p class="jsDescription__body__text">
+      最後に設定の呼び出しを開始します。<br />
+      <a
+        href="https://developers.google.com/youtube/iframe_api_reference?hl=ja"
+        class="textLink"
+        target="_blank"
+        >Youtube IFrame Player API</a
+      >を使うために<code class="inlineCode">script</code
+      >を配置し、最初に呼び出される<code class="inlineCode"
+        >onYouTubeIframeAPIReady</code
+      >を<code class="inlineCode">window</code
+      >プロパティに指定することでグローバルな呼び出しを可能にします。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 52, 55"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
+          <p class="help">
+            機能に関するご質問は、このページの下部に表示されている Twitter
+            のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br />
+            導入サポートやカスタマイズも有償にてお受け致しますので、 DM
+            等でご連絡ください。<br />
+          </p>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">他のコードを探す</h2>
+          <iframe src="/jscopyand/" class="indexesFrame"></iframe>
+        </section>
+      </main>
+      <footer class="footer">
+  <ul class="footer__contact">
+    <li class="footer__contact__item">
+      <a
+        href="https://twitter.com/bgn_nakazato"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-twitter"></span>
+      </a>
+    </li>
+    <li class="footer__contact__item">
+      <a
+        href="https://github.com/nkzttt/jscopyand"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-github"></span>
+      </a>
+    </li>
+  </ul>
+  <p class="copyright">
+    <span class="copyright__mark">&copy;</span> 2021 nkzttt
+  </p>
+</footer>
+<a href="https://twitter.com/bgn_nakazato" target="_blank" class="notification">
+  <div class="notification__icon far fa-hand-point-right"></div>
+  <p class="notification__text">
+    リクエスト受付中です。<br />
+    Twitter の固定ツイートか DM にてご連絡ください。<br />
+  </p>
+</a>
+
+    </div>
+    <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
+<script src="/jscopyand/lib/prism.js" data-manual></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
+</script>
+<!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
+<script
+  src="https://kit.fontawesome.com/f7818d968c.js"
+  crossorigin="anonymous"
+></script>
+<script src="/jscopyand/script.js"></script>
+
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var target = document.querySelector(
+      '[data-js-selector="youtubeBackground"]'
+    );
+    var youtubeFrame = document.createElement('div');
+    target.append(youtubeFrame);
+    var baseWidth = 640;
+    var baseHeight = 360;
+    var widthRatio = baseWidth / baseHeight;
+    var isWideWindow = widthRatio < window.innerWidth / window.innerHeight;
+    var width = isWideWindow
+      ? window.innerWidth
+      : Math.round(window.innerHeight * widthRatio);
+    var height = isWideWindow
+      ? Math.round(window.innerWidth / widthRatio)
+      : window.innerHeight;
+    target.style =
+      'position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; opacity: 0;';
+    if (isWideWindow) {
+      target.style.top = (window.innerHeight - height) / 2 + 'px';
+    } else {
+      target.style.left = (window.innerWidth - width) / 2 + 'px';
+    }
+    var player;
+    var onYouTubeIframeAPIReady = function () {
+      player = new YT.Player(youtubeFrame, {
+        width,
+        height,
+        videoId: target.dataset.jscopyandAttributes,
+        events: {
+          onReady,
+          onStateChange,
+        },
+      });
+    };
+    var onReady = function () {
+      player.mute();
+      player.playVideo();
+    };
+    var onStateChange = function (e) {
+      switch (e.data) {
+        case 1:
+          target.style.opacity = 0.3;
+          break;
+        case 0:
+          player.playVideo();
+          break;
+        default:
+          break;
+      }
+    };
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.body.append(tag);
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+  })();
+</script>
+
+  </body>
+</html>
+

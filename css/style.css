@@ -31,6 +31,8 @@ body.as-iframe::-webkit-scrollbar-thumb {
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   background: #f2f2e9;
 }
 
