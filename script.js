@@ -119,7 +119,7 @@
   var indexes = Array.from(keywordFilter.nextElementSibling.children);
   input.addEventListener('input', function () {
     var value = this.value;
-    var reg = new RegExp(value);
+    var reg = new RegExp(value, 'i');
     indexes.forEach(function (item) {
       if (!value) {
         item.style.display = '';
