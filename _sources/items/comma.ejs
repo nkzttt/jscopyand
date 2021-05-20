@@ -1,0 +1,100 @@
+<!-- prettier-ignore -->
+<% const localTitle = 'カンマ区切り'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <p>
+    <span data-jscopyand="comma">10000</span>円を<span data-jscopyand="comma"
+      >100</span
+    >枚集めると<span data-jscopyand="comma">1000000</span>円になります。
+  </p>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var targets = document.querySelectorAll('[data-jscopyand="comma"]');
+    targets.forEach(function (target) {
+      target.innerText = target.innerText.replace(
+        /(\\d)(?=(?:\\d{3})+$)/g,
+        '$1,'
+      );
+    });
+  })();
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    カンマ区切りにしたい文字列を任意の要素で囲い、<code class="inlineCode"
+      >data-jscopyand="comma"</code
+    >を付与してください。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p
+    class="button"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+    onclick="gtag('event', 'cv', { event_category: 'openedJsCodes' })"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      カンマ区切りの対象となる要素を<code class="inlineCode"
+        >document.querySelectorAll</code
+      >で全て取得し、変数に格納します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2"></code></pre>
+    <p class="jsDescription__body__text">
+      取得した全対象要素に対して反復処理を行っていきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 3"></code></pre>
+    <p class="jsDescription__body__text">
+      テキストを<code class="inlineCode">replace</code
+      >を使って置換していきます。<br />
+      正規表現の組み立て方を見てみましょう。<br />
+      1.<code class="inlineCode">//</code> <- 正規表現の開始<br />
+      2.<code class="inlineCode">/(?=(\\d{3})$)/</code> <-
+      文末から数字３桁の位置<br />
+      3.<code class="inlineCode">/(?=(\\d{3})+$)/g</code> <-
+      文末から数字３桁ごとの全ての位置<br />
+      4.<code class="inlineCode">/(?=(?:\\d{3})+$)/g</code> <-
+      位置のキャプチャ不要の指定<br />
+      5. <code class="inlineCode">/\\d(?=(?:\\d{3})+$)/g</code> <-
+      数字３桁ごとの左側の数字<br />
+      6. <code class="inlineCode">/(\\d)(?=(?:\\d{3})+$)/g</code> <-
+      数字３桁ごとの左側の数字をキャプチャ<br />
+      キャプチャした数字は<code class="inlineCode">$1</code
+      >で参照することができます。<br />
+      キャプチャした数字の後ろにコンマを入れるように置換すれば完成です。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 4, 7"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
