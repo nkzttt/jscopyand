@@ -1,0 +1,420 @@
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NXBYB3XL7L"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXBYB3XL7L');
+</script>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>ギャラリービュー | JavaScriptコピペ館</title>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+<link rel="stylesheet" href="/jscopyand/css/style.css" />
+
+<link rel="stylesheet" href="/jscopyand/lib/prism.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <a href="/jscopyand/" class="header__titleLink">
+    
+    <p class="header__titleLink__text">
+      <span class="header__titleLink__text__prefixIcon fas fa-code"></span
+      >JavaScriptコピペ館
+    </p>
+    
+  </a>
+</header>
+
+      <main class="main">
+        <h1 class="main__title">ギャラリービュー</h1>
+        <section class="itemSection">
+          <h2 class="itemSection__title">デモ</h2>
+          
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <div data-jscopyand="gallery">
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQAQMAAABI+4zbAAAAA1BMVEUBZZk34ePvAAAANElEQVR42u3BAQ0AAADCIPuntscHDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACApAN2wAABZl4KIgAAAABJRU5ErkJggg=="
+    />
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQAQMAAABI+4zbAAAAA1BMVEUAmXa+n9iAAAAANElEQVR42u3BAQ0AAADCIPuntscHDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACApAN2wAABZl4KIgAAAABJRU5ErkJggg=="
+    />
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQAQMAAABI+4zbAAAAA1BMVEWaUwDGaA5rAAAANElEQVR42u3BAQ0AAADCIPuntscHDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACApAN2wAABZl4KIgAAAABJRU5ErkJggg=="
+    />
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">JSコードコピー</h2>
+          <div class="jscopyand">
+            <div class="jscopyand__codeBlock">
+              <pre
+                class="jscopyand__codeBlock__codes"
+              ><code class="language-js" data-js-selector="jscopyand"></code></pre>
+              <p
+                class="jscopyand__codeBlock__copy"
+                data-js-selector="copy"
+                data-js-attributes="jscopyand"
+                onclick="gtag('event', 'cv', { event_category: 'copiedJsCodes' })"
+              >
+                <span
+                  class="far fa-clipboard jscopyand__codeBlock__copy__icon"
+                ></span
+                >コピーする
+              </p>
+            </div>
+            <p>
+              <a href="/jscopyand/helps/js.html" class="textLink"
+                >どこに書けばいい？どこで読み込めばいい？ JavaScript
+                の基本を確認する</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">使い方</h2>
+          
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode">div</code>要素を１つ作り、そこに<code
+      class="inlineCode"
+      >data-jscopyand="gallery"</code
+    >を付与してください。<br />
+    その下に任意の画像を置いてください。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">解説</h2>
+          
+<div class="jsDescription">
+  <p
+    class="button"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+    onclick="gtag('event', 'cv', { event_category: 'openedJsCodes' })"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      ギャラリービューの対象要素を特定し、変数に格納します。<br />
+      子要素の画像一覧も変数に格納します。<br />
+      <code class="inlineCode">children</code
+      >で取得した値はそのままでは反復処理ができないため、<code
+        class="inlineCode"
+        >Array.from()</code
+      >で配列に変換します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2, 3"></code></pre>
+    <p class="jsDescription__body__text">
+      ギャラリービューに必要となる要素を作っていきます。<br />
+      まずは全ての入れ物になる要素<code class="inlineCode">gallery</code
+      >です。<br />
+      画面を覆い、子要素を上下中央配置にするようなスタイルを当てておきます。<br />
+      次に画面を黒の半透明で覆う<code class="inlineCode">overlay</code
+      >です。<br />
+      兄弟要素よりも下に表示されるように<code class="inlineCode"
+        >z-index: -1;</code
+      >にしておきます。<br />
+      画像表示を前後に切り替える<code class="inlineCode">prev</code>と<code
+        class="inlineCode"
+        >next</code
+      >、画像の入れ物になる<code class="inlineCode">galleryImage</code
+      >も定義します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 4, 16"></code></pre>
+    <p class="jsDescription__body__text">
+      ギャラリービューに表示する画像は、先に取得していた画像一覧<code
+        class="inlineCode"
+        >images</code
+      >の各要素を複製して用意します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 17, 19"></code></pre>
+    <p class="jsDescription__body__text">
+      ここまでに作った要素を配置していきます。<br />
+      <code class="inlineCode">gallery</code>は<code class="inlineCode"
+        >document.body</code
+      >の一番後ろに配置します。<br />
+      <code class="inlineCode">overlay</code>、<code class="inlineCode"
+        >prev</code
+      >、<code class="inlineCode">next</code>、<code class="inlineCode"
+        >galleryImage</code
+      >は<code class="inlineCode">gallery</code>の中に配置します。<br />
+      <code class="inlineCode">prev</code>
+      -> <code class="inlineCode">galleryImage</code> ->
+      <code class="inlineCode">next</code
+      >という順番は実際に横並びで表示される順番になっています。<br />
+      複製した画像は反復処理で<code class="inlineCode">galleryImage</code
+      >の中に配置します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 20, 27"></code></pre>
+    <p class="jsDescription__body__text">
+      表示切り替えの関数を作っていきます。<br />
+      まずは画像の切り替え関数です。<br />
+      <code class="inlineCode">showClonedImage</code
+      >は指定された位置の画像１つを表示します。<br />
+      <code class="inlineCode">hideClonedImage</code
+      >は画像全てを非表示にします。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 28, 35"></code></pre>
+    <p class="jsDescription__body__text">
+      続いてギャラリービュー全体の切り替え関数です。<br />
+      <code class="inlineCode">showGallery</code
+      >はギャラリービュー全体を表示するとともに、引数を受け取って<code
+        class="inlineCode"
+        >showClonedImage</code
+      >関数を呼んで画像１つを表示します。<br />
+      <code class="inlineCode">display</code>の設定値は元々設定されている<code
+        class="inlineCode"
+        >flex</code
+      >にします。<br />
+      <code class="inlineCode">hideGallery</code
+      >はギャラリービュー全体を非表示するとともに、<code class="inlineCode"
+        >hideClonedImage</code
+      >関数を呼んで画像全てを非表示にします。<br />
+      初期状態を非表示にするため<code class="inlineCode">hideGallery</code
+      >を呼んでおきます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 36, 44"></code></pre>
+    <p class="jsDescription__body__text">
+      サムネイル画像の表示とそれが押されたときのイベントを設定していきます。<br />
+      現在の表示位置を保持する変数<code class="inlineCode">currentIndex</code
+      >を定義しておきます。<br />
+      先に取得した画像一覧で反復処理を行い、サムネイル画像になるようにサイズなどのスタイルを調整します。<br />
+      クリックイベントでは自身の位置を取得して<code class="inlineCode"
+        >currentIndex</code
+      >を更新、その後にギャラリービューの中に配置した複製画像を表示するように関数<code
+        class="inlineCode"
+        >showGallery(位置)</code
+      >を呼びます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 45, 52"></code></pre>
+    <p class="jsDescription__body__text">
+      ギャラリービューの中に表示する「前へ」、「次へ」というテキストの表示切り替え関数を定義します。<br />
+      それぞれ前の画像、次の画像がないときには非表示にします。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 53, 58"></code></pre>
+    <p class="jsDescription__body__text">
+      「前へ」、「次へ」テキストが押されたときのイベントを設定します。<br />
+      最初にギャラリービュー内の画像を関数<code class="inlineCode"
+        >hideClonedImage</code
+      >全て非表示にします。<br />
+      続いて現在の表示位置<code class="inlineCode">currentIndex</code
+      >を更新するとともに、画像切り替え関数<code class="inlineCode"
+        >showClonedImage</code
+      >を呼びます。<br />
+      最後に「前へ」、「次へ」テキストの表示切り替え関数<code class="inlineCode"
+        >switchTriggerDisplay</code
+      >を呼びます。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 59, 68"></code></pre>
+    <p class="jsDescription__body__text">
+      オーバーレイが押されたときには関数<code class="inlineCode"
+        >hideGallery</code
+      >でギャラリービューを非表示にします。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 69"></code></pre>
+  </div>
+</div>
+
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">ヘルプ・コンタクト</h2>
+          <p class="help">
+            機能に関するご質問は、このページの下部に表示されている Twitter
+            のアイコンから Twitter に遷移後、 DM 等でご連絡ください。<br />
+            導入サポートやカスタマイズも有償にてお受け致しますので、 DM
+            等でご連絡ください。<br />
+          </p>
+        </section>
+        <section class="itemSection">
+          <h2 class="itemSection__title">他のコードを探す</h2>
+          <iframe src="/jscopyand/" class="indexesFrame"></iframe>
+        </section>
+      </main>
+      <footer class="footer">
+  <ul class="footer__contact">
+    <li class="footer__contact__item">
+      <a
+        href="https://twitter.com/bgn_nakazato"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-twitter"></span>
+      </a>
+    </li>
+    <li class="footer__contact__item">
+      <a
+        href="https://github.com/nkzttt/jscopyand"
+        class="footer__contact__item__link"
+      >
+        <span class="fab fa-github"></span>
+      </a>
+    </li>
+  </ul>
+  <p class="copyright">
+    <span class="copyright__mark">&copy;</span> 2021 nkzttt
+  </p>
+</footer>
+<a href="https://twitter.com/bgn_nakazato" target="_blank" class="notification">
+  <div class="notification__icon far fa-hand-point-right"></div>
+  <p class="notification__text">
+    リクエスト受付中です。<br />
+    Twitter の固定ツイートか DM にてご連絡ください。<br />
+  </p>
+</a>
+
+    </div>
+    <!--download from https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript-->
+<script src="/jscopyand/lib/prism.js" data-manual></script>
+<script>
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.element.innerHTML = env.element.innerHTML.replace(/<br>/g, '\n');
+    env.code = env.element.textContent;
+  });
+</script>
+<!-- icons are on https://fontawesome.com/icons?d=gallery&m=free -->
+<script
+  src="https://kit.fontawesome.com/f7818d968c.js"
+  crossorigin="anonymous"
+></script>
+<script src="/jscopyand/script.js"></script>
+
+ 
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var target = document.querySelector('[data-jscopyand="gallery"]');
+    var images = Array.from(target.children);
+    var gallery = document.createElement('div');
+    gallery.style =
+      'position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 99; display: flex; justify-content: center; align-items: center;';
+    var overlay = document.createElement('div');
+    overlay.style =
+      'position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; background: rgba(0,0,0,0.6)';
+    var prev = document.createElement('p');
+    prev.innerText = '前へ';
+    prev.style = 'color: white; cursor: pointer;';
+    var next = document.createElement('p');
+    next.innerText = '次へ';
+    next.style = 'color: white; cursor: pointer;';
+    var galleryImage = document.createElement('div');
+    var clonedImages = images.map(function (image) {
+      return image.cloneNode();
+    });
+    document.body.append(gallery);
+    gallery.append(overlay);
+    gallery.append(prev);
+    gallery.append(galleryImage);
+    gallery.append(next);
+    clonedImages.forEach(function (clonedImage) {
+      galleryImage.append(clonedImage);
+    });
+    var showClonedImage = function (index) {
+      clonedImages[index].style.display = 'block';
+    };
+    var hideClonedImage = function () {
+      clonedImages.forEach(function (clonedImage) {
+        clonedImage.style.display = 'none';
+      });
+    };
+    var showGallery = function (index) {
+      gallery.style.display = 'flex';
+      showClonedImage(index);
+    };
+    var hideGallery = function () {
+      gallery.style.display = 'none';
+      hideClonedImage();
+    };
+    hideGallery();
+    var currentIndex = 0;
+    images.forEach(function (image) {
+      image.style = 'width: 70px; height: auto; cursor: pointer;';
+      image.addEventListener('click', function () {
+        currentIndex = images.indexOf(this);
+        showGallery(currentIndex);
+      });
+    });
+    var switchTriggerDisplay = function () {
+      prev.style.display = 'block';
+      next.style.display = 'block';
+      if (currentIndex === 0) prev.style.display = 'none';
+      if (currentIndex === images.length - 1) next.style.display = 'none';
+    };
+    prev.addEventListener('click', function () {
+      hideClonedImage();
+      showClonedImage(--currentIndex);
+      switchTriggerDisplay();
+    });
+    next.addEventListener('click', function () {
+      hideClonedImage();
+      showClonedImage(++currentIndex);
+      switchTriggerDisplay();
+    });
+    overlay.addEventListener('click', hideGallery);
+  })();
+</script>
+
+  </body>
+</html>
+

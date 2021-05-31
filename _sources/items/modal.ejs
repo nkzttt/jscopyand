@@ -29,7 +29,7 @@
       'position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.6)';
     var container = document.createElement('div');
     container.style = 'position: relative; z-index: 1; background: white;';
-    body.parentElement.append(modal);
+    document.body.append(modal);
     modal.append(overlay);
     modal.append(container);
     container.append(body);
@@ -126,13 +126,14 @@
     ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 11, 12"></code></pre>
     <p class="jsDescription__body__text">
       JavaScriptで作った要素をHTMLに追加していきます。<br />
-      モーダル本体と並列になるように<code class="inlineCode">modal</code
-      >を配置し、その中に<code class="inlineCode">overlay</code>と<code
-        class="inlineCode"
+      <code class="inlineCode">modal</code>は<code class="inlineCode"
+        >document.body</code
+      >の一番後ろに配置します。<br />
+      <code class="inlineCode">overlay</code>と<code class="inlineCode"
         >container</code
-      >を配置します。<br />
+      >は<code class="inlineCode">modal</code>の中に配置します。<br />
       モーダル本体は<code class="inlineCode">container</code
-      >の中に移動します。<br />
+      >の中に配置します。<br />
     </p>
     <pre
       class="jsDescription__body__code"
