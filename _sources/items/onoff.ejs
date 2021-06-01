@@ -1,0 +1,92 @@
+<!-- prettier-ignore -->
+<% const localTitle = 'オンオフ（トグル）ボタン'; %>
+
+<!-- prettier-ignore -->
+<% const demo = `
+<div class="demo" data-js-selector="source" data-js-attributes="demoHtml">
+  <input data-jscopyand="onOffButton" />
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const demoScript = `
+<script data-js-selector="sourceLazy" data-js-attributes="jscopyand">
+  (function () {
+    var button = document.querySelector('[data-jscopyand="onOffButton"]');
+    button.type = 'range';
+    button.min = 0;
+    button.max = 1;
+    button.addEventListener('change', function () {
+      if (Number(this.value)) {
+        alert('オンになりました');
+      } else {
+        alert('オフになりました');
+      }
+    });
+  })();
+</script>
+`; %>
+
+<!-- prettier-ignore -->
+<% const howToUse = `
+<div class="howToUse">
+  <p class="howToUse__description">
+    <code class="inlineCode">input</code>要素を１つ用意し、<code
+      class="inlineCode"
+      >data-jscopyand="onOffButton"</code
+    >を付与してください。<br />
+  </p>
+  <div>
+    <p class="button" data-js-selector="accordion" data-js-attributes="remove">
+      サンプルHTMLを表示する
+    </p>
+    <pre><code class="language-html" data-js-selector="demoHtml"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<% const jsDescription = `
+<div class="jsDescription">
+  <p
+    class="button"
+    data-js-selector="accordion"
+    data-js-attributes="remove"
+    onclick="gtag('event', 'cv', { event_category: 'openedJsCodes' })"
+  >
+    JSコードの解説を見てみる
+  </p>
+  <div class="jsDescription__body">
+    <p class="jsDescription__body__text">
+      オンオフボタンとなる要素を取得して変数に格納します。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 2"></code></pre>
+    <p class="jsDescription__body__text">
+      オンオフ機能は HTML の<code class="inlineCode"
+        >&lt;input type="range" /&gt;</code
+      >で実現します。<br />
+      <code class="inlineCode">type</code>を<code class="inlineCode">range</code
+      >にし、最小値を０に、最大値を１に設定します。<br />
+      ０ならオフ、１ならオンと扱います。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 3, 5"></code></pre>
+    <p class="jsDescription__body__text">
+      値が変更されたときのイベントを設定します。<br />
+      値は文字列になっているため、数値に変換して条件分岐に使用します。<br />
+      JavaScript では０は<code class="inlineCode">false</code
+      >、０以外の数値は<code class="inlineCode">true</code>になります。<br />
+      本デモではオンオフの結果をアラートで表示しています。<br />
+    </p>
+    <pre
+      class="jsDescription__body__code"
+    ><code class="language-js" data-js-selector="quote" data-js-attributes="jscopyand, 6, 12"></code></pre>
+  </div>
+</div>
+`; %>
+
+<!-- prettier-ignore -->
+<%- include('../_ejsModules/itemLayout', { localTitle, demo, demoScript, howToUse, jsDescription }) %>
